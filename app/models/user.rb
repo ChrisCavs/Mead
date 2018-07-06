@@ -1,17 +1,18 @@
 class User < ApplicationRecord
   after_initialize :ensure_session_token
 
-  validates :username, :name, :password_digest, :bio, :image_url,
+  validates :email, :name, :password_digest, :bio, :image_url,
     presence: true
-  validates :username, uniqueness: true
+  validates :email, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
+  validates :bio, length: {maximum: 160}
 
   # ASSOCIATIONS
 
   attr_accessor :password
 
-  def self.find_by_credentials(username, password)
-    user = user.find_by(username: username)
+  def self.find_by_credentials(email, password)
+    user = user.find_by(email: email)
     if user
       user.is_password?(password) ? user : null
     else
@@ -25,6 +26,8 @@ class User < ApplicationRecord
 
   def reset_session_token!
     self.session_token = self.class.generate_session_token
+    self.save
+    self.session_token
   end
 
   def ensure_session_token
