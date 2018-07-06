@@ -8,6 +8,9 @@ class User < ApplicationRecord
   validates :bio, length: {maximum: 160}
 
   # ASSOCIATIONS
+  # has_many :authored_stories,
+  #   foreign_key: :author_id,
+  #   class_name: :Story
 
   attr_accessor :password
 
