@@ -12,10 +12,10 @@ class User < ApplicationRecord
   #   foreign_key: :author_id,
   #   class_name: :Story
 
-  attr_accessor :password
+  attr_reader :password
 
   def self.find_by_credentials(email, password)
-    user = user.find_by(email: email)
+    user = User.find_by(email: email)
     if user
       user.is_password?(password) ? user : null
     else
@@ -43,7 +43,7 @@ class User < ApplicationRecord
   end
 
   def password=(password)
-    self.password = password
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 

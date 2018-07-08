@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_action :ensure_logged_in
+  before_action :ensure_logged_in, only: [:show, :update]
 
   def index
     @users = User.all
@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       login!(user)
-      render json: user
+      render :show
     else
       render json: user.errors.full_messages, status: 404
     end
