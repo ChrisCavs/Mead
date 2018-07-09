@@ -25,6 +25,7 @@ class LoginNav extends React.Component {
           onClick={this.handleLogin.bind(this)}>
           Log In
         </button>
+        
         <button
           className="header-button"
           onClick={this.handleSignup.bind(this)}>

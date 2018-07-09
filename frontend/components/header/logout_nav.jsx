@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { logout } from '../../actions/session_actions'
+import { Link } from 'react-router-dom'
 
 class LogoutNav extends React.Component {
   constructor (props) {
@@ -20,6 +21,12 @@ class LogoutNav extends React.Component {
           onClick={this.handleLogout.bind(this)}>
           Log Out
         </button>
+
+        <Link
+          className="header-button"
+          to='/story/new'>
+          New
+        </Link>
       </nav>
     )
   }

@@ -4,7 +4,6 @@ import LogoutNav from './logout_nav'
 import LoginNav from './login_nav'
 
 const Nav = ({ currentUser }) => {
-  debugger
   return currentUser ? <LogoutNav /> : <LoginNav />
 }
 
