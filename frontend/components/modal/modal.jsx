@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { login, signup } from '../../actions/session_actions'
+import { hideModal } from '../../actions/modal_actions'
 import ModalForm from './modal_form'
 
 class Modal extends React.Component {
@@ -17,7 +18,16 @@ class Modal extends React.Component {
     return (
       <div className="modal">
         <div className="modal-content">
-          <ModalForm title={revealText} submitAction={action} />
+          <button 
+            onClick={this.props.hide}
+            className="modal-close-button">
+            x
+          </button>
+
+          <ModalForm 
+            title={revealText} 
+            submitAction={action}
+            hide={this.props.hide} />
         </div>
       </div>
     )
@@ -33,7 +43,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     login: user => dispatch(login(user)),
-    signup: user => dispatch(signup(user))
+    signup: user => dispatch(signup(user)),
+    hide: () => dispatch(hideModal())
   }
 }
 

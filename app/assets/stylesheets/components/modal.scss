@@ -8,10 +8,40 @@
 
   width: 100%;
   height: 100%;
+
   background-color: rgba(0,0,0,0.7);
 }
 
-.modal-form {
-  
+.modal-content {
+  position: relative;
+
+  width: 60%;
+  padding: 80px 40px;
+
   background-color: white;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 0;
+  right: 15px;
+
+  font-size: 20px;
+
+  background-color: white;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 60%;
+  margin: auto;
+}
+
+.modal-form-button {
+  width: 60px;
+
+  margin: 0 auto;
 }
