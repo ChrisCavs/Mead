@@ -1,20 +1,17 @@
 import StoryForm from './story_form'
 import { connect } from 'react-redux'
-import
+import { createStory } from '../../actions/story_actions'
 
-const mapStateToProps = (state, ownProps) => {
-  const id = ownProps.match.params.id
-  const story = state.entities.stories[id]
-
+const mapStateToProps = state => {
+  // todo: errors
   return {
-    formType: 'edit',
-    story
+    title: 'create',
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateStory: story => dispatch(updateStory(story))
+    submitAction: story => dispatch(createStory(story))
   }
 }
 

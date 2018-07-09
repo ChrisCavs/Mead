@@ -36,13 +36,10 @@ class StoryForm extends React.Component {
   }
 
   render () {
-    const errors = this.props.errors.map(er => <li>{er}</li>)
-
+    // const errors = this.props.errors.map(er => <li>{er}</li>)
     return (
       <form className="story-form" onSubmit={this.handleSubmit}>
-        <ul>
-          {errors}
-        </ul>
+
 
         <label htmlFor="title">Title</label>
         <input id="title"
