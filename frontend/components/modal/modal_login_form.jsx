@@ -19,9 +19,7 @@ class ModalLoginForm extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault()
-    this.props.submitAction(this.state).then(
-      suc => this.props.hide()
-    )
+    this.props.submitAction(this.state)
   }
 
   render () {

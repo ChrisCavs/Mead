@@ -1,6 +1,6 @@
 import React from 'react'
 
-class ModalForm extends React.Component {
+class ModalSignupForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -22,9 +22,7 @@ class ModalForm extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault()
-    this.props.submitAction(this.state).then(
-      success => this.props.hide()
-    )
+    this.props.submitAction(this.state)
   }
 
   render () {
@@ -76,4 +74,4 @@ class ModalForm extends React.Component {
   }
 }
 
-export default ModalForm
+export default ModalSignupForm
