@@ -25,10 +25,15 @@ class ModalForm extends React.Component {
   }
 
   render () {
+    const errors = this.props.errors.map(er => <li>{er}</li>)
     return (
       <form 
         className="modal-form"
         onSubmit={this.handleSubmit}>
+
+        <ul>
+          {errors}
+        </ul>
 
         <label htmlFor="email">Email</label>
         <input id="email"

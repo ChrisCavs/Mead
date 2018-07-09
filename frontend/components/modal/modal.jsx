@@ -1,7 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { login, signup } from '../../actions/session_actions'
-import { hideModal } from '../../actions/modal_actions'
 import ModalForm from './modal_form'
 
 class Modal extends React.Component {
@@ -25,7 +22,8 @@ class Modal extends React.Component {
           </button>
 
           <ModalForm 
-            title={revealText} 
+            title={revealText}
+            errors={this.props.errors} 
             submitAction={action}
             hide={this.props.hide} />
         </div>
@@ -34,21 +32,4 @@ class Modal extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    reveal: state.modal.reveal
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    login: user => dispatch(login(user)),
-    signup: user => dispatch(signup(user)),
-    hide: () => dispatch(hideModal())
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Modal)
+export default Modal
