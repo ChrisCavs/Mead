@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { revealModalLogin, revealModalSignup } from '../../actions/modal_actions'
 
 class Header extends React.Component {
   constructor(props) {
@@ -9,12 +8,12 @@ class Header extends React.Component {
 
   handleLogin(e) {
     e.preventDefault()
-    revealModalLogin()
+    this.props.revealModalLogin()
   }
 
   handleSignup(e) {
     e.preventDefault()
-    revealModalSignup()
+    this.props.revealModalSignup()
   }
 
   render () {

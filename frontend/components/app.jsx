@@ -1,12 +1,13 @@
 import React from 'react'
-import Header from './header/header'
+import HeaderContainer from './header/header_container'
+import Modal from './modal/modal'
 
 const App = () => {
   return (
     <div>
-      <Header />
+      <HeaderContainer />
       <h1>Body here</h1>
-      {/* <Modal /> */}
+      <Modal />
     </div>
   )
 }
