@@ -29,6 +29,9 @@ class ModalLoginForm extends React.Component {
         className="modal-form"
         onSubmit={this.handleSubmit}>
 
+        <h1 className="modal-form-header">Welcome Back</h1>
+        <p className="modal-form-subheader">Sign in to access your personalized homepage, follow authors and topics you love, and clap for stories that matter to you.</p>
+
         <ul>
           {errors}
         </ul>
