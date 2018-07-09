@@ -5,7 +5,10 @@ class ModalForm extends React.Component {
     super(props)
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      name: '',
+      bio: '',
+      image_url: ''
     }
     this.update = this.update.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -20,14 +23,14 @@ class ModalForm extends React.Component {
   handleSubmit (e) {
     e.preventDefault()
     this.props.submitAction(this.state).then(
-      suc => this.props.hide()
+      success => this.props.hide()
     )
   }
 
   render () {
     const errors = this.props.errors.map(er => <li>{er}</li>)
     return (
-      <form 
+      <form
         className="modal-form"
         onSubmit={this.handleSubmit}>
 
@@ -46,6 +49,24 @@ class ModalForm extends React.Component {
           type="password"
           onChange={this.update('password')}
           value={this.state.password} />
+
+        <label htmlFor="name">Name</label>
+        <input id="name"
+          type="text"
+          onChange={this.update('name')}
+          value={this.state.name} />
+
+        <label htmlFor="bio">Bio</label>
+        <input id="bio"
+          type="text"
+          onChange={this.update('bio')}
+          value={this.state.bio} />
+
+        <label htmlFor="image_url">Image url</label>
+        <input id="image_url"
+          type="text"
+          onChange={this.update('image_url')}
+          value={this.state.image_url} />
 
         <button className="modal-form-button">
           {this.props.title}
