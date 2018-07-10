@@ -3,12 +3,8 @@ import React from 'react'
 class StoryForm extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {
-      title: '',
-      subtitle: '',
-      body: '',
-      image_url: ''
-    }
+    this.state = this.props.story
+
     this.handleSubmit = this.handleSubmit.bind(this)
     this.update = this.update.bind(this)
   }
@@ -22,17 +18,6 @@ class StoryForm extends React.Component {
   handleSubmit (e) {
     e.preventDefault()
     this.props.submitAction(this.state)
-  }
-
-  componentDidMount () {
-    if (this.props.title === 'edit') {
-      this.setState({
-        title: this.props.story.title,
-        subtitle: this.props.story.subtitle,
-        body: this.props.story.body,
-        image_url: this.props.story.image_url,
-      })
-    }
   }
 
   render () {
@@ -66,7 +51,7 @@ class StoryForm extends React.Component {
           value={this.state.image_url} />
 
         <button className="modal-form-button">
-          {this.props.title}
+          {this.props.type}
         </button>
       </form>
     )

@@ -3,9 +3,12 @@ import { connect } from 'react-redux'
 import { createStory } from '../../actions/story_actions'
 
 const mapStateToProps = state => {
-  // todo: errors
+  const story = {
+    title: '', subtitle: '', body: '', image_url: ''
+  }
   return {
-    title: 'create',
+    story,
+    type: 'Create'
   }
 }
 
