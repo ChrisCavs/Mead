@@ -23,7 +23,7 @@ class ModalLoginForm extends React.Component {
   }
 
   render () {
-    const errors = this.props.errors.map(er => <li>{er}</li>)
+    const errors = this.props.errors.map((er, i) => <li key={i}>{er}</li>)
     return (
       <form
         className="modal-form"
@@ -32,7 +32,7 @@ class ModalLoginForm extends React.Component {
         <h1 className="modal-form-header">Welcome Back</h1>
         <p className="modal-form-subheader">Sign in to access your personalized homepage, follow authors and topics you love, and clap for stories that matter to you.</p>
 
-        <ul>
+        <ul className="modal-errors">
           {errors}
         </ul>
 

@@ -13,10 +13,12 @@ export const logout = () => {
   })
 }
 
-export const signup = user => {
+export const signup = formData => {
   return $.ajax({
     method: 'POST',
     url: '/api/users',
-    data: { user }
+    data: formData,
+    contentType: false,
+    processData: false
   })
 }

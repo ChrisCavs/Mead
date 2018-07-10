@@ -8,7 +8,7 @@ class ModalSignupForm extends React.Component {
       password: '',
       name: '',
       bio: '',
-      image_url: ''
+      avatar: null
     }
     this.update = this.update.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -22,11 +22,22 @@ class ModalSignupForm extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault()
-    this.props.submitAction(this.state)
+    const formData = new FormData()
+    formData.append('user[email]', this.state.email)
+    formData.append('user[password]', this.state.password)
+    formData.append(user[name], this.state.name)
+    formData.append(user[bio], this.state.bio)
+    formData.append(user[avatar], this.state.avatar)
+
+    this.props.submitAction(formData)
+  }
+
+  handleFile (e) {
+    this.setState({ avatarFile: e.currentTarget.files[0]})
   }
 
   render () {
-    const errors = this.props.errors.map(er => <li>{er}</li>)
+    const errors = this.props.errors.map((er, i) => <li key={i}>{er}</li>)
     return (
       <form
         className="modal-form"
@@ -60,11 +71,10 @@ class ModalSignupForm extends React.Component {
           onChange={this.update('bio')}
           value={this.state.bio} />
 
-        <label htmlFor="image_url">Image url</label>
-        <input id="image_url"
-          type="text"
-          onChange={this.update('image_url')}
-          value={this.state.image_url} />
+        <label htmlFor="avatar">Avatar</label>
+        <input id="avatar"
+          type="file"
+          onChange={this.handleFile.bind(this)} />
 
         <button className="modal-form-button">
           {this.props.title}

@@ -1,1 +1,2 @@
-json.extract! @user, :name, :image_url, :bio
+json.extract! @user, :name, :bio
+json.avatar url_for(@user.avatar)

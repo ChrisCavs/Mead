@@ -2,7 +2,7 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   # VALIDATIONS
-  validates :email, :name, :password_digest, :bio, :image_url,
+  validates :email, :name, :password_digest, :bio,
     presence: true
   validates :email, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :authored_stories,
     foreign_key: :author_id,
     class_name: :Story
+
+  has_one_attached :avatar
 
   # METHODS
 
