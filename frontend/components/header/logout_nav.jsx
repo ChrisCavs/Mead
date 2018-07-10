@@ -28,9 +28,6 @@ class LogoutNav extends React.Component {
           Sign Out
         </button>
 
-        <img 
-          className="header-image"
-          src={this.props.currentUser.avatar} />
       </nav>
     )
   }
