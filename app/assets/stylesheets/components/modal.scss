@@ -56,7 +56,17 @@
 }
 
 .modal-form-button {
-  width: 60px;
+  height: 37px;
+  padding: 0 16px;
+  
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 37px;
+  color: rgba(255,255,255,.97);
+
+  background: rgba(0,0,0,.84);
+  border-color: rgba(0,0,0,.84);
+  border-radius: 4px;
 
   margin: 0 auto;
 }
@@ -69,12 +79,30 @@
 }
 
 .modal-form-subheader {
-  margin-bottom: 8px;
+  margin-bottom: 30px;
   font-size: 19px;
   text-align: center;
 }
 
 .modal-form input, .modal-form label {
-  margin: 6px auto;
+  margin: 2px auto;
   width: 80%;
+}
+
+.modal-form input {
+  height: 34px;
+  padding: 0px 12px;
+  margin-bottom: 20px;
+
+  font-size: 18px;
+
+  background-color: inherit;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+
+  outline: none;
+}
+
+.modal-form label {
+  font-weight: 400;
+  color: rgba(0,0,0,.54);
 }

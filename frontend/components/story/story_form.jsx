@@ -50,7 +50,7 @@ class StoryForm extends React.Component {
           onChange={this.update('image_url')}
           value={this.state.image_url} />
 
-        <button className="modal-form-button">
+        <button className="story-form-button">
           {this.props.type}
         </button>
       </form>
