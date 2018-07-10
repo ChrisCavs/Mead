@@ -25,15 +25,15 @@ class ModalSignupForm extends React.Component {
     const formData = new FormData()
     formData.append('user[email]', this.state.email)
     formData.append('user[password]', this.state.password)
-    formData.append(user[name], this.state.name)
-    formData.append(user[bio], this.state.bio)
-    formData.append(user[avatar], this.state.avatar)
+    formData.append('user[name]', this.state.name)
+    formData.append('user[bio]', this.state.bio)
+    formData.append('user[avatar]', this.state.avatar)
 
     this.props.submitAction(formData)
   }
 
   handleFile (e) {
-    this.setState({ avatarFile: e.currentTarget.files[0]})
+    this.setState({ avatar: e.currentTarget.files[0]})
   }
 
   render () {
