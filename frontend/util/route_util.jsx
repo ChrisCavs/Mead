@@ -21,7 +21,6 @@ const Protected = ({ component: Component, path, loggedIn, exact, revealModalLog
       if (loggedIn) {
         return <Component {...props} />
       } else {
-        <Redirect to="/" />
         revealModalLogin()
         return null
       }
