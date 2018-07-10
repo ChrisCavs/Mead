@@ -8,7 +8,7 @@
     "test": "test"
   },
   "engines": {
-    "node": "8.4.0",
+    "node": "8.9.0",
     "npm": "6.1.0"
   },
   "scripts": {
