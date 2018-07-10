@@ -4,11 +4,11 @@ import LogoutNav from './logout_nav'
 import LoginNav from './login_nav'
 
 const Nav = ({ currentUser }) => {
-  return currentUser ? <LogoutNav /> : <LoginNav />
+  return currentUser ? <LogoutNav currentUser={currentUser} /> : <LoginNav />
 }
 
 const mapStateToProps = state => {
-  const currentUser = typeof state.session.id === 'number'
+  const currentUser = state.entities.users[state.session.id]
   return {
     currentUser
   }

@@ -2,4 +2,13 @@
 @import "reset";
 @import "vars";
 
+body {
+  padding: 10px 20px;
+  
+  @include min($tablet) {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
 @import "components/*";

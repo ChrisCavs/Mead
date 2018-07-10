@@ -16,17 +16,21 @@ class LogoutNav extends React.Component {
   render () {
     return (
       <nav className="header-nav">
-        <button
-          className="header-button"
-          onClick={this.handleLogout.bind(this)}>
-          Log Out
-        </button>
-
         <Link
-          className="header-button"
+          className="header-button new-button"
           to='/story/new'>
           New
         </Link>
+
+        <button
+          className="header-button logout"
+          onClick={this.handleLogout.bind(this)}>
+          Sign Out
+        </button>
+
+        <img 
+          className="header-image"
+          src={this.props.currentUser.image_url} />
       </nav>
     )
   }

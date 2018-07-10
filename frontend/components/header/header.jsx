@@ -9,7 +9,7 @@ class Header extends React.Component {
 
   render () {
     return (
-      <header>
+      <header className="header">
         <Link className="header-title" to="/">
           Mead
         </Link>

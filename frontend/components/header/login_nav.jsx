@@ -21,13 +21,13 @@ class LoginNav extends React.Component {
     return (
       <nav className="header-nav">
         <button
-          className="header-button"
+          className="header-button login"
           onClick={this.handleLogin.bind(this)}>
-          Log In
+          Sign In
         </button>
         
         <button
-          className="header-button"
+          className="header-button signup"
           onClick={this.handleSignup.bind(this)}>
           Get Started
         </button>

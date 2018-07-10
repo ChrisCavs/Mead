@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.header-button {
+  height: 33px;
+  padding: 0px 14px;
+  
+  font-size: 14px;
+  line-height: 33px;
+  color: #03a87c;
+
+  cursor: pointer;
+  outline: none;
+}
+
+.signup {
+  border-color: #03a87c;
+  border-radius: 4px;
+}
+
+.login, .logout {
+  border: none;
+  background-color: white;
+}
+
+.new-button {
+  font-size: 16px;
+}
+
+.header-image {
+  width: 32px;
+  height: 32px;
+
+  padding: 0px 14px;
+
+  border-radius: 100%;
+  box-sizing: content-box;
+  vertical-align: middle;
+}
