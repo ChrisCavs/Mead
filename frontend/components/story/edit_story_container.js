@@ -1,6 +1,7 @@
 import StoryForm from './story_form'
 import { connect } from 'react-redux'
 import { updateStory, fetchStory } from '../../actions/story_actions'
+import { currentUser } from '../../reducers/selectors'
 
 class EditStoryForm extends React.Component {
   componentDidMount () {
@@ -19,6 +20,7 @@ class EditStoryForm extends React.Component {
       <StoryForm
         story={this.props.story}
         type={this.props.type}
+        currentUser={this.props.currentUser}
         submitAction={this.props.submitAction} />
     )
   }
@@ -34,7 +36,8 @@ const mapStateToProps = (state, ownProps) => {
   }
   return {
     story: story || defaultStory,
-    type: 'Edit'
+    type: 'Edit',
+    currentUser: currentUser(state)
   }
 }
 

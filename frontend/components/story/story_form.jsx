@@ -52,38 +52,52 @@ class StoryForm extends React.Component {
     } else {
       preview = null
     }
+    const currentUser = this.props.currentUser
+
     return (
-      <form className="story-form" onSubmit={this.handleSubmit}>
+      <div className="story-form-container">
+        <div className="story-form-author-container">
+          <img className="header-image" src={currentUser.avatar} />
+          <div className="story-form-author-detail">
+            <p className="story-form-author-name">{currentUser.name}</p>
+            <p className="story-form-author-draft">Draft</p>
+          </div>
+        </div>
+        <form className="story-form" onSubmit={this.handleSubmit}>
 
-        <label htmlFor="title">Title</label>
-        <input id="title"
-          type="text"
-          onChange={this.update('title')}
-          value={this.state.title} />
+          <input
+            className="story-form-title"
+            type="text"
+            onChange={this.update('title')}
+            value={this.state.title}
+            placeholder="Title" />
 
-        <label htmlFor="subtitle">Subtitle</label>
-        <input id="subtitle"
-          type="text"
-          onChange={this.update('subtitle')}
-          value={this.state.subtitle} />
+          <input
+            className="story-form-subtitle"
+            type="text"
+            onChange={this.update('subtitle')}
+            value={this.state.subtitle}
+            placeholder="Subtitle" />
 
-        <label htmlFor="body">Body</label>
-        <input id="body"
-          type="text"
-          onChange={this.update('body')}
-          value={this.state.body} />
+          <textarea
+            className="story-form-textarea"
+            onChange={this.update('body')}
+            placeholder="Tell your story..."
+            value={this.state.body}
+            autoFocus >
+          </textarea>
 
-        <label htmlFor="image_url">Image</label>
-        <input id="image_url"
-          type="file"
-          onChange={this.handleFile.bind(this)} />
+          <input
+            type="file"
+            onChange={this.handleFile.bind(this)} />
 
-        {preview}
+          {preview}
 
-        <button className="story-form-button">
-          {this.props.type}
-        </button>
-      </form>
+          <button className="story-form-button modal-form-button">
+            {this.props.type}
+          </button>
+        </form>
+      </div>
     )
   }
 }

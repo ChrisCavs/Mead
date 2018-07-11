@@ -1,0 +1,52 @@
+.story-form-author-container {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.story-form-author-name {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.story-form-author-draft {
+  font-size: 14px;
+  color: rgba(0,0,0,.54);
+}
+
+.story-form {
+  input, textarea {
+    display: block;
+    padding: 0px 12px;
+    margin-bottom: 8px;
+
+    outline: none;
+  }
+}
+
+.story-form-textarea {
+  width: 100%;
+  min-height: 300px;
+
+  font-size: 18px;
+
+  border: none;
+
+  resize: none;
+}
+
+.story-form-textarea::placeholder {
+  color: rgba(0,0,0,.34);
+}
+
+.story-form-title {
+  font-size: 26px;
+}
+
+.story-form-title::placeholder {
+  font-weight: bold;
+  color: rgba(0,0,0,0.4);
+}
+
+.story-form-button {
+  margin: 20px auto;
+}
