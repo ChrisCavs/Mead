@@ -5,8 +5,8 @@
 body {
   padding: 10px 20px;
   
-  @include min($tablet) {
-    width: 80%;
+  @include min($desktop) {
+    width: 70%;
     margin: 0 auto;
   }
 }

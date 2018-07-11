@@ -1,3 +1,10 @@
+.story-form-container {
+  @include min($tablet) {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
 .story-form-author-container {
   display: flex;
   margin-bottom: 40px;
@@ -27,7 +34,7 @@
   width: 100%;
   min-height: 300px;
 
-  font-size: 18px;
+  font-size: 16px;
 
   border: none;
 
@@ -39,7 +46,7 @@
 }
 
 .story-form-title {
-  font-size: 26px;
+  font-size: 30px;
 }
 
 .story-form-title::placeholder {
@@ -47,6 +54,22 @@
   color: rgba(0,0,0,0.4);
 }
 
+.story-form-subtitle {
+  font-size: 22px;
+}
+
+.story-form-subtitle::placeholder {
+  color: rgba(0,0,0,0.4);
+}
+
 .story-form-button {
-  margin: 20px auto;
+  float: right;
+  margin: 30px 0;
+}
+
+.story-preview {
+  display: block;
+  max-width: 90%;
+  max-height: 400px;
+  margin: 30px auto 0 auto;
 }
