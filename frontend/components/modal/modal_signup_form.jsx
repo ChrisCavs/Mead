@@ -27,7 +27,9 @@ class ModalSignupForm extends React.Component {
     formData.append('user[password]', this.state.password)
     formData.append('user[name]', this.state.name)
     formData.append('user[bio]', this.state.bio)
-    formData.append('user[avatar]', this.state.avatar)
+    if (this.state.avatar) {
+      formData.append('user[avatar]', this.state.avatar)
+    }
 
     this.props.submitAction(formData)
   }
@@ -36,18 +38,23 @@ class ModalSignupForm extends React.Component {
     const file = e.currentTarget.files[0]
     const fileReader = new FileReader()
     fileReader.onloadend = () => {
-
       this.setState({ avatar: file, avatarUrl: fileReader.result})
     }
     if (file) {
-
       fileReader.readAsDataURL(file)
     }
   }
 
   render () {
+    let preview
+    if (this.state.avatarUrl) {
+      preview = <img className="modal-preview" src={this.state.avatarUrl} />
+    } else {
+      preview = null
+    }
+
     const errors = this.props.errors.map((er, i) => <li key={i}>{er}</li>)
-    const preview = this.state.avatarUrl ? <img className="modal-preview" src={this.state.avatarUrl} /> : null
+
     return (
       <form
         className="modal-form"

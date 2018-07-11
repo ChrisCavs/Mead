@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :password, length: {minimum: 6, allow_nil: true}
   validates :bio, length: {maximum: 160}
 
+  validate :ensure_photo
+
   # ASSOCIATIONS
   has_many :authored_stories,
     foreign_key: :author_id,
@@ -50,6 +52,14 @@ class User < ApplicationRecord
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  private
+
+  def ensure_photo
+    unless self.avatar.attached?
+      errors[:avatar] << "must be attached"
+    end
   end
 
 end
