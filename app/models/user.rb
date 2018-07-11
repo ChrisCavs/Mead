@@ -15,9 +15,29 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: :Story
 
+  has_many :users_following,
+    foreign_key: :followed_id,
+    class_name: :Following
+  
+  has_many :user_follows,
+    foreign_key: :follower_id,
+    class_name: :Following
+
+  has_many :followers,
+    through: :users_following,
+    source: :follower
+
+  has_many :followed_users,
+    through: :user_follows,
+    source: :followed
+
+  has_many :followed_users_stories,
+    through: :followed_users,
+    source: :authored_stories
+
   has_one_attached :avatar
 
-  # METHODS
+  # METHODS - AUTH
 
   attr_reader :password
 

@@ -2,10 +2,13 @@ class Api::StoriesController < ApplicationController
   before_action :ensure_logged_in, only: [:create, :update, :destroy]
 
   def index
-    # if current_user
-    #   @stories = Story.feed.includes(:author, :time_estimate, :date)
-    # else
-    @stories = Story.all.includes(:author)
+    debugger
+    if current_user && !current_user.followed_users_stories.empty?
+      feed = current_user.followed_users_stories.includes(:author)
+      @stories = feed.shuffle
+    else
+      @stories = Story.all.includes(:author)
+    end
     render :index
   end
 
