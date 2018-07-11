@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import MainIndexItemData from './main_index_item_data'
 
 const MainIndexItem = ({ story, author,  }) => {
   const storyUrl = `/stories/${story.id}`
@@ -17,11 +18,9 @@ const MainIndexItem = ({ story, author,  }) => {
             <h1 className="item-story-author">{author.name}</h1>
           </Link>
         </div>
-        <div className="item-data">
-          <h1 className="item-data-date">{story.date}</h1>
-          <span className="item-data-dot"></span>
-          <h1 className="item-data-time">{story.time_estimate}</h1>
-        </div>
+        <MainIndexItemData 
+          date={story.date}
+          time_estimate={story.time_estimate} />
       </div>
       <div className="main-index-item-img">
         <img src={story.image_url} />

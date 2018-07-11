@@ -18,7 +18,7 @@ class LogoutNav extends React.Component {
       <nav className="header-nav">
         <Link
           className="header-button new-button"
-          to='/story/new'>
+          to='/stories/new'>
           New
         </Link>
 

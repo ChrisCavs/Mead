@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchStory } from '../../actions/story_actions'
-// import UserItem from './user_item'
+import UserItem from './user_item'
 
 class Show extends React.Component {
   
@@ -18,7 +18,9 @@ class Show extends React.Component {
     return (
       <div className="story">
 
-        {/* <UserItem user={author} /> */}
+        <UserItem 
+          user={author}
+          story={story} />
 
         <h1 className="story-title">
           {story.title}
