@@ -6,6 +6,7 @@ json.story do
 end
 
 json.user do
-  json.extract! @story.author, :name, :bio
+  json.extract! @story.author, :id, :name, :bio
   json.avatar url_for(@story.author.avatar)
+  json.currentUserFollows @currentUserFollows
 end
