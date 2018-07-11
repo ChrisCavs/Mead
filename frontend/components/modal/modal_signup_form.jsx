@@ -43,7 +43,7 @@ class ModalSignupForm extends React.Component {
         className="modal-form"
         onSubmit={this.handleSubmit}>
 
-        <ul>
+        <ul className="modal-errors">
           {errors}
         </ul>
 
