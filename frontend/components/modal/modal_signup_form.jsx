@@ -33,11 +33,21 @@ class ModalSignupForm extends React.Component {
   }
 
   handleFile (e) {
-    this.setState({ avatar: e.currentTarget.files[0]})
+    const file = e.currentTarget.files[0]
+    const fileReader = new FileReader()
+    fileReader.onloadend = () => {
+
+      this.setState({ avatar: file, avatarUrl: fileReader.result})
+    }
+    if (file) {
+
+      fileReader.readAsDataURL(file)
+    }
   }
 
   render () {
     const errors = this.props.errors.map((er, i) => <li key={i}>{er}</li>)
+    const preview = this.state.avatarUrl ? <img className="modal-preview" src={this.state.avatarUrl} /> : null
     return (
       <form
         className="modal-form"
@@ -75,6 +85,8 @@ class ModalSignupForm extends React.Component {
         <input id="avatar"
           type="file"
           onChange={this.handleFile.bind(this)} />
+
+        {preview}
 
         <button className="modal-form-button">
           {this.props.title}
