@@ -1,5 +1,5 @@
 class Story < ApplicationRecord
-  validates :title, :subtitle, :body, :image_url, :author_id,
+  validates :title, :subtitle, :body, :author_id,
     presence: true
   validate :ensure_image
 
@@ -29,7 +29,7 @@ class Story < ApplicationRecord
     ]
     month = months[self.created_at.month]
     day = self.created_at.day
-    "#{month day}"
+    "#{month} #{day}"
   end
 
   private

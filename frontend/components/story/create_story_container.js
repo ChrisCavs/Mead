@@ -4,7 +4,7 @@ import { createStory } from '../../actions/story_actions'
 
 const mapStateToProps = state => {
   const story = {
-    title: '', subtitle: '', body: '', image_url: ''
+    title: '', subtitle: '', body: ''
   }
   return {
     story,

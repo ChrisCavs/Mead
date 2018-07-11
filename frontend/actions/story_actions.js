@@ -4,7 +4,6 @@ export const RECEIVE_ALL_STORIES = 'RECEIVE_ALL_STORIES'
 export const RECEIVE_STORY = 'RECEIVE_STORY'
 
 export const receiveAllStories = payload => {
-  debugger
   return {
     type: RECEIVE_ALL_STORIES,
     payload

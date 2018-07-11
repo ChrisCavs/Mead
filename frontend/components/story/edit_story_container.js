@@ -30,8 +30,7 @@ const mapStateToProps = (state, ownProps) => {
   const defaultStory = {
     title: '',
     subtitle: '',
-    body: '',
-    image_url: ''
+    body: ''
   }
   return {
     story: story || defaultStory,
