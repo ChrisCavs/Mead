@@ -4,6 +4,7 @@ export const RECEIVE_ALL_STORIES = 'RECEIVE_ALL_STORIES'
 export const RECEIVE_STORY = 'RECEIVE_STORY'
 
 export const receiveAllStories = payload => {
+  debugger
   return {
     type: RECEIVE_ALL_STORIES,
     payload
@@ -19,7 +20,7 @@ export const receiveStory = payload => {
 
 export const fetchAllStories = () => dispatch => {
   return ApiUtil.fetchAllStories().then(
-    payload => dispatch(receiveStories(payload))
+    payload => dispatch(receiveAllStories(payload))
   )
 }
 

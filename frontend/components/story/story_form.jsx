@@ -44,10 +44,10 @@ class StoryForm extends React.Component {
           onChange={this.update('body')}
           value={this.state.body} />
 
-        <label htmlFor="image_url">Image Url</label>
+        <label htmlFor="image_url">Image</label>
         <input id="image_url"
-          type="text"
-          onChange={this.update('image_url')}
+          type="file"
+          onChange={this.handleFile.bind(this)}
           value={this.state.image_url} />
 
         <button className="story-form-button">

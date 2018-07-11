@@ -4,14 +4,19 @@ import { connect } from 'react-redux'
 const MainIndexItem = ({ story, author,  }) => {
   return (
     <div className="main-index-item">
-      <div className="item-story">
-        <h1 className="item-story-title">{story.title}</h1>
-        <h1 className="item-story-subtitle">{story.subtitle}</h1>
-        <h1 className="item-author-title">{author.name}</h1>
+      <div className="main-index-item-content">
+        <div className="item-story">
+          <h1 className="item-story-title">{story.title}</h1>
+          <h1 className="item-story-subtitle">{story.subtitle}</h1>
+          <h1 className="item-author-title">{author.name}</h1>
+        </div>
+        <div className="item-data">
+          <h1 className="item-data-date">{story.date}</h1>
+          <h1 className="item-data-time">{story.time_estimate}</h1>
+        </div>
       </div>
-      <div className="item-data">
-        <h1 className="item-data-date">{}</h1>
-        <h1 className="item-data-time">{}</h1>
+      <div className="main-index-item-img">
+        <img src={story.image_url} />
       </div>
     </div>
   )

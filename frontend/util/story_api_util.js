@@ -8,7 +8,7 @@ export const fetchAllStories = () => {
 export const fetchStory = (id) => {
   return $.ajax({
     method: 'GET',
-    url: `api/stories/${id}`
+    url: `/api/stories/${id}`
   })
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchAllStories } from './actions/story_actions'
+import { fetchAllStories } from '../actions/story_actions'
 import MainIndex from './main/main_index'
 
 class Homepage extends React.Component {
@@ -10,17 +10,19 @@ class Homepage extends React.Component {
   }
 
   render () {
-    <div className="homepage">
-      <MainIndex stories={this.props.stories} />
-      {/* <PopularIndex /> */}
-    </div>
+    return (
+      <div className="homepage">
+        <MainIndex stories={this.props.stories} />
+        {/* <PopularIndex /> */}
+      </div>
+    )
   }
 }
 
 const mapStateToProps = state => {
   const stories = Object.values(state.entities.stories)
   return {
-    stories: state.entities.stories
+    stories
   }
 }
 
