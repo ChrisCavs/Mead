@@ -2,8 +2,12 @@ class Api::StoriesController < ApplicationController
   before_action :ensure_logged_in, only: [:create, :update, :destroy]
 
   def index
-    @stories = Story.all.includes(:author)
-    render :index
+    @stories = Story.all.includes(:author, :time_estimate)
+    if current_user
+      render :index
+    else
+      render :feed
+    end
   end
 
   def show

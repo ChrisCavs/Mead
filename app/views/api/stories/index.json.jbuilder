@@ -1,7 +1,9 @@
 json.stories do
   @stories.each do |story|
     json.set! story.id do
-      json.extract! story, :id, :title, :subtitle, :image_url, :author_id
+      json.extract! story, :id, :title, :subtitle, :author_id
+      json.image_url url_for(story.image)
+      json.date story.time_estimate
     end
   end
 end
