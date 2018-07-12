@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 // import ClapButton from './clap_button'
 
 const CommentIndexItem = ({ comment, author, clapOrStory }) => {
-  // let finalEl = <ClapButton id={comment.id} type="Comment" />
+  // let finalEl = <ClapButton comment={comment} type="Comment" />
 
   // if (clapOrStory === 'story') {
   //   finalEl = <p className="comment-index-item-storyname">{storyName}</p>

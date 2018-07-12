@@ -74,5 +74,5 @@ s1 = Story.new(
   body: "#{fake_paragraph + '/r/n' + fake_paragraph + '/r/n' + fake_paragraph}",
   author_id: chris.id
 )
-s1.image.attach(io: File.open('app/assets/images/picture_in_1000_words.jpeg'), filename: 'picture_in_1000_words.jpeg')
+s1.image.attach(io: File.open('app/assets/images/birds_photo.jpg'), filename: 'birds.jpg')
 s1.save

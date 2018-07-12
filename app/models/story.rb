@@ -9,6 +9,9 @@ class Story < ApplicationRecord
 
   has_many :comments
 
+  has_many :claps,
+    as: :clapable
+
   has_one_attached :image
 
   
