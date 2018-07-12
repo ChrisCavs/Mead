@@ -15,11 +15,12 @@ class Show extends React.Component {
 
   render () {
     const story = this.props.story
-    if (!story) {
+    const author = this.props.author
+    const comments = this.props.comments
+    if (!story || !author || !comments) {
       return <div></div>
     }
 
-    const author = this.props.author
     const bodyArray = story.body.split('/r/n').map((part, i) => {
       return <p key={i} className="story-body">{part}</p>
     })
@@ -60,9 +61,11 @@ const mapStateToProps = (state, ownProps) => {
   const story = state.entities.stories[id]
   if (story) {
     author = state.entities.users[story.author_id]
-    comments = commentsForStory(state, story.comments_array)
-  }
 
+    if(story.comments_array) {
+      comments = commentsForStory(state, story.comments_array)
+    }
+  }
   return {
     story,
     author,
