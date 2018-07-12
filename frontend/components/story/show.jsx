@@ -4,6 +4,8 @@ import { fetchStory } from '../../actions/story_actions'
 import { followUser, unFollowUser } from '../../actions/follow_actions'
 import UserItem from './user_item'
 
+import { commentsForStory } from '../../reducers/selectors'
+
 class Show extends React.Component {
   
   componentDidMount () {
@@ -41,6 +43,10 @@ class Show extends React.Component {
 
         {bodyArray}
 
+        <StoryComments 
+          comments={this.props.comments}
+          story={story} />
+
         {/* <StorySocial storyId={story.id} /> */}
       </div>
     )
@@ -53,11 +59,13 @@ const mapStateToProps = (state, ownProps) => {
   const story = state.entities.stories[id]
   if (story) {
     author = state.entities.users[story.author_id]
+    comments = commentsForStory(state, story.comments_array)
   }
 
   return {
     story,
-    author
+    author,
+    comments
   }
 }
 

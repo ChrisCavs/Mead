@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :update, :show]
     resource :session, only: [:create, :destroy]
 
-    resources :stories
+    resources :stories do
+      resources :comments, only: [:create, :destroy]
+    end
     
     post '/followings/:id', to: 'followings#create'
     delete '/followings/:id', to: 'followings#destroy'

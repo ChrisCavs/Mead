@@ -35,6 +35,10 @@ class User < ApplicationRecord
     through: :followed_users,
     source: :authored_stories
 
+  has_many :comments,
+    foreign_key: :author_id,
+    class_name: :Comment
+
   has_one_attached :avatar
 
   # METHODS - AUTH
