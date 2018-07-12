@@ -2,7 +2,6 @@ class Api::StoriesController < ApplicationController
   before_action :ensure_logged_in, only: [:create, :update, :destroy]
 
   def index
-    debugger
     if current_user && !current_user.followed_users_stories.empty?
       feed = current_user.followed_users_stories.includes(:author)
       @stories = feed.shuffle
