@@ -12,10 +12,14 @@ class Show extends React.Component {
 
   render () {
     const story = this.props.story
-    const author = this.props.author
     if (!story) {
       return <div></div>
     }
+
+    const author = this.props.author
+    const bodyArray = story.body.split('/r/n').map((part, i) => {
+      return <p key={i} className="story-body">{part}</p>
+    })
     return (
       <div className="story">
 
@@ -29,15 +33,13 @@ class Show extends React.Component {
           {story.title}
         </h1>
 
-        <img className="story-image" src={story.image_url} />
-
         <h2 className="story-subtitle">
           {story.subtitle}
         </h2>
 
-        <p className="story-body">
-          {story.body}
-        </p>
+        <img className="story-image" src={story.image_url} />
+
+        {bodyArray}
 
         {/* <StorySocial storyId={story.id} /> */}
       </div>
@@ -52,7 +54,7 @@ const mapStateToProps = (state, ownProps) => {
   if (story) {
     author = state.entities.users[story.author_id]
   }
-  
+
   return {
     story,
     author

@@ -8,6 +8,8 @@
 require 'rest-client'
 require 'faker'
 
+fake_paragraph = Faker::Lorem.paragraph_by_chars(300)
+
 User.destroy_all
 Story.destroy_all
 Following.destroy_all
@@ -69,7 +71,7 @@ connor.save
 s1 = Story.new(
   title: 'How to Paint a Picture in 1000 Words',
   subtitle: 'A first-hand look at pointless exercises',
-  body: "#{Faker::Lorem.paragraph_by_chars(256) + '\r\n' + Faker::Lorem.paragraph_by_chars(256)}",
+  body: "#{fake_paragraph + '/r/n' + fake_paragraph + '/r/n' + fake_paragraph}",
   author_id: chris.id
 )
 s1.image.attach(io: File.open('app/assets/images/picture_in_1000_words.jpeg'), filename: 'picture_in_1000_words.jpeg')
