@@ -3,7 +3,7 @@ json.story do
   json.image_url url_for(@story.image)
   json.date @story.date
   json.time_estimate @story.time_estimate
-  json.comments_array @story.comments.map(com => com.id)
+  json.comments_array @story.comments.map {|com| com.id}
 end
 
 json.user do
@@ -16,6 +16,7 @@ json.comments do
   @story.comments.each do |comment|
     json.set! comment.id do
       json.extract! comment, :id, :body, :story_id, :author_id
+      json.date comment.date
     end
   end
 end

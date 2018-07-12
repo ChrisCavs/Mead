@@ -5,3 +5,7 @@ export const currentUser = state => {
 export const commentsForStory = (state, arr) => {
   return arr.map(comId => state.entities.comments[comId])
 }
+
+export const authorOfComment = (state, comment) => {
+  return state.entities.users[comment.author_id]
+}
