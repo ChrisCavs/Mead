@@ -6,7 +6,7 @@ export default (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_STORIES:
-      return action.payload.stories
+      return action.payload.stories || {}
 
     case RECEIVE_STORY:
       newState[action.payload.story.id] = action.payload.story
