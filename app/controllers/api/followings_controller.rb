@@ -4,7 +4,7 @@ class Api::FollowingsController < ApplicationController
     following.followed_id = params[:id]
     following.follower_id = current_user.id
 
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     @currentUserFollows = true
 
     if following.save
