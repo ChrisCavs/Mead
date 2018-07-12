@@ -4,10 +4,14 @@
 
 body {
   padding: 10px 20px;
+  margin: 0 auto;
+
+  @include min($tablet) {
+    width: 85%;
+  }
   
   @include min($desktop) {
-    width: 70%;
-    margin: 0 auto;
+    width: 55%;
   }
 }
 

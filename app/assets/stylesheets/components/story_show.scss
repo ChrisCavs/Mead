@@ -1,3 +1,11 @@
+.story {
+  margin: 0 auto;
+
+  @include min($tablet) {
+    max-width: 700px;
+  }
+}
+
 .user-item {
   display: flex;
 }
@@ -53,6 +61,8 @@
   max-height: 350px;
 
   margin-bottom: 20px;
+
+  background-color: lightgrey;
 }
 
 .story-subtitle {

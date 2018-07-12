@@ -36,6 +36,22 @@
 
 .new-button {
   font-size: 16px;
+
+  &.right {
+    display: inline;
+
+    @include min($tablet) {
+      display: none;
+    }
+  }
+
+  &.left {
+    display: none;
+
+    @include min($tablet) {
+      display: block;
+    }
+  }
 }
 
 .header-image {
@@ -48,3 +64,4 @@
   box-sizing: content-box;
   vertical-align: middle;
 }
+
