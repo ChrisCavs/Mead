@@ -20,7 +20,7 @@ class Api::FollowingsController < ApplicationController
       follower_id: current_user.id
     )
 
-    following.destroy
+    following.first.destroy
     @user = User.find(params[:id])
     @currentUserFollows = false
 

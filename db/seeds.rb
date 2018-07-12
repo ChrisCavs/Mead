@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'rest-client'
+require 'faker'
 
 User.destroy_all
 Story.destroy_all
@@ -63,3 +65,12 @@ connor = User.new(
 )
 connor.avatar.attach(io: File.open('app/assets/images/connor.jpg'), filename: 'connor.jpg')
 connor.save
+
+s1 = Story.new(
+  title: 'How to Paint a Picture in 1000 Words',
+  subtitle: 'A first-hand look at pointless exercises',
+  body: "#{Faker::Lorem.paragraph_by_chars(256) + '\r\n' + Faker::Lorem.paragraph_by_chars(256)}",
+  author_id: chris.id
+)
+s1.image.attach(io: File.open('app/assets/images/picture_in_1000_words.jpeg'), filename: 'picture_in_1000_words.jpeg')
+s1.save

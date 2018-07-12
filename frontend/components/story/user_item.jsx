@@ -1,5 +1,6 @@
 import React from 'react'
 import MainIndexItemData from '../main/main_index_item_data'
+import { Link } from 'react-router-dom'
 
 class UserItem extends React.Component {
 
@@ -22,6 +23,8 @@ class UserItem extends React.Component {
       followText = 'Followed'
       followClasses = 'follow-button followed'
     }
+
+    const userUrl = `/users/${user.id}`
     
     return (
       <div className="user-item">
@@ -29,15 +32,18 @@ class UserItem extends React.Component {
   
         <div className="user-item-details">
           <div className="user-item-details-container">
-            <h1 className="story-form-author-name">
+            <Link 
+              className="story-form-author-name"
+              to={userUrl} >
               {user.name}
-            </h1>
+            </Link>
             <button 
               className={followClasses}
               onClick={this.handleFollow.bind(this)}>
               {followText}
             </button>
           </div>
+          <h1 className="user-item-details-bio">{user.bio}</h1>
           <MainIndexItemData
             date={story.date}
             time_estimate={story.time_estimate} />

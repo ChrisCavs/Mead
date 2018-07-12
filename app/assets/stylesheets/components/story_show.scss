@@ -1,0 +1,39 @@
+.user-item {
+  display: flex;
+}
+
+.user-item-image {
+  height: 60px;
+  width: 60px;
+
+  margin-right: 15px;
+
+  border-radius: 100%;
+}
+
+.user-item-details-container {
+  display: flex;
+}
+
+.follow-button {
+  margin-left: 10px;
+
+  color: #03a87c;
+
+  border-color: #03a87c;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+
+  &.followed {
+    color: white;
+    background-color: #03a87c;
+  }
+}
+
+.user-item-details-bio {
+  font-weight: 300;
+  color: rgba(0,0,0,.54);
+
+  margin: 3px 0;
+}

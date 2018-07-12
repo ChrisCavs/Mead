@@ -13,6 +13,10 @@
 .story-form-author-name {
   font-weight: 400;
   font-size: 16px;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .story-form-author-draft {
@@ -39,27 +43,27 @@
   border: none;
 
   resize: none;
-}
 
-.story-form-textarea::placeholder {
-  color: rgba(0,0,0,.34);
+  &::placeholder {
+    color: rgba(0,0,0,.34);
+  }
 }
 
 .story-form-title {
   font-size: 30px;
-}
 
-.story-form-title::placeholder {
-  font-weight: bold;
-  color: rgba(0,0,0,0.4);
+  &::placeholder {
+    font-weight: bold;
+    color: rgba(0,0,0,0.4);
+  }
 }
 
 .story-form-subtitle {
   font-size: 22px;
-}
 
-.story-form-subtitle::placeholder {
-  color: rgba(0,0,0,0.4);
+  &::placeholder {
+    color: rgba(0,0,0,0.4);
+  }
 }
 
 .story-form-button {
