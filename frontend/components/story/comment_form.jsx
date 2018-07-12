@@ -37,7 +37,7 @@ class CommentForm extends React.Component {
 
         <button 
           onClick={this.handleSubmit.bind(this)}
-          className="header-button comment-form-button" >
+          className="modal-form-button comment-form-button" >
           Publish
         </button>
       </div>
