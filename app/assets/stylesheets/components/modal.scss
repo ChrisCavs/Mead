@@ -110,3 +110,17 @@
 .modal-errors {
   margin: 0 auto 20px auto;
 }
+
+.modal-preview {
+  width: 150px;
+  height: auto;
+  max-height: 120px;
+
+  margin-bottom: 40px;
+  margin-right: 20px;
+  align-self: flex-end;
+}
+
+#avatar {
+  border-bottom: none;
+}

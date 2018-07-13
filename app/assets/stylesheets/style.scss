@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700|Playfair+Display:700');
 @import "mixins";
 @import "reset";
 @import "vars";
 
 body {
+  font-family: $main;
   padding: 10px 20px;
   margin: 0 auto;
 
