@@ -43,7 +43,6 @@ class Show extends React.Component {
         {bodyArray}
 
         <StoryComments 
-          comments={this.props.comments}
           story={this.props.story} />
 
         {/* <StorySocial storyId={story.id} /> */}
@@ -59,7 +58,7 @@ const mapStateToProps = (state, ownProps) => {
   if (story) {
     author = state.entities.users[story.author_id]
   }
-  
+
   return {
     story,
     author

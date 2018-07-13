@@ -19,6 +19,7 @@ const StoryComments = ({ comments, story }) => {
 
 const mapStateToProps = (state, ownProps) => {
   let comments = []
+  const story = ownProps.story
   const array = story.comments_array
   if (array) {
     comments = commentsForStory(state, array)

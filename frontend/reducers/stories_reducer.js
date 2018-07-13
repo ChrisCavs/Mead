@@ -1,4 +1,5 @@
 import { RECEIVE_ALL_STORIES, RECEIVE_STORY } from '../actions/story_actions'
+import { RECEIVE_COMMENT } from '../actions/comment_actions'
 
 export default (state = {}, action) => {
   Object.freeze(state)
@@ -10,6 +11,11 @@ export default (state = {}, action) => {
 
     case RECEIVE_STORY:
       newState[action.payload.story.id] = action.payload.story
+      return newState
+    
+    case RECEIVE_COMMENT:
+      const newComments = action.payload.story.comments_array
+      newState[action.payload.story.id].comments_array = newComments
       return newState
 
     default:
