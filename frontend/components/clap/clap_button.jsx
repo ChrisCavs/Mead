@@ -8,18 +8,14 @@ class ClapButton extends React.Component {
     this.state = {
       clapable_type: this.props.type,
       clapable_id: this.props.content.id,
-      quantity: parseInt(this.props.content.currentUserClaps)
+      quantity: this.props.content.currentUserClaps
     }
-
-    this.addToQuantity = this.addToQuantity.bind(this)
+    
+    this.addToQuantity = this.addToQuantity.bind(this)    
   }
 
   addToQuantity() {
     this.setState({ quantity: this.state.quantity + 1 })
-  }
-
-  componentDidMount() {
-    window.onhashchange = this.handleChange.bind(this)
   }
 
   handleChange () {
@@ -28,9 +24,12 @@ class ClapButton extends React.Component {
     }
   }
 
+  componentWillUnmount () {
+    this.handleChange()
+  }
+
   render () {
     const totalClaps = this.props.content.totalClaps
-
     return (
       <div className="clap-container">
         <p className="clap-quantity">

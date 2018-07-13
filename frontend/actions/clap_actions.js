@@ -9,7 +9,7 @@ export const receiveClaps = payload => {
   }
 }
 
-export const createClap = dispatch => clap => {
+export const createClap = clap => dispatch => {
   return ApiUtil.createClap(clap).then(
     payload => dispatch(receiveClaps(payload))
   )
