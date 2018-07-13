@@ -5,8 +5,10 @@ class Api::StoriesController < ApplicationController
     if current_user && !current_user.followed_users_stories.empty?
       feed = current_user.followed_users_stories.includes(:author)
       @stories = feed.shuffle
+      @popular = Story.popular_stories
     else
       @stories = Story.all.includes(:author)
+      @popular = Story.popular_stories
     end
     render :index
   end

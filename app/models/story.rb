@@ -14,6 +14,14 @@ class Story < ApplicationRecord
 
   has_one_attached :image
 
+  def self.popular_stories
+    self
+      .all
+      .joins(:claps)
+      .group('stories.id')
+      .order('SUM(claps.quantity) DESC')
+      .limit(5)
+  end
 
   def totalClaps
     self

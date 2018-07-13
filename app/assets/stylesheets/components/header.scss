@@ -4,7 +4,6 @@
   align-items: center;
 
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
 .header-title {
@@ -15,7 +14,6 @@
 
 .header-button {
   height: 33px;
-  padding: 0px 10px;
   
   font-size: 14px;
   line-height: 33px;
@@ -40,6 +38,7 @@
 
   &.right {
     display: inline;
+    margin-right: 10px;
 
     @include min($tablet) {
       display: none;

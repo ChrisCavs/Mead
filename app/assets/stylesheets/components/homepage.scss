@@ -7,7 +7,30 @@
 
 .main-index {
   @include min($tablet) {
+    width: 80%;
+  }
+
+  @include min($desktop) {
+    width: 65%;
+  }
+
+  @include min($bigscreen) {
     width: 60%;
+  }
+}
+
+.main-index-title {
+  font-family: $header;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 35px;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+  text-align: center;
+
+  @include min($tablet) {
+    text-align: left;
   }
 }
 
@@ -42,6 +65,7 @@
 .item-story-author {
   margin-top: 13px;
   font-size: 16px;
+  font-weight: 400;
 
   &:hover {
     text-decoration: underline;
