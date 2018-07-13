@@ -8,8 +8,6 @@
 require 'rest-client'
 require 'faker'
 
-fake_paragraph = Faker::Lorem.paragraph_by_chars(300)
-
 User.destroy_all
 Story.destroy_all
 Following.destroy_all
@@ -71,8 +69,26 @@ connor.save
 s1 = Story.new(
   title: 'How to Paint a Picture in 1000 Words',
   subtitle: 'A first-hand look at pointless exercises',
-  body: "#{fake_paragraph + '/r/n' + fake_paragraph + '/r/n' + fake_paragraph}",
+  body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
   author_id: chris.id
 )
 s1.image.attach(io: File.open('app/assets/images/birds_photo.jpg'), filename: 'birds.jpg')
 s1.save
+
+s2 = Story.new(
+  title: "Learning to Love Communism, a Marxist's Guide to the 20th Century",
+  subtitle: 'It took 100 years, but after all this time...',
+  body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
+  author_id: nora.id
+)
+s2.image.attach(io: File.open('app/assets/images/russia.jpg'), filename: 'russia.jpg')
+s2.save
+
+s3 = Story.new(
+  title: 'Wait, Seltzer Water Might be the Cure?',
+  subtitle: 'A host of common illnesses... cured by an everyday beverage?',
+  body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
+  author_id: connor.id
+)
+s3.image.attach(io: File.open('app/assets/images/seltzer.jpg'), filename: 'seltzer.jpg')
+s3.save
