@@ -4,6 +4,7 @@ import { fetchStory } from '../../actions/story_actions'
 import { followUser, unFollowUser } from '../../actions/follow_actions'
 import UserItem from './user_item'
 import StoryComments from '../comments/story_comments'
+import ClapButton from '../clap/clap_button'
 
 class Show extends React.Component {
   
@@ -45,7 +46,7 @@ class Show extends React.Component {
         <StoryComments 
           story={this.props.story} />
 
-        {/* <StorySocial storyId={story.id} /> */}
+        <ClapButton content={story} type="Story" />
       </div>
     )
   }
