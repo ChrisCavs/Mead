@@ -1,22 +1,24 @@
 class Api::ClapsController < ApplicationController
   def create
-    @posClap = Clap.find_by(
+    @clap = Clap.find_by(
       clapable_type: params[:clap][:clapable_type],
       clapable_id: params[:clap][:clapable_id],
       user_id: current_user.id
     )
 
-    if @posClap
-      if @posClap.update(quantity: params[:clap][:quantity])
+    if @clap
+      if @clap.update(quantity: params[:clap][:quantity])
+        @clapable = @clap.clapable
         render :show
       else
-        render json: @posClap.errors.full_messages, status: 401
+        render json: @clap.errors.full_messages, status: 401
       end
     else
       @clap = Clap.new(clap_params)
       @clap.user_id = current_user.id
 
       if @clap.save
+        @clapable = @clap.clapable
         render :show
       else
         render json: @clap.errors.full_messages, status: 401

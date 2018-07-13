@@ -14,6 +14,19 @@ class Story < ApplicationRecord
 
   has_one_attached :image
 
+
+  def totalClaps
+    self
+      .claps
+      .sum(:quantity)
+  end
+
+  def currentUserClaps(user)
+    self
+      .claps
+      .where(user_id: user.id)
+      .sum(:quantity)
+  end
   
   def time_estimate 
     word_count = self.body.split(' ').length

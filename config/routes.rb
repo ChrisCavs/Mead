@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     
     post '/followings/:id', to: 'followings#create'
     delete '/followings/:id', to: 'followings#destroy'
+
+    post '/claps', to: 'claps#create'
   end
 end

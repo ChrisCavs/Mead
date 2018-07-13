@@ -1,5 +1,6 @@
 import { RECEIVE_ALL_STORIES, RECEIVE_STORY } from '../actions/story_actions'
 import { RECEIVE_COMMENT } from '../actions/comment_actions'
+import { RECEIVE_CLAPS } from '../actions/clap_actions'
 
 export default (state = {}, action) => {
   Object.freeze(state)
@@ -17,6 +18,16 @@ export default (state = {}, action) => {
       const newComments = action.payload.story.comments_array
       newState[action.payload.story.id].comments_array = newComments
       return newState
+
+    case RECEIVE_CLAPS:
+      const storyPayload = action.payload.story
+      if (storyPayload.id) {
+        newState[storyPayload.id].totalClaps = storyPayload.totalClaps
+        newState[storyPayload.id].currentUserClaps = storyPayload.currentUserClaps
+        return newState
+      } else {
+        return state
+      }
 
     default:
       return state

@@ -8,8 +8,9 @@ class ClapButton extends React.Component {
     this.state = {
       clapable_type: this.props.type,
       clapable_id: this.props.content.id,
-      quantity: this.props.content.currentUserClaps
+      quantity: parseInt(this.props.content.currentUserClaps)
     }
+
     this.addToQuantity = this.addToQuantity.bind(this)
   }
 
@@ -17,9 +18,18 @@ class ClapButton extends React.Component {
     this.setState({ quantity: this.state.quantity + 1 })
   }
 
+  componentDidMount() {
+    window.onhashchange = this.handleChange.bind(this)
+  }
+
+  handleChange () {
+    if (this.state.quantity >= 1) {
+      this.props.createClap(this.state)
+    }
+  }
+
   render () {
     const totalClaps = this.props.content.totalClaps
-    const currentUserClaps = this.props.content.currentUserClaps
 
     return (
       <div className="clap-container">

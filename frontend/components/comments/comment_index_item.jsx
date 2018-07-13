@@ -1,14 +1,14 @@
 import React from 'react'
 import { authorOfComment } from '../../reducers/selectors'
 import { connect } from 'react-redux'
-// import ClapButton from './clap_button'
+import ClapButton from '../clap/clap_button'
 
 const CommentIndexItem = ({ comment, author, clapOrStory }) => {
-  // let finalEl = <ClapButton comment={comment} type="Comment" />
+  let finalEl = <ClapButton content={comment} type="Comment" />
 
-  // if (clapOrStory === 'story') {
-  //   finalEl = <p className="comment-index-item-storyname">{storyName}</p>
-  // }
+  if (clapOrStory === 'story') {
+    finalEl = <p className="comment-index-item-storyname">{storyName}</p>
+  }
   
   return (
     <div className="comment-index-item">
@@ -23,7 +23,7 @@ const CommentIndexItem = ({ comment, author, clapOrStory }) => {
       <p className="comment-index-item-body">{comment.body}</p>
 
       <div className="comment-index-clapOrStory-container">
-        
+        {finalEl}
       </div>
     </div>
   )
