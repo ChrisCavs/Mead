@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchStory } from '../../actions/story_actions'
 import { followUser, unFollowUser } from '../../actions/follow_actions'
 import UserItem from './user_item'
-import StoryComments from './story_comments'
+import StoryComments from '../comments/story_comments'
 
 class Show extends React.Component {
   

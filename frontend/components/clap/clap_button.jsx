@@ -1,4 +1,6 @@
 import React from 'react'
+import { createClap } from '../../actions/clap_actions'
+import { connect } from 'react-redux'
 
 class ClapButton extends React.Component {
   constructor(props) {
@@ -17,6 +19,8 @@ class ClapButton extends React.Component {
 
   render () {
     const totalClaps = this.props.content.totalClaps
+    const currentUserClaps = this.props.content.currentUserClaps
+
     return (
       <div className="clap-container">
         <p className="clap-quantity">
@@ -34,3 +38,14 @@ class ClapButton extends React.Component {
     )
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    createClap: (data) => dispatch(createClap(data))
+  }
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(ClapButton)
