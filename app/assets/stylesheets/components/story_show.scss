@@ -1,4 +1,5 @@
 .story {
+  position: relative;
   margin: 0 auto;
 
   @include min($tablet) {
@@ -8,6 +9,9 @@
 
 .user-item {
   display: flex;
+  max-width: 80%;
+
+  margin-top: 30px;
 }
 
 .user-item-image {
@@ -26,16 +30,16 @@
 .follow-button {
   margin-left: 10px;
 
-  color: #03a87c;
+  color: $green;
 
-  border-color: #03a87c;
+  border-color: $green;
   border-radius: 4px;
   outline: none;
   cursor: pointer;
 
   &.followed {
     color: white;
-    background-color: #03a87c;
+    background-color: $green;
   }
 }
 

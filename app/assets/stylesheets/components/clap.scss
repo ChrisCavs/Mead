@@ -29,3 +29,33 @@
     transform: scale(1.15);
   }
 }
+
+.comment-clap {
+  width: 45px;
+  height: 45px;
+
+  margin-right: 10px;
+}
+
+.comment-clap-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.story-clap-container {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: 0;
+  right: 0;
+}
+
+.story-clap {
+  margin: 0 10px 0 8px;
+}
+
+.clap-total {
+  color: #03a87c;
+}

@@ -12,8 +12,8 @@ const CommentIndexItem = ({ comment, author, clapOrStory }) => {
   
   return (
     <div className="comment-index-item">
-      <div className="story-form-author-container">
-        <img className="header-image" src={author.avatar} />
+      <div className="comment-form-author-index">
+        <img className="comment-image" src={author.avatar} />
         <div className="story-form-author-detail">
           <p className="story-form-author-name">{author.name}</p>
           <p className="story-form-author-date">{comment.date}</p>

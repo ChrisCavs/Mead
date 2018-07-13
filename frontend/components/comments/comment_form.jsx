@@ -23,24 +23,25 @@ class CommentForm extends React.Component {
 
   render () {
     return (
-      <div className="comment-form">
+      <form className="comment-form">
         <div className="user-item comment-form-author-container">
-          <img className="header-image" src={this.props.currentUser.avatar} />
+          <img className="comment-image" src={this.props.currentUser.avatar} />
           <h1>{this.props.currentUser.name}</h1>
         </div>
 
         <textarea
           className="comment-form-textarea"
           value={this.state.body}
-          onChange={this.update.bind(this)} >
+          onChange={this.update.bind(this)}
+          placeholder="Write a response..." >
         </textarea>
 
         <button 
           onClick={this.handleSubmit.bind(this)}
-          className="modal-form-button comment-form-button" >
+          className="comment-form-button" >
           Publish
         </button>
-      </div>
+      </form>
     )
   }
 }

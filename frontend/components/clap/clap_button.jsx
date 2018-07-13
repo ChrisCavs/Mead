@@ -8,14 +8,19 @@ class ClapButton extends React.Component {
     this.state = {
       clapable_type: this.props.type,
       clapable_id: this.props.content.id,
-      quantity: this.props.content.currentUserClaps
+      quantity: parseInt(this.props.content.currentUserClaps) || 0
     }
     
     this.addToQuantity = this.addToQuantity.bind(this)    
   }
 
   addToQuantity() {
-    this.setState({ quantity: this.state.quantity + 1 })
+    const quantity = this.state.quantity + 1
+    this.setState({ quantity })
+
+    if (this.props.type === 'Comment') {
+      this.handleChange()
+    }
   }
 
   handleChange () {
@@ -25,20 +30,33 @@ class ClapButton extends React.Component {
   }
 
   componentWillUnmount () {
-    this.handleChange()
+    if (this.props.type === 'Story') {
+      this.handleChange()
+    }
   }
 
   render () {
     const totalClaps = this.props.content.totalClaps
+
+    let containerOption = 'story-clap-container'
+    let addClasses = 'story-clap'
+    let hideOption
+
+    if (this.props.type === 'Comment') {
+      addClasses = 'comment-clap'
+      hideOption = 'hide'
+      containerOption = 'comment-clap-container'
+    }
+
     return (
-      <div className="clap-container">
-        <p className="clap-quantity">
-          {this.state.quantity}
+      <div className={"clap-container " + containerOption}>
+        <p className={"clap-quantity " + hideOption}>
+          + {this.state.quantity}
         </p>
 
         <button 
           onClick={this.addToQuantity}
-          className="clap-button">
+          className={"clap-button " + addClasses}>
           <img src={window.clap} />
         </button>
 
