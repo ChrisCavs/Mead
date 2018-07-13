@@ -5,7 +5,6 @@ json.story do
   json.time_estimate @story.time_estimate
   json.comments_array @story.comments.map {|com| com.id}
   json.totalClaps @story.totalClaps
-  json.currentUserClaps @story.currentUserClaps(current_user)
 end
 
 json.user do
@@ -20,7 +19,6 @@ json.comments do
       json.extract! comment, :id, :body, :story_id, :author_id
       json.date comment.date
       json.totalClaps comment.totalClaps
-      json.currentUserClaps comment.currentUserClaps(current_user)
     end
   end
 end

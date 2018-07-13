@@ -19,7 +19,6 @@ export default (state = {}, action) => {
       const commentPayload = action.payload.comment
       if (commentPayload.id) {
         newState[commentPayload.id].totalClaps = commentPayload.totalClaps
-        newState[commentPayload.id].currentUserClaps = commentPayload.currentUserClaps
         return newState
       } else {
         return state

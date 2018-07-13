@@ -23,7 +23,6 @@ export default (state = {}, action) => {
       const storyPayload = action.payload.story
       if (storyPayload.id) {
         newState[storyPayload.id].totalClaps = storyPayload.totalClaps
-        newState[storyPayload.id].currentUserClaps = storyPayload.currentUserClaps
         return newState
       } else {
         return state

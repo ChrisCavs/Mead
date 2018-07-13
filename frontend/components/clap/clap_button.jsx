@@ -8,25 +8,29 @@ class ClapButton extends React.Component {
     this.state = {
       clapable_type: this.props.type,
       clapable_id: this.props.content.id,
-      quantity: parseInt(this.props.content.currentUserClaps) || 0
+      quantity: 0
     }
-    
-    this.addToQuantity = this.addToQuantity.bind(this)    
+    this.addInt = null
+    this.addToQuantity = this.addToQuantity.bind(this)  
+    this.handleChange = this.handleChange.bind(this)  
   }
 
   addToQuantity() {
-    const quantity = this.state.quantity + 1
-    this.setState({ quantity })
+
+    clearTimeout(this.addInt)
+    this.setState({ quantity: this.state.quantity + 1 })
 
     if (this.props.type === 'Comment') {
       this.handleChange()
+    } else {
+      this.addInt = setTimeout(this.handleChange, 1200)
     }
   }
 
   handleChange () {
-    if (this.state.quantity >= 1) {
-      this.props.createClap(this.state)
-    }
+    this.props.createClap(this.state).then(
+      success => this.setState({ quantity: 0 })
+    )
   }
 
   componentWillUnmount () {

@@ -7,7 +7,9 @@ class Api::ClapsController < ApplicationController
     )
 
     if @clap
-      if @clap.update(quantity: params[:clap][:quantity])
+      new_quantity = params[:clap][:quantity].to_i + @clap.quantity
+      new_quantity = 20 if new_quantity > 20
+      if @clap.update(quantity: new_quantity)
         @clapable = @clap.clapable
         render :show
       else

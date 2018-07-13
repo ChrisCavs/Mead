@@ -16,13 +16,6 @@ class Comment < ApplicationRecord
       .sum(:quantity)
   end
 
-  def currentUserClaps(user)
-    self
-      .claps
-      .where(user_id: user.id)
-      .sum(:quantity)
-  end
-
   def date
     months = [
       'Jan', 'Feb', 'Mar',

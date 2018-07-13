@@ -8,7 +8,7 @@
   width: 55px;
   height: 55px;
 
-  border: 1px solid #03a87c;
+  border: 1px solid $green;
   border-radius: 100%;
 
   background-color: none;
@@ -57,5 +57,5 @@
 }
 
 .clap-total {
-  color: #03a87c;
+  color: $green;
 }
