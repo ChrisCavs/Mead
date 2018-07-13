@@ -1,5 +1,5 @@
 json.story do
-  json.comments_array @comment.story.comments.map(com => com.id)
+  json.comments_array @comment.story.comments.map { |com| com.id }
 end
 
 json.comment do

@@ -5,8 +5,6 @@ import { followUser, unFollowUser } from '../../actions/follow_actions'
 import UserItem from './user_item'
 import StoryComments from './story_comments'
 
-import { commentsForStory } from '../../reducers/selectors'
-
 class Show extends React.Component {
   
   componentDidMount () {
@@ -16,8 +14,7 @@ class Show extends React.Component {
   render () {
     const story = this.props.story
     const author = this.props.author
-    const comments = this.props.comments
-    if (!story || !author || !comments) {
+    if (!story || !author) {
       return <div></div>
     }
 
@@ -61,15 +58,11 @@ const mapStateToProps = (state, ownProps) => {
   const story = state.entities.stories[id]
   if (story) {
     author = state.entities.users[story.author_id]
-
-    if(story.comments_array) {
-      comments = commentsForStory(state, story.comments_array)
-    }
   }
+  
   return {
     story,
-    author,
-    comments
+    author
   }
 }
 
