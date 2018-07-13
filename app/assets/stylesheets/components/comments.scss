@@ -33,7 +33,7 @@
 
 .comment-form-button {
   align-self: flex-end;
-  
+
   padding: 0 16px;
   font-size: 14px;
   line-height: 37px;
@@ -48,6 +48,7 @@
 }
 
 .comment-form-author-container {
+  display: flex;
   align-items: center;
 }
 

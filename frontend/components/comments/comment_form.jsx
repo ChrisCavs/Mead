@@ -24,7 +24,7 @@ class CommentForm extends React.Component {
   render () {
     return (
       <form className="comment-form">
-        <div className="user-item comment-form-author-container">
+        <div className="comment-form-author-container">
           <img className="comment-image" src={this.props.currentUser.avatar} />
           <h1>{this.props.currentUser.name}</h1>
         </div>
