@@ -88,7 +88,52 @@ s3 = Story.new(
   title: 'Wait, Seltzer Water Might be the Cure?',
   subtitle: 'A host of common illnesses... cured by an everyday beverage?',
   body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
-  author_id: connor.id
+  author_id: christian.id
 )
 s3.image.attach(io: File.open('app/assets/images/seltzer.jpg'), filename: 'seltzer.jpg')
 s3.save
+
+s4 = Story.new(
+  title: 'A Wicked Wednesday, and Nothing Left to Do This Week',
+  subtitle: 'What if hump day never ended?  Life would be endless?',
+  body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
+  author_id: anthony.id
+)
+s4.image.attach(io: File.open('.jpg'), filename: 'seltzer.jpg')
+s4.save
+
+s5 = Story.new(
+  title: 'Time to Question!  Have You Been Living Your Best Life?',
+  subtitle: 'A series of questions from the man/woman that knows it all.',
+  body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
+  author_id: connor.id
+)
+s5.image.attach(io: File.open('.jpg'), filename: 'seltzer.jpg')
+s5.save
+
+s6 = Story.new(
+  title: 'What is Our Purpose?',
+  subtitle: 'A exploration into the heart of a lonely man',
+  body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
+  author_id: connor.id
+)
+s6.image.attach(io: File.open('.jpg'), filename: 'seltzer.jpg')
+s6.save
+
+s7 = Story.new(
+  title: 'I Spent 4 Months Eating Once a Day. This is What I Found',
+  subtitle: 'Could eating less be the answer towards gaining more?',
+  body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
+  author_id: connor.id
+)
+s7.image.attach(io: File.open('.jpg'), filename: 'seltzer.jpg')
+s7.save
+
+s8 = Story.new(
+  title: 'I Spent 4 Months Eating Once a Day. This is What I Found',
+  subtitle: 'Could eating less be the answer towards gaining more?',
+  body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
+  author_id: connor.id
+)
+s8.image.attach(io: File.open('.jpg'), filename: 'seltzer.jpg')
+s8.save

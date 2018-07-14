@@ -17,3 +17,5 @@ json.users do
     end
   end
 end
+
+json.popular @popular.map { |story| story.id }
