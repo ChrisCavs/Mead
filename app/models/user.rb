@@ -41,7 +41,27 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  # METHODS - AUTH
+  # METHODS
+
+  def user_since
+    months = [
+      'Jan', 'Feb', 'Mar',
+      'Apr', 'May', 'Jun', 
+      'Jul', 'Aug', 'Sep',
+      'Oct', 'Nov', 'Dec'
+    ]
+    month = months[self.created_at.month]
+    year = self.created_at.year
+    "#{month} #{year}"
+  end
+
+  def num_followed_users
+    self.followed_users.count
+  end
+
+  def num_followers
+    self.followers.count
+  end
 
   attr_reader :password
 

@@ -1,6 +1,9 @@
 json.user do
   json.extract! @user, :id, :name, :bio, :authored_story_ids
   json.avatar url_for(@user.avatar)
+  json.userSince @user.user_since
+  json.numFollowedUsers @user.num_followed_users
+  json.numFollowers @user.num_followers
 end
 
 json.stories do
