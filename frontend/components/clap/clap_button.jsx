@@ -22,7 +22,7 @@ class ClapButton extends React.Component {
       if (this.props.type === 'Comment') {
         this.handleChange()
       } else {
-        this.addInt = setTimeout(this.handleChange, 1200)
+        this.addInt = setTimeout(this.handleChange, 1000)
       }
     })
   }
@@ -31,12 +31,6 @@ class ClapButton extends React.Component {
     this.props.createClap(this.state).then(
       success => this.setState({ quantity: 0 })
     )
-  }
-
-  componentWillUnmount () {
-    if (this.props.type === 'Story') {
-      this.handleChange()
-    }
   }
 
   render () {
