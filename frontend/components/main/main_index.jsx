@@ -1,7 +1,7 @@
 import React from 'react'
 import MainIndexItem from './main_index_item'
 
-const MainIndex = ({ currentUser, stories, editButton }) => {
+const MainIndex = ({ currentUser, stories, editButton, additionalClasses }) => {
   const mappedStories = stories.map((story, i) => {
     return <MainIndexItem key={i} story={story} editButton={editButton} />
   })
@@ -10,7 +10,7 @@ const MainIndex = ({ currentUser, stories, editButton }) => {
   editButton ? mainIndexTitle = 'Stories' : null
 
   return (
-    <div className="main-index">
+    <div className={"main-index " + additionalClasses}>
       <h1 className="main-index-title">{mainIndexTitle}</h1>
 
       {mappedStories}

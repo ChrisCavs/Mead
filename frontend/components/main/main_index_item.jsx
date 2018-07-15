@@ -3,13 +3,13 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import MainIndexItemData from './main_index_item_data'
 
-const MainIndexItem = ({ story, author, editButton }) => {
+const MainIndexItem = ({ story, author, editButton, currentUserId }) => {
   const storyUrl = `/stories/${story.id}`
   const authorUrl = `/users/${author.id}`
   const editUrl = `/stories/${story.id}/edit`
   
   let button
-  if (editButton) {
+  if (editButton && author.id === currentUserId) {
     button = <Link to={editUrl} className="main-index-edit-link">Edit</Link>
   }
 
@@ -40,8 +40,10 @@ const MainIndexItem = ({ story, author, editButton }) => {
 
 const mapStateToProps = (state, ownProps) => {
   const author = state.entities.users[ownProps.story.author_id]
+  const currentUserId = state.session.id
   return {
-    author
+    author,
+    currentUserId
   }
 }
 

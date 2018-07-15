@@ -14,9 +14,16 @@ class Homepage extends React.Component {
   render () {
     return (
       <div className="homepage">
-        <PopularIndex stories={this.props.popular} higherClass={"left-popular"} />
-        <MainIndex stories={this.props.stories} editButton={false} />
-        <PopularIndex stories={this.props.popular} higherClass={"right-popular"} />
+        <PopularIndex 
+          stories={this.props.popular} 
+          higherClass={"left-popular"} />
+        <MainIndex 
+          stories={this.props.stories} 
+          editButton={false}
+          additionalClasses="" />
+        <PopularIndex 
+          stories={this.props.popular} 
+          higherClass={"right-popular"} />
       </div>
     )
   }

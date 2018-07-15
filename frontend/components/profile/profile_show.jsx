@@ -18,7 +18,10 @@ class ProfileShow extends React.Component {
     return (
       <div className="profile-show">
         <ProfileContent user={this.props.user} />
-        <MainIndex stories={this.props.userStories} editButton={true} />
+        <MainIndex 
+          stories={this.props.userStories} 
+          editButton={true}
+          additionalClasses="profile-view" />
       </div>
     )
   }
