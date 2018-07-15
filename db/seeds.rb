@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'rest-client'
 require 'faker'
+require 'ez_download'
 
 User.destroy_all
 Story.destroy_all
@@ -69,7 +70,7 @@ connor.save
 s1 = Story.new(
   title: 'How to Paint a Picture in 1000 Words',
   subtitle: 'A first-hand look at pointless exercises',
-  body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
+  body: "#{Faker::Lorem.paragraph_by_chars(400) + '/r/n' + Faker::Lorem.paragraph_by_chars(500) + '/r/n' + Faker::Lorem.paragraph_by_chars(600) + '/r/n' + Faker::Lorem.paragraph_by_chars(600)}",
   author_id: chris.id
 )
 s1.image.attach(io: File.open('app/assets/images/birds_photo.jpg'), filename: 'birds.jpg')
@@ -78,7 +79,7 @@ s1.save
 s2 = Story.new(
   title: "Learning to Love Communism, a Marxist's Guide to the 20th Century",
   subtitle: 'It took 100 years, but after all this time...',
-  body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
+  body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(600)}",
   author_id: nora.id
 )
 s2.image.attach(io: File.open('app/assets/images/russia.jpg'), filename: 'russia.jpg')
@@ -95,45 +96,50 @@ s3.save
 
 s4 = Story.new(
   title: 'A Wicked Wednesday, and Nothing Left to Do This Week',
-  subtitle: 'What if hump day never ended?  Life would be endless?',
-  body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
+  subtitle: 'What if hump day never ended?',
+  body: "#{Faker::Lorem.paragraph_by_chars(600) + '/r/n' + Faker::Lorem.paragraph_by_chars(600) + '/r/n' + Faker::Lorem.paragraph_by_chars(600)}",
   author_id: anthony.id
 )
-s4.image.attach(io: File.open('.jpg'), filename: 'seltzer.jpg')
+file = EzDownload.open('http://www.goodmorningwishes.org/wp-content/uploads/2016/12/Beautiful-Happy-Wednesday-Good-Morning.jpg')
+s4.image.attach(io: file, filename: 'wednesday.jpg')
 s4.save
 
 s5 = Story.new(
   title: 'Time to Question!  Have You Been Living Your Best Life?',
   subtitle: 'A series of questions from the man/woman that knows it all.',
   body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
-  author_id: connor.id
+  author_id: christian.id
 )
-s5.image.attach(io: File.open('.jpg'), filename: 'seltzer.jpg')
+file = EzDownload.open('https://wallpaperbrowse.com/media/images/img_fjords.jpg')
+s5.image.attach(io: file, filename: 'best-life.jpg')
 s5.save
 
 s6 = Story.new(
   title: 'What is Our Purpose?',
   subtitle: 'A exploration into the heart of a lonely man',
   body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
-  author_id: connor.id
+  author_id: victoria.id
 )
-s6.image.attach(io: File.open('.jpg'), filename: 'seltzer.jpg')
+file = EzDownload.open('https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5Ny84NzQvb3JpZ2luYWwvbG9uZWx5LW1hbi1zaHV0dGVyc3RvY2suanBn')
+s6.image.attach(io: file, filename: 'lonely.jpg')
 s6.save
 
 s7 = Story.new(
   title: 'I Spent 4 Months Eating Once a Day. This is What I Found',
   subtitle: 'Could eating less be the answer towards gaining more?',
   body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
-  author_id: connor.id
+  author_id: nora.id
 )
-s7.image.attach(io: File.open('.jpg'), filename: 'seltzer.jpg')
+file = EzDownload.open('https://img.huffingtonpost.com/asset/585be1aa1600002400bdf2a6.jpeg?ops=scalefit_970_noupscale')
+s7.image.attach(io: file, filename: 'food-1.jpg')
 s7.save
 
 s8 = Story.new(
-  title: 'I Spent 4 Months Eating Once a Day. This is What I Found',
-  subtitle: 'Could eating less be the answer towards gaining more?',
+  title: 'How I Gained 20 Pounds of Muscle This Year Alone',
+  subtitle: 'This 12 week workout plan defies all the odds',
   body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
-  author_id: connor.id
+  author_id: chris.id
 )
-s8.image.attach(io: File.open('.jpg'), filename: 'seltzer.jpg')
+file = EzDownload.open('http://rohlandanatomy.wikispaces.com/file/view/Muscles.jpg/249673184/560x375/Muscles.jpg')
+s8.image.attach(io: file, filename: 'muscle.jpg')
 s8.save

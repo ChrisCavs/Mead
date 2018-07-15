@@ -3,9 +3,16 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import MainIndexItemData from './main_index_item_data'
 
-const MainIndexItem = ({ story, author }) => {
+const MainIndexItem = ({ story, author, editButton }) => {
   const storyUrl = `/stories/${story.id}`
   const authorUrl = `/users/${author.id}`
+  const editUrl = `/stories/${story.id}/edit`
+  
+  let button
+  if (editButton) {
+    button = <Link to={editUrl}>Edit</Link>
+  }
+
   return (
     <div className="main-index-item">
       <div className="main-index-item-content">
@@ -21,6 +28,8 @@ const MainIndexItem = ({ story, author }) => {
         <MainIndexItemData 
           date={story.date}
           time_estimate={story.time_estimate} />
+        
+        {button}
       </div>
       <div className="main-index-item-img">
         <img src={story.image_url} />

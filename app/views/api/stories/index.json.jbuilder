@@ -12,7 +12,7 @@ end
 json.users do
   @stories.each do |story|
     json.set! story.author.id do
-      json.extract! story.author, :id, :email, :name
+      json.extract! story.author, :id, :email, :name, :authored_story_ids
       json.avatar url_for(story.author.avatar)
     end
   end
