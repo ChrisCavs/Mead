@@ -3,16 +3,25 @@
 
   @include min($desktop) {
     position: fixed;
-    top: 63px;
-    right: 20%;
+    top: 64px;
+    right: 12%;
     display: block;
 
+    width: 22%;
+  }
+
+  @include min($bigscreen) {
+    right: 20%;
     width: 20%;
   }
 }
 
 .left-popular {
   display: block;
+
+  @include min($tablet) {
+    width: 80%;
+  }
   
   @include min($desktop) {
     display: none;
@@ -21,7 +30,7 @@
 
 .popular-index-item {
   display: flex;
-  align-items: center;
+ 
 
   width: 70%;
 
@@ -36,7 +45,17 @@
 .popular-index-item-content {
   max-width: 80%;
 
-  margin-left: 80px;
+  margin-left: 60px;
+
+  @include min($desktop) {
+    margin-left: 15px;
+  }
+}
+
+.popular-index-item-num {
+  font-size: 26px;
+  font-weight: bold;
+  color: rgba(0,0,0,.15);
 }
 
 .popular-story-author {
