@@ -9,6 +9,8 @@ const CommentIndexItem = ({ comment, author, clapOrStory }) => {
   if (clapOrStory === 'story') {
     finalEl = <p className="comment-index-item-storyname">{storyName}</p>
   }
+
+  if (!comment || !author) return <div></div>
   
   return (
     <div className="comment-index-item">
@@ -30,8 +32,14 @@ const CommentIndexItem = ({ comment, author, clapOrStory }) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  let author
+
+  if (ownProps.comment) {
+    author = authorOfComment(state, ownProps.comment)
+  }
+  
   return {
-    author: authorOfComment(state, ownProps.comment)
+    author
   }
 }
 
