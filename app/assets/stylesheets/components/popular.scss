@@ -1,0 +1,50 @@
+.right-popular {
+  display: none;
+
+  @include min($desktop) {
+    position: fixed;
+    top: 63px;
+    right: 20%;
+    display: block;
+
+    width: 20%;
+  }
+}
+
+.left-popular {
+  display: block;
+  
+  @include min($desktop) {
+    display: none;
+  }
+}
+
+.popular-index-item {
+  display: flex;
+  align-items: center;
+
+  width: 70%;
+
+  margin: 0 auto 35px auto;
+
+  @include min($desktop) {
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+
+.popular-index-item-content {
+  max-width: 80%;
+
+  margin-left: 80px;
+}
+
+.popular-story-author {
+  margin-top: 6px;
+  font-size: 16px;
+  font-weight: 400;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

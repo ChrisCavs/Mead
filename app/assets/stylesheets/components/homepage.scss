@@ -1,5 +1,5 @@
 .homepage {
-  @include min($tablet) {
+  @include min($desktop) {
     display: flex;
     justify-content: space-between;
   }

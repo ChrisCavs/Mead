@@ -1,13 +1,13 @@
-import { RECEIVE_ALL_STORIES } from '../acitons/story_actions'
+import { RECEIVE_ALL_STORIES } from '../actions/story_actions'
 
-export const (state = {}, action) => {
+export default (state = [], action) => {
   Object.freeze(state)
   const newState = Object.assign({}, state)
 
   switch (action.type) {
     case RECEIVE_ALL_STORIES:
-      return action.popular
-      
+      return action.payload.popular
+
     default:
       return state
   }

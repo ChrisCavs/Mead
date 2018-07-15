@@ -3,27 +3,25 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import MainIndexItemData from './main_index_item_data'
 
-const MainIndexItem = ({ story, author }) => {
+const PopularIndexItem = ({ story, author, num }) => {
   const storyUrl = `/stories/${story.id}`
   const authorUrl = `/users/${author.id}`
+
   return (
-    <div className="main-index-item">
-      <div className="main-index-item-content">
-        <div className="item-story">
+    <div className="popular-index-item">
+      <p className="popular-index-item-num">0{num + 1}</p>
+      <div className="popular-index-item-content">
+        <div className="popular-story">
           <Link to={storyUrl}>
-            <h1 className="item-story-title">{story.title}</h1>
-            <h1 className="item-story-subtitle">{story.subtitle}</h1>
+            <h1 className="popular-story-title">{story.title}</h1>
           </Link>
           <Link to={authorUrl}>
-            <h1 className="item-story-author">{author.name}</h1>
+            <h1 className="popular-story-author">{author.name}</h1>
           </Link>
         </div>
-        <MainIndexItemData 
+        <MainIndexItemData
           date={story.date}
           time_estimate={story.time_estimate} />
-      </div>
-      <div className="main-index-item-img">
-        <img src={story.image_url} />
       </div>
     </div>
   )
@@ -38,4 +36,4 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(
   mapStateToProps
-)(MainIndexItem)
+)(PopularIndexItem)
