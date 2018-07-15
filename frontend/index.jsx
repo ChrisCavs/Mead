@@ -6,14 +6,23 @@ import configureStore from './store/store'
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
+
+    let stories = {}
+    Object.values(window.currentUser.stories).forEach(story => {
+      stories[story.id] = story
+    })
+
     const preloadedState = {
       entities: {
-        users: { [window.currentUser.id]: window.currentUser }
+        users: { [window.currentUser.user.id]: window.currentUser.user },
+        stories
       },
-      session: { id: window.currentUser.id }
+      session: { id: window.currentUser.user.id }
     };
+
     store = configureStore(preloadedState);
     delete window.currentUser;
+
   } else {
     store = configureStore();
   }

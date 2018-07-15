@@ -10,7 +10,7 @@ const MainIndexItem = ({ story, author, editButton }) => {
   
   let button
   if (editButton) {
-    button = <Link to={editUrl}>Edit</Link>
+    button = <Link to={editUrl} className="main-index-edit-link">Edit</Link>
   }
 
   return (
