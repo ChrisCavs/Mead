@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { fetchAllStories } from '../actions/story_actions'
 import MainIndex from './main/main_index'
 import PopularIndex from './main/popular_index'
-import { getPopularStories } from '../reducers/selectors'
+import { getPopularStories, getRecentStories } from '../reducers/selectors'
+import LoadingComponent from './loading_component'
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class Homepage extends React.Component {
 
   render () {
     if (this.state.loading) {
-      return <div></div>
+      return <LoadingComponent />
     }
     return (
       <div className="homepage">
@@ -39,7 +40,7 @@ class Homepage extends React.Component {
 }
 
 const mapStateToProps = state => {  
-  const stories = Object.values(state.entities.stories)
+  const stories = getRecentStories(state)
   const popular = getPopularStories(state)
   return {
     stories,

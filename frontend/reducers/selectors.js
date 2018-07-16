@@ -16,6 +16,12 @@ export const authorOfStory = (state, story) => {
   }
 }
 
+export const getRecentStories = state => {
+  return Object.values(state.entities.stories).filter(story => {
+    return !state.entities.popular.includes(story.id)
+  })
+}
+
 export const getPopularStories = (state) => {
   return state.entities.popular.map(id => {
     return state.entities.stories[id]
