@@ -27,9 +27,7 @@ class Show extends React.Component {
 
         <UserItem 
           user={author}
-          story={story}
-          followUser={this.props.followUser}
-          unFollowUser={this.props.unFollowUser} />
+          story={story} />
 
         <h1 className="story-title">
           {story.title}
@@ -68,9 +66,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchStory: id => dispatch(fetchStory(id)),
-    followUser: id => dispatch(followUser(id)),
-    unFollowUser: id => dispatch(unFollowUser(id))
+    fetchStory: id => dispatch(fetchStory(id))
   }
 }
 

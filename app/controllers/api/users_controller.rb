@@ -8,6 +8,10 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    followed = current_user.followed_users.where(id: @user.id)
+    @currentUserFollows = !followed.empty?
+
     render :show
   end
 

@@ -4,6 +4,7 @@ json.user do
   json.userSince @user.user_since
   json.numFollowedUsers @user.num_followed_users
   json.numFollowers @user.num_followers
+  json.currentUserFollows @currentUserFollows
 end
 
 json.stories do

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import MainIndexItemData from './main_index_item_data'
 
 const PopularIndexItem = ({ story, author, num }) => {
+
   const storyUrl = `/stories/${story.id}`
   const authorUrl = `/users/${author.id}`
 

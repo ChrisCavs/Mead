@@ -6,12 +6,21 @@ import PopularIndex from './main/popular_index'
 import { getPopularStories } from '../reducers/selectors'
 
 class Homepage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { loading: true }
+  }
 
   componentDidMount () {
-    this.props.fetchAllStories()
+    this.props.fetchAllStories().then(
+      success => this.setState({ loading: false })
+    )
   }
 
   render () {
+    if (this.state.loading) {
+      return <div></div>
+    }
     return (
       <div className="homepage">
         <PopularIndex 
@@ -29,7 +38,7 @@ class Homepage extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state => {  
   const stories = Object.values(state.entities.stories)
   const popular = getPopularStories(state)
   return {

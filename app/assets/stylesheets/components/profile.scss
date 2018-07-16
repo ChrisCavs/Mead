@@ -1,3 +1,42 @@
+.profile-content {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 30px auto;
+}
+
 .main-index.profile-view {
   width: 100%;
+}
+
+.profile-content-right {
+  img {
+    width: 140px;
+    height: 140px;
+
+    border-radius: 100%;
+  }
+}
+
+.profile-content-name {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.profile-content-userSince {
+  margin: 10px 0;
+
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.profile-content-follow-info {
+  color: rgba(0, 0, 0, 0.54);
+  font-weight: 400;
+  font-size: 18px;
+
+  &:last-child {
+    margin-left: 10px;
+  }
 }
