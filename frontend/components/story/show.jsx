@@ -7,21 +7,30 @@ import StoryComments from '../comments/story_comments'
 import ClapButton from '../clap/clap_button'
 
 class Show extends React.Component {
+
+  constructor (props) {
+    super(props)
+    this.state = { loading: true }
+  }
   
   componentDidMount () {
-    this.props.fetchStory(this.props.match.params.id)
+    this.props.fetchStory(this.props.match.params.id).then(
+      success => this.setState({ loading: false })
+    )
   }
 
   render () {
-    const story = this.props.story
-    const author = this.props.author
-    if (!story || !author) {
+    if (this.state.loading) {
       return <div></div>
     }
+
+    const story = this.props.story
+    const author = this.props.author
 
     const bodyArray = story.body.split('/r/n').map((part, i) => {
       return <p key={i} className="story-body">{part}</p>
     })
+
     return (
       <div className="story">
 

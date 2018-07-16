@@ -6,12 +6,20 @@ import ProfileContent from './profile_content'
 import MainIndex from '../main/main_index'
 
 class ProfileShow extends React.Component {
+
+  constructor (props) {
+    super(props)
+    this.state = { loading: true }
+  }
+
   componentDidMount () {
-    this.props.fetchUser(this.props.match.params.id)
+    this.props.fetchUser(this.props.match.params.id).then(
+      success => this.setState({ loading: false })
+    )
   }
 
   render () {
-    if (!this.props.user || !this.props.userStories) {
+    if (this.state.loading) {
       return <div></div>
     }
 
