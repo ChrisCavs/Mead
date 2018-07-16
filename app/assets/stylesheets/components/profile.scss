@@ -1,3 +1,10 @@
+.profile-show {
+  @include min($desktop) {
+    width: 65%;
+    margin: 0 auto;
+  }
+}
+
 .profile-content {
   display: flex;
   justify-content: space-between;

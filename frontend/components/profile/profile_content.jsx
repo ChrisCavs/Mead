@@ -1,7 +1,13 @@
 import React from 'react'
 import FollowButton from './follow_button'
 
-const ProfileContent = ({ user }) => {
+const ProfileContent = ({ user, currentMatch }) => {
+
+  let followButton
+  if (!currentMatch) {
+    followButton = <FollowButton user={user} addClasses="profile-view" />
+  }
+
   return (
     <div className="profile-content">
       <div className="profile-content-left">
@@ -11,9 +17,7 @@ const ProfileContent = ({ user }) => {
           <h1 className="profile-content-follow-info">{user.numFollowedUsers} Follows</h1>
           <h1 className="profile-content-follow-info">{user.numFollowers} Followers</h1>
         </div>
-        <FollowButton 
-          user={user}
-          addClasses="profile-view" />
+        {followButton}
       </div>
       <div className="profile-content-right">
         <img src={user.avatar} />
