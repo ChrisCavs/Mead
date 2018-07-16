@@ -59,7 +59,7 @@ const mapStateToProps = (state, ownProps) => {
   const user = state.entities.users[id]
   let userStories
 
-  if (user) {
+  if (user.authored_story_ids) {
     userStories = authoredStoriesForUser(state, user)
   }
 
