@@ -2,8 +2,13 @@ export const currentUser = state => {
   return state.entities.users[state.session.id]
 }
 
-export const commentsForStory = (state, arr) => {
-  return arr.map(comId => state.entities.comments[comId])
+export const commentsForStory = (state, story) => {
+  const arr = story.comments_array
+  if (arr) {
+    return story.comments_array.map(comId => state.entities.comments[comId])
+  } 
+  
+  return []
 }
 
 export const authorOfComment = (state, comment) => {
@@ -14,6 +19,15 @@ export const authorOfStory = (state, story) => {
   if (story && story.author_id) {
     return state.entities.users[story.author_id]
   }
+}
+
+export const authorTopStories = (state, author) => {
+  const topStoryIds = author.topStoryIds
+  if (topStoryIds) {
+    return topStoryIds.map(id => state.entities.stories[id])
+  }
+  
+  return []
 }
 
 export const getRecentStories = state => {

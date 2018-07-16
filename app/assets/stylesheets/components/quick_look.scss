@@ -1,0 +1,15 @@
+.profile-quick-look {
+  position: relative;
+}
+
+.quick-look {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 150px;
+  height: 400px;
+
+  background-color: black;
+
+  z-index: 100;
+}

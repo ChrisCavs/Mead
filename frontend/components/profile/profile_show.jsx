@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { fetchUser } from '../../actions/user_actions'
 import ProfileContent from './profile_content'
 import MainIndex from '../main/main_index'
+import LoadingComponent from '../loading_component'
 
 class ProfileShow extends React.Component {
 
@@ -31,7 +32,7 @@ class ProfileShow extends React.Component {
 
   render () {
     if (this.state.loading) {
-      return <div></div>
+      return <LoadingComponent />
     }
 
     let currentMatch

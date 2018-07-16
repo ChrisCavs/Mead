@@ -6,6 +6,7 @@ import UserItem from './user_item'
 import StoryComments from '../comments/story_comments'
 import ClapButton from '../clap/clap_button'
 import { authorOfStory } from '../../reducers/selectors'
+import LoadingComponent from '../loading_component'
 
 class Show extends React.Component {
 
@@ -22,7 +23,7 @@ class Show extends React.Component {
 
   render () {
     if (this.state.loading) {
-      return <div></div>
+      return <LoadingComponent />
     }
 
     const story = this.props.story
