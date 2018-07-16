@@ -5,6 +5,7 @@ import { followUser, unFollowUser } from '../../actions/follow_actions'
 import UserItem from './user_item'
 import StoryComments from '../comments/story_comments'
 import ClapButton from '../clap/clap_button'
+import { authorOfStory } from '../../reducers/selectors'
 
 class Show extends React.Component {
 
@@ -60,12 +61,9 @@ class Show extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  let author, comments
   const id = ownProps.match.params.id
   const story = state.entities.stories[id]
-  if (story) {
-    author = state.entities.users[story.author_id]
-  }
+  const author = authorOfStory(state, story)
 
   return {
     story,
