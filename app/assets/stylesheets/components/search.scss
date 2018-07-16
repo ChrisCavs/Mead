@@ -6,3 +6,82 @@
 
   opacity: 0.3;
 }
+
+.search-container {
+  margin-top: 40px;
+}
+
+.search-input {
+  display: block;
+  width: 100%;
+  padding: 0 12px;
+
+  font-size: 40px;
+
+  outline: none;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+
+  box-sizing: border-box;
+
+  @include min($desktop) {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
+.search-results {
+  margin-top: 40px;
+
+  @include min($desktop) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.search-results-partition {
+  @include min($desktop) {
+    width: 46%;
+  }
+}
+
+.search-results-title {
+  margin-bottom: 20px;
+
+  width: 50%;
+
+  font-size: 20px;
+  text-align: right;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+  @include min($desktop) {
+    text-align: center;
+    margin: 0 auto 20px auto;
+  }
+}
+
+.search-item {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 30px;
+}
+
+.search-item-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.search-item-subtitle {
+  font-size: 18px;
+  font-weight: 400;
+
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.search-item-right {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 100%;
+}

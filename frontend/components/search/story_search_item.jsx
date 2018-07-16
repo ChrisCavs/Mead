@@ -7,9 +7,6 @@ export default ({ story }) => {
         <h1 className="search-item-title">{story.title}</h1>
         <h1 className="search-item-subtitle">{story.subtitle}</h1>
       </div>
-      <img
-        className="search-item-right"
-        src={story.image} />
     </div>
   )
 }

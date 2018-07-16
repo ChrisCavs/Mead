@@ -21,11 +21,15 @@ export default ({ query, stories, users }) => {
 
   return (
     <div className="search-results">
-      <h1 className="search-results-title">People</h1>
-      {userResults}
+      <div className="search-results-partition">
+        <h1 className="search-results-title">People</h1>
+        {userResults}
+      </div>
 
-      <h1 className="search-results-title">Stories</h1>
-      {storyResults}
+      <div className="search-results-partition">
+        <h1 className="search-results-title">Stories</h1>
+        {storyResults}
+      </div>
     </div>
   )
 }
