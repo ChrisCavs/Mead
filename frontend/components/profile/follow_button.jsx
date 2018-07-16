@@ -14,11 +14,11 @@ class FollowButton extends React.Component {
 
   render () {
     let followText = 'Follow'
-    let followClasses = 'follow-button'
+    let followClasses = 'follow-button ' + this.props.addClasses
 
     if (this.props.user.currentUserFollows) {
       followText = 'Followed'
-      followClasses = 'follow-button followed'
+      followClasses += ' followed'
     }
 
     return (

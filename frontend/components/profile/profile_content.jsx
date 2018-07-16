@@ -11,7 +11,9 @@ const ProfileContent = ({ user }) => {
           <h1 className="profile-content-follow-info">{user.numFollowedUsers} Follows</h1>
           <h1 className="profile-content-follow-info">{user.numFollowers} Followers</h1>
         </div>
-        <FollowButton user={user} />
+        <FollowButton 
+          user={user}
+          addClasses="profile-view" />
       </div>
       <div className="profile-content-right">
         <img src={user.avatar} />

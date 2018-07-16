@@ -109,10 +109,14 @@
 }
 
 .main-index-edit-link {
-  padding: 0 5px;
   display: inline-block;
-  
-  color: $green;
-  border: 1px solid $green;
+
+  padding: 0 10px;
   margin-top: 10px;
+  
+  font-size: 14px;
+  color: $green;
+
+  border: 1px solid $green;
+  border-radius: 3px;
 }

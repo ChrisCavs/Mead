@@ -15,6 +15,8 @@ class LogoutNav extends React.Component {
   }
 
   render () {
+    const userURL = `/users/${this.props.currentUser.id}`
+
     return (
       <nav className="header-nav">
 
@@ -26,9 +28,11 @@ class LogoutNav extends React.Component {
           Sign Out
         </button>
 
-        <img
-          className="header-image"
-          src={this.props.currentUser.avatar} />
+        <Link to={userURL}>
+          <img
+            className="header-image"
+            src={this.props.currentUser.avatar} />
+        </Link>
       </nav>
     )
   }
