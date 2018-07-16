@@ -34,7 +34,11 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def feed
+  def search
+    @users = User.all.with_attached_avatar
+    @stories = Story.all.with_attached_image
+
+    render :search
   end
 
   private

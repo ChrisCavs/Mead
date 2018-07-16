@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Nav from './nav'
 import NewButton from './new_button'
+import Search from '../search/search'
 
 class Header extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class Header extends React.Component {
           Mead
         </Link>
 
-        {/* search */}
+        <Search />
 
         <Nav />
       </header>

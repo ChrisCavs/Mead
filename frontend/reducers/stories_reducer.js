@@ -3,6 +3,7 @@ import { RECEIVE_COMMENT } from '../actions/comment_actions'
 import { RECEIVE_CLAPS } from '../actions/clap_actions'
 import { RECEIVE_USER } from '../actions/user_actions'
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
+import { RECEIVE_ALL } from '../actions/search_actions'
 import { merge } from 'lodash'
 
 export default (state = {}, action) => {
@@ -12,6 +13,9 @@ export default (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_STORIES:
       return action.payload.stories || {}
+
+    case RECEIVE_ALL:
+      return merge(newState, action.payload.stories)
 
     case RECEIVE_STORY:
       newState[action.payload.story.id] = action.payload.story
