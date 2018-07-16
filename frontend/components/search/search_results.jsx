@@ -1,22 +1,23 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import UserSearchItem from './user_search_item'
 import StorySearchItem from './story_search_item'
 
-const SearchResults = ({ query, users, stories }) => {
+export default ({ query, stories, users }) => {
+
+  if (query === '') return <div></div>
 
   const reg = new RegExp(query)
 
   const userMatches = users.filter(user => {
-    return (reg.match(user.name) || reg.match(user.bio))
+    return (user.name.match(reg) || user.bio.match(reg))
   })
 
   const storyMatches = stories.filter(story => {
-    return (reg.match(story.title) || reg.match(story.subtitle))
+    return (story.title.match(reg) || story.subtitle.match(reg))
   })
 
-  const userResults = userMatches.map(user => <UserSearchItem user={user} />)
-  const storyResults = storyMatches.map(story => <StorySearchItem story={story} />)
+  const userResults = userMatches.map((user, i) => <UserSearchItem key={i} user={user} />)
+  const storyResults = storyMatches.map((story, i) => <StorySearchItem key={i} story={story} />)
 
   return (
     <div className="search-results">
@@ -28,16 +29,3 @@ const SearchResults = ({ query, users, stories }) => {
     </div>
   )
 }
-
-const mapStateToProps = state => {
-  const stories = Object.values(state.entities.stories)
-  const users = Object.values(state.entities.users)
-  return {
-    stories,
-    users
-  }
-}
-
-export default connect(
-  mapStateToProps
-)(SearchResults)

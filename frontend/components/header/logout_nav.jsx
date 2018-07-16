@@ -20,7 +20,11 @@ class LogoutNav extends React.Component {
 
     return (
       <nav className="header-nav">
-        <Search />
+        <Link to="/search">
+          <img 
+            src={window.search}
+            className="search-icon" />
+        </Link>
 
         <NewButton addedClass="right" />
 

@@ -6,6 +6,7 @@ import EditStoryContainer from './story/edit_story_container'
 import Homepage from './homepage'
 import Show from './story/show'
 import ProfileShow from './profile/profile_show'
+import Search from './search/search'
 
 const MainPage = () => {
   return (
@@ -15,6 +16,7 @@ const MainPage = () => {
         <ProtectedRoute path='/stories/:id/edit' component={EditStoryContainer} />
         <ProtectedRoute path='/users/:id' component={ProfileShow} />
         <ProtectedRoute path='/stories/:id' component={Show} />
+        <ProtectedRoute path='/search' component={Search} />
         <Route path='/' component={Homepage} />
       </Switch>
     </div>

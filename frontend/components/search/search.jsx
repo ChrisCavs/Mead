@@ -8,34 +8,16 @@ class Search extends React.Component {
     super(props)
     this.state = { 
       loading: true,
-      inputClasses: 'search-input',
-      iconClasses: 'search-icon',
       query: ''
     }
 
-    this.handleClick = this.handleClick.bind(this)
     this.update = this.update.bind(this)
   }
 
-  handleClick (e) {
-    this.setState({
-      inputClasses: 'search-input active',
-      iconClasses: 'search-icon hide-icon'
-    })
-
+  componentDidMount () {
     this.props.fetchAllUsersAndStories().then(
-      success => this.setState({ loading: false })
+      this.setState({ loading: false })
     )
-
-    window.onClick = () => {
-      this.setState({
-        loading: true,
-        inputClasses: 'search-input',
-        iconClasses: 'search-icon',
-        users,
-        stories
-      })
-    }
   }
 
   update (e) {
@@ -43,29 +25,34 @@ class Search extends React.Component {
   }
 
   render () {
-    let searchResults = <SearchResults query={this.state.query} />
     
     if (this.state.loading) {
-      searchResults = <div></div>
+      return <div></div>
     }
 
     return (
       <div className="search-container">
-        <img 
-          className={this.state.iconClasses}
-          onClick={this.handleClick}
-          src={window.search} />
-        
-        <input 
-          type='text'
-          className={this.state.inputClasses}
+        <input
+          className="search-input"
           onChange={this.update}
           value={this.state.query}
           autoFocus />
 
-        {searchResults}
+        <SearchResults 
+          query={this.state.query}
+          stories={this.props.stories}
+          users={this.props.users} />
       </div>
     )
+  }
+}
+
+const mapStateToProps = state => {
+  const users = Object.values(state.entities.users)
+  const stories = Object.values(state.entities.stories)
+  return {
+    stories,
+    users
   }
 }
 
@@ -76,6 +63,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect (
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Search)
