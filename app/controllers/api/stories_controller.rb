@@ -3,12 +3,16 @@ class Api::StoriesController < ApplicationController
 
   def index
     if current_user && !current_user.followed_users_stories.empty?
-      feed = current_user.followed_users_stories.includes(:author)
+      feed = current_user
+        .followed_users_stories
+        .includes(:author)
+        .with_attached_image
+
       @stories = feed.shuffle
-      @popular = Story.popular_stories
+      @popular = Story.popular_stories.with_attached_image
     else
-      @stories = Story.all.includes(:author)
-      @popular = Story.popular_stories
+      @stories = Story.all.includes(:author).with_attached_image
+      @popular = Story.popular_stories.with_attached_image
     end
     render :index
   end
@@ -34,7 +38,8 @@ class Api::StoriesController < ApplicationController
   end
 
   def update
-    @story = current_user.stories.where(id: params[:id])
+    debugger
+    @story = current_user.authored_stories.find(id: params[:story][:id])
     if @story
       if @story.update(story_params)
         render :show

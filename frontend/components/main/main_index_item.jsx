@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import MainIndexItemData from './main_index_item_data'
 
 const MainIndexItem = ({ story, author, editButton, currentUserId }) => {
+  if (!story) return <div></div>
+
   const storyUrl = `/stories/${story.id}`
   const authorUrl = `/users/${author.id}`
   const editUrl = `/stories/${story.id}/edit`
