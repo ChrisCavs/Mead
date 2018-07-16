@@ -128,7 +128,7 @@ s7 = Story.new(
   title: 'I Spent 4 Months Eating Once a Day. This is What I Found',
   subtitle: 'Could eating less be the answer towards gaining more?',
   body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
-  author_id: nora.id
+  author_id: connor.id
 )
 file = EzDownload.open('https://img.huffingtonpost.com/asset/585be1aa1600002400bdf2a6.jpeg?ops=scalefit_970_noupscale')
 s7.image.attach(io: file, filename: 'food-1.jpg')
