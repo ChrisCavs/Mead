@@ -18,17 +18,24 @@ class StoryForm extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault()
+    let redirectUrl = '/'
 
     const formData = new FormData()
     formData.append('story[title]', this.state.title)
     formData.append('story[subtitle]', this.state.subtitle)
     formData.append('story[body]', this.state.body)
+
     if (this.state.image) {
       formData.append('story[image]', this.state.image)
     }
+
+    if (this.state.id) {
+      formData.append('story[id]', this.state.id)
+      redirectUrl = `/stories/${this.state.id}`
+    }
     
     this.props.submitAction(formData).then(
-      success => this.props.history.push('/'),
+      success => this.props.history.push(redirectUrl),
       failure => console.log(failure)
     )
   }

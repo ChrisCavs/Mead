@@ -1,4 +1,6 @@
 .story-form-container {
+  margin-top: 40px;
+
   @include min($tablet) {
     width: 70%;
     margin: 0 auto;
@@ -27,8 +29,10 @@
 .story-form {
   input, textarea {
     display: block;
+
+    width: 90%;
     padding: 0px 12px;
-    margin-bottom: 8px;
+    margin-bottom: 14px;
 
     outline: none;
   }
@@ -36,7 +40,7 @@
 
 .story-form-textarea {
   width: 100%;
-  min-height: 200px;
+  min-height: 250px;
 
   font-size: 16px;
 

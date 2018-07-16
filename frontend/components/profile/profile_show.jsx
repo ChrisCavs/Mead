@@ -20,7 +20,7 @@ class ProfileShow extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     if (this.props.match.params.id !== nextProps.match.params.id) {
-      
+
       this.setState({ loading: true })
 
       this.props.fetchUser(nextProps.match.params.id).then(

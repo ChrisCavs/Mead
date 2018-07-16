@@ -38,8 +38,7 @@ class Api::StoriesController < ApplicationController
   end
 
   def update
-    debugger
-    @story = current_user.authored_stories.find(id: params[:story][:id])
+    @story = current_user.authored_stories.find(params[:story][:id])
     if @story
       if @story.update(story_params)
         render :show
