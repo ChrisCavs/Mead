@@ -6,14 +6,14 @@ export default ({ query, stories, users }) => {
 
   if (query === '') return <div></div>
 
-  const reg = new RegExp(query)
+  const reg = new RegExp(query.toLowerCase())
 
   const userMatches = users.filter(user => {
-    return (user.name.match(reg) || user.bio.match(reg))
+    return (user.name.toLowerCase().match(reg) || user.bio.toLowerCase().match(reg))
   })
 
   const storyMatches = stories.filter(story => {
-    return (story.title.match(reg) || story.subtitle.match(reg))
+    return (story.title.toLowerCase().match(reg) || story.subtitle.toLowerCase().match(reg))
   })
 
   const userResults = userMatches.map((user, i) => <UserSearchItem key={i} user={user} />)
