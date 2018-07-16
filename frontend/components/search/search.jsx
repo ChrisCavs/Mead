@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import fetchAllUsersAndStories from '../../actions/search_actions'
+import { fetchAllUsersAndStories } from '../../actions/search_actions'
 import SearchResults from './search_results'
 
 class Search extends React.Component {
@@ -31,7 +31,9 @@ class Search extends React.Component {
       this.setState({
         loading: true,
         inputClasses: 'search-input',
-        iconClasses: 'search-icon'
+        iconClasses: 'search-icon',
+        users,
+        stories
       })
     }
   }
@@ -50,13 +52,13 @@ class Search extends React.Component {
     return (
       <div className="search-container">
         <img 
-          className="search-icon"
+          className={this.state.iconClasses}
           onClick={this.handleClick}
           src={window.search} />
         
         <input 
           type='text'
-          className={this.state.classes}
+          className={this.state.inputClasses}
           onChange={this.update}
           value={this.state.query}
           autoFocus />

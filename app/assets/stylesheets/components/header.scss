@@ -23,6 +23,11 @@
   outline: none;
 }
 
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+
 .signup {
   border-color: $green;
   border-radius: 4px;

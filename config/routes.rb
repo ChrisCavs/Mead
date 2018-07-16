@@ -14,6 +14,6 @@ Rails.application.routes.draw do
 
     post '/claps', to: 'claps#create'
 
-    get '/users/search', to: 'users#search'
+    get '/search', to: 'users#search'
   end
 end
