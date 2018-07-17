@@ -18,13 +18,14 @@ class Api::StoriesController < ApplicationController
   end
 
   def create
+    debugger
     @story = Story.new(story_params)
     @story.author_id = current_user.id
 
     if @story.save
       render :show
     else
-      render json: @story.errors.full_messages, status: 404
+      render json: @story.errors.full_messages, status: 422
     end
   end
 

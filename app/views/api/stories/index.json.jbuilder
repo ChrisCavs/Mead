@@ -5,6 +5,7 @@ json.stories do
       json.image_url url_for(story.image)
       json.date story.date
       json.time_estimate story.time_estimate
+      json.tags story.all_tags
     end
   end
 end

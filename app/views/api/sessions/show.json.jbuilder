@@ -16,6 +16,7 @@ else
         json.time_estimate story.time_estimate
         json.comments_array story.comments.map {|com| com.id}
         json.totalClaps story.totalClaps
+        json.tags story.all_tags
       end
     end
   end

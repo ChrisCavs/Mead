@@ -6,7 +6,7 @@ import { getCurrentUser } from '../../reducers/selectors'
 
 class EditStoryForm extends React.Component {
   componentDidMount () {
-    const id = this.props.story.id
+    const id = this.props.match.params.id
     this.props.fetchStory(id)
   }
 
@@ -33,7 +33,8 @@ const mapStateToProps = (state, ownProps) => {
   const defaultStory = {
     title: '',
     subtitle: '',
-    body: ''
+    body: '',
+    tags: ''
   }
   return {
     story: story || defaultStory,
