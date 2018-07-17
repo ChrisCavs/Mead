@@ -21,12 +21,12 @@ export const authorOfStory = (state, story) => {
   }
 }
 
-export const authorTopStories = (state, author) => {
-  const topStoryIds = author.topStoryIds
-  if (topStoryIds) {
-    return topStoryIds.map(id => state.entities.stories[id])
+export const authorRecentStories = (state, author) => {
+  const recentStoryIds = author.recentStoryIds
+  if (recentStoryIds) {
+    return recentStoryIds.map(id => state.entities.stories[id])
   }
-  
+
   return []
 }
 

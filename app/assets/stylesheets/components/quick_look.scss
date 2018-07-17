@@ -2,7 +2,6 @@
   position: relative;
   width: 50%;
   padding: 5px 0;
-  z-index: 1;
 }
 
 .quick-look {
@@ -12,9 +11,6 @@
 
   width: 250px;
   height: 200px;
-
-  margin-bottom: -30px;
-  padding-bottom: 30px;
 
   opacity: 0;
   
@@ -35,4 +31,8 @@
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+}
+
+.underline {
+  text-decoration: underline;
 }

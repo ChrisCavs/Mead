@@ -34,4 +34,4 @@ json.users do
   end
 end
 
-json.popular @popular.map { |story| story.id }
+json.popular @popular.pluck(:id)

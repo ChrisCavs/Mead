@@ -23,7 +23,7 @@ class QuickLook extends React.Component {
 
   handleUnmounting () {
     this.setState({ classes: 'quick-look' }, () => {
-      setTimeout(this.props.hidePop, 300)
+      setTimeout(this.props.hidePop, 200)
     })
   }
 
@@ -48,7 +48,7 @@ class QuickLook extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   const author = state.entities.users[ownProps.authorId]
-  const topStories = authorTopStories(state, author)
+  const recentStories = authorRecentStories(state, author)
   return {
     
   }
