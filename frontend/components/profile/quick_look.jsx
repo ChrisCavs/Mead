@@ -7,7 +7,12 @@ class QuickLook extends React.Component {
 
   constructor (props) {
     super(props)
-    this.state = { loading: true }
+    this.state = { 
+      loading: true,
+      classes: 'quick-look show'
+    }
+
+    this.handleUnmounting = this.handleUnmounting.bind(this)
   }
 
   componentDidMount () {
@@ -16,17 +21,26 @@ class QuickLook extends React.Component {
     )
   }
 
+  handleUnmounting () {
+    this.setState({ classes: 'quick-look' }, () => {
+      setTimeout(this.props.hidePop, 300)
+    })
+  }
+
   render () {
 
     if (this.state.loading) {
-      return <div></div>
+      return <div className="quick-look"></div>
     }
 
     return (
       <div 
-        className="quick-look"
-        onMouseLeave={this.props.hidePop}>
-        hello
+        className={this.state.classes}
+        onMouseLeave={this.handleUnmounting}>
+        
+        <div className="quick-look-content">
+          hello
+        </div>
       </div>
     )
   }

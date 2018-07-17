@@ -24,7 +24,6 @@ class ProfileQuickLook extends React.Component {
 
   render () {
     let quickLook
-
     const author = this.props.author
     const authorUrl = `/users/${author.id}`
 
