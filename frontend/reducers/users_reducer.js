@@ -1,6 +1,6 @@
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions'
 import { RECEIVE_USER, RECEIVE_ALL_USERS } from '../actions/user_actions'
-import { RECEIVE_STORY, RECEIVE_ALL_STORIES } from '../actions/story_actions'
+import { RECEIVE_STORY, RECEIVE_ALL_STORIES, RECEIVE_TAG_STORIES } from '../actions/story_actions'
 import { RECEIVE_ALL } from '../actions/search_actions'
 import { merge } from 'lodash'
 
@@ -19,6 +19,7 @@ export default (state = {}, action) => {
 
     case RECEIVE_ALL_STORIES:
     case RECEIVE_ALL:
+    case RECEIVE_TAG_STORIES:
       return merge(newState, action.payload.users)
 
     case RECEIVE_STORY:

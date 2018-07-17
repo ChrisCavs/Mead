@@ -60,6 +60,13 @@ class Story < ApplicationRecord
     "#{month} #{day}"
   end
 
+  def self.stories_by_tag(name)
+    self
+      .all
+      .joins(:tags)
+      .where('tags.name = ?', name)
+  end
+
   def all_tags=(names)
     new_tags = names.split(",").map do |name|
       Tag.where(name: name.strip).first_or_create!

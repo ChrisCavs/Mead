@@ -4,6 +4,7 @@ class Api::StoriesController < ApplicationController
   def index
     @stories = Story.all.includes(:author).with_attached_image
     @popular = Story.popular_stories.pluck(:id)
+    @tags = Tag.most_popular_tags
 
     render :index
   end
@@ -18,7 +19,6 @@ class Api::StoriesController < ApplicationController
   end
 
   def create
-    debugger
     @story = Story.new(story_params)
     @story.author_id = current_user.id
 
@@ -50,6 +50,12 @@ class Api::StoriesController < ApplicationController
     else
       render json: ["You cannot destroy that story"], status: 401
     end
+  end
+
+  def tag
+    tag_name = params[:name]
+    @stories = Story.stories_by_tag(tag_name)
+    render :tag
   end
 
   private

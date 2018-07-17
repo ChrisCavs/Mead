@@ -19,6 +19,3 @@ json.users do
     end
   end
 end
-
-json.popular @popular
-json.tags @tags

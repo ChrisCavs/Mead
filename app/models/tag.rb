@@ -8,4 +8,13 @@ class Tag < ApplicationRecord
   has_many :stories,
     through: :taggings,
     source: :story
+
+  def self.most_popular_tags
+    self
+      .all
+      .joins(:taggings)
+      .group('tags.id')
+      .order('COUNT(taggings.story_id) DESC')
+      .limit(10)
+  end
 end
