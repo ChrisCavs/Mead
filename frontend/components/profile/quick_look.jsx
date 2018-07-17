@@ -51,6 +51,7 @@ class QuickLook extends React.Component {
       <div 
         className={this.state.classes}
         onMouseLeave={this.handleUnmounting}>
+        <div className="quick-look-arrow"></div>
         <div className="quick-look-content">
           <h1 className="quick-look-name">{author.name}</h1>
           <h1 className="quick-look-userSince">{author.userSince}</h1>
@@ -58,7 +59,7 @@ class QuickLook extends React.Component {
           {recentStoriesLinks}
 
           <div className="flex">
-            <h1 className="quick-look-followCount">{author.numFollowers}</h1>
+            <h1 className="quick-look-followCount">{author.numFollowers} followers</h1>
             <FollowButton user={author} addClasses="quick-look-follow" />
           </div>
         </div>
