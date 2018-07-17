@@ -46,6 +46,7 @@ class User < ApplicationRecord
   def feed_ids 
     self
       .followed_users_stories
+      .limit(10)
       .pluck(:id)
       .shuffle
   end

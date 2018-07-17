@@ -37,7 +37,7 @@ export const getRecentStories = state => {
 }
 
 export const getFeedStories = (state, currentUser) => {
-  if (currentUser.feedIds) {
+  if (currentUser && currentUser.feedIds) {
     return currentUser.feedIds.map(id => state.entities.stories[id])
   }
   return []

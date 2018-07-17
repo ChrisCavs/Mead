@@ -3,15 +3,19 @@ json.user do
   json.avatar url_for(user.avatar)
 end
 
-json.stories do
-  user.authored_stories.each do |story|
-    json.set! story.id do
-      json.extract! story, :id, :title, :subtitle, :author_id, :body
-      json.image_url url_for(story.image)
-      json.date story.date
-      json.time_estimate story.time_estimate
-      json.comments_array story.comments.map {|com| com.id}
-      json.totalClaps story.totalClaps
+if user.authored_stories.empty?
+  json.stories Hash.new
+else
+  json.stories do
+    user.authored_stories.each do |story|
+      json.set! story.id do
+        json.extract! story, :id, :title, :subtitle, :author_id, :body
+        json.image_url url_for(story.image)
+        json.date story.date
+        json.time_estimate story.time_estimate
+        json.comments_array story.comments.map {|com| com.id}
+        json.totalClaps story.totalClaps
+      end
     end
   end
 end
