@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import MainIndexItemData from './main_index_item_data'
+import ProfileQuickLook from '../profile/profile_quick_look'
 
 const MainIndexItem = ({ story, author, editButton, currentUserId }) => {
   if (!story) return <div></div>
@@ -23,9 +24,7 @@ const MainIndexItem = ({ story, author, editButton, currentUserId }) => {
             <h1 className="item-story-title">{story.title}</h1>
             <h1 className="item-story-subtitle">{story.subtitle}</h1>
           </Link>
-          <Link to={authorUrl}>
-            <h1 className="item-story-author">{author.name}</h1>
-          </Link>
+          <ProfileQuickLook author={author} />
         </div>
         <MainIndexItemData 
           date={story.date}
