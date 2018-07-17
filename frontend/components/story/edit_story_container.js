@@ -2,7 +2,7 @@ import React from 'react'
 import StoryForm from './story_form'
 import { connect } from 'react-redux'
 import { updateStory, fetchStory } from '../../actions/story_actions'
-import { currentUser } from '../../reducers/selectors'
+import { getCurrentUser } from '../../reducers/selectors'
 
 class EditStoryForm extends React.Component {
   componentDidMount () {
@@ -38,7 +38,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     story: story || defaultStory,
     type: 'Edit',
-    currentUser: currentUser(state)
+    currentUser: getCurrentUser(state)
   }
 }
 

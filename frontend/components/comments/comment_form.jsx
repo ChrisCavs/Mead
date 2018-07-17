@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { currentUser } from '../../reducers/selectors'
+import { getCurrentUser } from '../../reducers/selectors'
 import { createComment } from '../../actions/comment_actions'
 
 class CommentForm extends React.Component {
@@ -48,7 +48,7 @@ class CommentForm extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: currentUser(state)
+    currentUser: getCurrentUser(state)
   }
 }
 

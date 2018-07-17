@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchAllStories } from '../actions/story_actions'
-import MainIndex from './main/main_index'
+import MainIndexBuffer from './main/main_index_buffer'
 import PopularIndex from './main/popular_index'
-import { getPopularStories, getRecentStories } from '../reducers/selectors'
+import { getPopularStories, getRecentStories, getFeedStories, getCurrentUser } from '../reducers/selectors'
 import LoadingComponent from './loading_component'
 
 class Homepage extends React.Component {
@@ -22,15 +22,17 @@ class Homepage extends React.Component {
     if (this.state.loading) {
       return <LoadingComponent />
     }
+
     return (
       <div className="homepage">
         <PopularIndex 
           stories={this.props.popular} 
           higherClass={"left-popular"} />
-        <MainIndex 
-          stories={this.props.stories} 
-          editButton={false}
-          additionalClasses="" />
+        <MainIndexBuffer
+          currentUser={this.props.currentUser}
+          stories={this.props.stories}
+          feedStories={this.props.feedStories}
+          editButton={false} />
         <PopularIndex 
           stories={this.props.popular} 
           higherClass={"right-popular"} />
@@ -42,9 +44,13 @@ class Homepage extends React.Component {
 const mapStateToProps = state => {  
   const stories = getRecentStories(state)
   const popular = getPopularStories(state)
+  const currentUser = getCurrentUser(state)
+  const feedStories = getFeedStories(state, currentUser)
   return {
     stories,
-    popular
+    popular,
+    currentUser,
+    feedStories
   }
 }
 

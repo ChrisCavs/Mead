@@ -1,6 +1,7 @@
 json.user do
   json.extract! @user, :id, :name, :bio, :authored_story_ids
   json.avatar url_for(@user.avatar)
+  json.feedIds @user.feed_ids
 end
 
 json.stories do

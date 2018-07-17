@@ -2,18 +2,9 @@ class Api::StoriesController < ApplicationController
   before_action :ensure_logged_in, only: [:create, :update, :destroy]
 
   def index
-    if current_user && !current_user.followed_users_stories.empty?
-      feed = current_user
-        .followed_users_stories
-        .includes(:author)
-        .with_attached_image
-      
-      @popular = Story.popular_stories.with_attached_image
-      @stories = feed.shuffle
-    else
-      @stories = Story.all.includes(:author).with_attached_image
-      @popular = Story.popular_stories.with_attached_image
-    end
+    @stories = Story.all.includes(:author).with_attached_image
+    @popular = Story.popular_stories.pluck(:id)
+
     render :index
   end
 

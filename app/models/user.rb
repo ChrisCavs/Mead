@@ -43,6 +43,13 @@ class User < ApplicationRecord
 
   # METHODS
 
+  def feed_ids 
+    self
+      .followed_users_stories
+      .pluck(:id)
+      .shuffle
+  end
+
   def recent_stories
     self
       .authored_stories

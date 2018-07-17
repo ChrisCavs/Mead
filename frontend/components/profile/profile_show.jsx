@@ -47,6 +47,7 @@ class ProfileShow extends React.Component {
           user={this.props.user} 
           currentMatch={currentMatch} />
         <MainIndex 
+          title="Stories"
           stories={this.props.userStories} 
           editButton={true}
           additionalClasses="profile-view" />

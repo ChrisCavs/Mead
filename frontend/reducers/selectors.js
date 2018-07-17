@@ -1,4 +1,4 @@
-export const currentUser = state => {
+export const getCurrentUser = state => {
   return state.entities.users[state.session.id]
 }
 
@@ -34,6 +34,13 @@ export const getRecentStories = state => {
   return Object.values(state.entities.stories).filter(story => {
     return !state.entities.popular.includes(story.id)
   })
+}
+
+export const getFeedStories = (state, currentUser) => {
+  if (currentUser.feedIds) {
+    return currentUser.feedIds.map(id => state.entities.stories[id])
+  }
+  return []
 }
 
 export const getPopularStories = (state) => {
