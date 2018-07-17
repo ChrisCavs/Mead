@@ -5,7 +5,7 @@ json.user do
   json.numFollowedUsers @user.num_followed_users
   json.numFollowers @user.num_followers
   json.currentUserFollows @currentUserFollows
-  json.recentStoryIds = @user.recent_stories
+  json.recentStoryIds @user.recent_stories
 end
 
 if @user.authored_stories.empty?
