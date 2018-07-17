@@ -41,9 +41,9 @@ class QuickLook extends React.Component {
     const recentStoriesLinks = recentStories.map((story, i) => {
       const storyURL = `/stories/${story.id}`
       return (
-        <Link key={i} to={storyURL}>
+        <li><Link key={i} to={storyURL}>
           <h1 className="quick-look-story">{story.title}</h1>
-        </Link>
+        </Link></li>
       )
     })
 
@@ -52,11 +52,23 @@ class QuickLook extends React.Component {
         className={this.state.classes}
         onMouseLeave={this.handleUnmounting}>
         <div className="quick-look-arrow"></div>
-        <div className="quick-look-content">
-          <h1 className="quick-look-name">{author.name}</h1>
-          <h1 className="quick-look-userSince">{author.userSince}</h1>
 
-          {recentStoriesLinks}
+        <div className="quick-look-content">
+          <div className="quick-look-top">
+            <div>
+              <h1 className="quick-look-name">{author.name}</h1>
+              <h1 className="quick-look-userSince">Member since {author.userSince}</h1>
+              <h1 className="quick-look-bio">{author.bio}</h1>
+            </div>
+            <img 
+              className="quick-look-avatar"
+              src={author.avatar} />
+          </div>
+
+          <div className="quick-look-recent-stories">
+            <h1 className="quick-look-recent">RECENT</h1>
+             {recentStoriesLinks}
+          </div>
 
           <div className="flex">
             <h1 className="quick-look-followCount">{author.numFollowers} followers</h1>

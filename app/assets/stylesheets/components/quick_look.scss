@@ -14,7 +14,7 @@
   justify-content: flex-end;
 
   width: 300px;
-  height: 255px;
+  height: 380px;
 
   opacity: 0;
   
@@ -28,7 +28,7 @@
 
 .quick-look-content {
   width: 100%;
-  height: 175px;
+  height: 300px;
 
   padding: 20px;
 
@@ -54,4 +54,62 @@
   background-color: white;
   
   transform: rotate(-45deg);
+}
+
+.quick-look-top {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.quick-look-name {
+  font-size: 18px;
+}
+
+.quick-look-userSince {
+  color: $green;
+  font-size: 14px;
+
+  margin: 6px 0;
+}
+
+.quick-look-bio {
+  font-size: 14px;
+  color: rgba(0,0,0,.54);
+}
+
+.quick-look-avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
+}
+
+.quick-look-recent-stories {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.quick-look-recent {
+  font-size: 14px;
+  color: rgba(0,0,0,.54);
+
+  margin: 6px 0;
+}
+
+.quick-look-story {
+  font-size: 14px;
+  padding-left: 20px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.quick-look-ol {
+  list-style: circle outside;
 }
