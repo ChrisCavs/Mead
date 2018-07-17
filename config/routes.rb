@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
     resources :stories do
       resources :comments, only: [:create, :destroy]
+      post '/taggings', to: 'taggings#modify'
     end
+
     
     post '/followings/:id', to: 'followings#create'
     delete '/followings/:id', to: 'followings#destroy'
