@@ -36,6 +36,7 @@ class QuickLook extends React.Component {
     }
 
     const author = this.props.author
+    const authorURL = `/users/${author.id}`
     const recentStories = this.props.recentStories
 
     const recentStoriesLinks = recentStories.map((story, i) => {
@@ -57,7 +58,9 @@ class QuickLook extends React.Component {
         <div className="quick-look-content">
           <div className="quick-look-top">
             <div>
-              <h1 className="quick-look-name">{author.name}</h1>
+              <Link to={authorURL} >
+                <h1 className="quick-look-name">{author.name}</h1>
+              </Link>
               <h1 className="quick-look-userSince">Member since {author.userSince}</h1>
               <h1 className="quick-look-bio">{author.bio}</h1>
             </div>

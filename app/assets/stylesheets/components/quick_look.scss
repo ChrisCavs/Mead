@@ -1,6 +1,5 @@
 .profile-quick-look {
   position: relative;
-  width: 50%;
   padding: 5px 0;
 }
 
@@ -67,6 +66,10 @@
 
 .quick-look-name {
   font-size: 18px;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .quick-look-userSince {
