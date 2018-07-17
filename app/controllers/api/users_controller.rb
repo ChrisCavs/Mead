@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_action :ensure_logged_in, only: [:show, :update]
+  before_action :ensure_logged_in, only: [:update]
 
   def index
     @users = User.all
@@ -9,8 +9,12 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    followed = current_user.followed_users.where(id: @user.id)
-    @currentUserFollows = !followed.empty?
+    if current_user
+      followed = current_user.followed_users.where(id: @user.id)
+      @currentUserFollows = !followed.empty?
+    else
+      @currentUserFollows = false
+    end
 
     render :show
   end
