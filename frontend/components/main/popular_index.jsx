@@ -44,7 +44,7 @@ class PopularIndex extends React.Component {
       <div ref={this.popular} className={"popular-index " + this.state.classes}>
         <h1 className="main-index-title">
           Popular on Mead
-      </h1>
+         </h1>
 
         {mappedStories}
       </div>

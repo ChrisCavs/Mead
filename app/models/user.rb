@@ -59,7 +59,7 @@ class User < ApplicationRecord
     self
       .claps
       .where(clapable_type: 'Story')
-      .order('claps.quantity')
+      .order('claps.created_at DESC')
       .limit(3)
       .pluck(:clapable_id)
   end
