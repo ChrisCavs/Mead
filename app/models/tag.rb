@@ -16,5 +16,6 @@ class Tag < ApplicationRecord
       .group('tags.id')
       .order('COUNT(taggings.story_id) DESC')
       .limit(10)
+      .pluck(:name)
   end
 end

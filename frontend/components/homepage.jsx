@@ -5,6 +5,7 @@ import MainIndexBuffer from './main/main_index_buffer'
 import PopularIndex from './main/popular_index'
 import { getPopularStories, getRecentStories, getFeedStories, getCurrentUser } from '../reducers/selectors'
 import LoadingComponent from './loading_component'
+import TagLinkContainer from './tags/tag_link_container';
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -25,17 +26,23 @@ class Homepage extends React.Component {
 
     return (
       <div className="homepage">
-        <PopularIndex 
-          stories={this.props.popular} 
-          higherClass={"left-popular"} />
-        <MainIndexBuffer
-          currentUser={this.props.currentUser}
-          stories={this.props.stories}
-          feedStories={this.props.feedStories}
-          editButton={false} />
-        <PopularIndex 
-          stories={this.props.popular} 
-          higherClass={"right-popular"} />
+        <TagLinkContainer
+          tags={this.props.tags}
+          containerClasses='header-tag-container' />
+        <div className="homepage-container">
+          <PopularIndex 
+            stories={this.props.popular} 
+            higherClass={"left-popular"} />
+          <MainIndexBuffer
+            currentUser={this.props.currentUser}
+            stories={this.props.stories}
+            feedStories={this.props.feedStories}
+            tags={this.props.tags}
+            editButton={false} />
+          <PopularIndex 
+            stories={this.props.popular} 
+            higherClass={"right-popular"} />
+        </div>
       </div>
     )
   }
@@ -46,11 +53,13 @@ const mapStateToProps = state => {
   const popular = getPopularStories(state)
   const currentUser = getCurrentUser(state)
   const feedStories = getFeedStories(state, currentUser)
+  const tags = state.entities.tags
   return {
     stories,
     popular,
     currentUser,
-    feedStories
+    feedStories,
+    tags
   }
 }
 

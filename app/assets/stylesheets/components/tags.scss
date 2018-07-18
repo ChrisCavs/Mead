@@ -1,0 +1,51 @@
+.mobile-tag-container {
+
+  margin-bottom: 30px;
+
+  .tag-links-flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag-link-button {
+    padding: 10px 15px;
+    margin: 0 10px;
+
+    font-family: $header;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.64);
+
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  @include min($tablet) {
+    display: none;
+  }
+}
+
+.header-tag-container {
+  display: none;
+
+  @include min($tablet) {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 30px;
+
+    .main-index-title {
+      display: none;
+    }
+
+    .tag-link-button {
+      font-family: $main;
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    .tag-links-flex {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+

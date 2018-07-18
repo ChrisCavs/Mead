@@ -16,6 +16,8 @@ export default (state = {}, action) => {
 
     case RECEIVE_ALL:
     case RECEIVE_TAG_STORIES:
+    case RECEIVE_USER:
+    case RECEIVE_CURRENT_USER:
       return merge(newState, action.payload.stories)
 
     case RECEIVE_STORY:
@@ -35,13 +37,6 @@ export default (state = {}, action) => {
       } else {
         return state
       }
-
-    case RECEIVE_USER:
-    case RECEIVE_CURRENT_USER:
-      Object.values(action.payload.stories).forEach(story => {
-        newState[story.id] = story
-      })      
-      return newState
 
     default:
       return state
