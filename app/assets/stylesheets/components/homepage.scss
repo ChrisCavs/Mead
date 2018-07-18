@@ -1,22 +1,26 @@
-.homepage-conatiner {
+.homepage-container {
   @include min($desktop) {
     display: flex;
     justify-content: space-between;
   }
 }
 
-.main-index {
+.main {
+
   @include min($tablet) {
     width: 80%;
   }
-
+  
   @include min($desktop) {
     width: 65%;
   }
-
+  
   @include min($bigscreen) {
     width: 60%;
   }
+}
+
+.main-index {
 }
 
 .main-index-title {

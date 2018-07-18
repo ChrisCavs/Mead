@@ -30,7 +30,7 @@ class TagShow extends React.Component {
         title={capTagName}
         stories={this.props.stories}
         editButton={false}
-        additionalClasses='' />
+        additionalClasses='tag-main-index' />
     )
   }
 }

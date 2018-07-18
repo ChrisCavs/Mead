@@ -49,3 +49,9 @@
   }
 }
 
+.tag-main-index {
+  @include min($desktop) {
+
+    width: 63%;
+  }
+}
