@@ -2,6 +2,7 @@ json.user do
   json.extract! @user, :id, :name, :bio, :authored_story_ids
   json.avatar url_for(@user.avatar)
   json.feedIds @user.feed_ids
+  json.recommendedStory @user.recommended_story
 end
 
 if @user.authored_stories.empty?

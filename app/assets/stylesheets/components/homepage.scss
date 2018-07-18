@@ -28,12 +28,9 @@
   }
 }
 
-.main-index {
-}
-
 .main-index-title {
   font-family: $header;
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 10px;
   margin-bottom: 35px;
 
@@ -129,4 +126,8 @@
 
   border: 1px solid $green;
   border-radius: 3px;
+}
+
+.recommended-container {
+  margin-bottom: 35px;
 }

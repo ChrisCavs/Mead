@@ -65,16 +65,22 @@ class User < ApplicationRecord
   end
 
   def recommended_story
-    self
+    tags = self
       .story_claps_ids
       .map { |id| Story.find(id).tags }
       .flatten
       .uniq
       .shuffle
-      .first
-      .stories
-      .shuffle
-      .first
+    
+    if !tags.empty?
+      tags
+        .first
+        .story_ids
+        .shuffle
+        .first
+    else
+      nil
+    end
   end
 
   def recent_stories

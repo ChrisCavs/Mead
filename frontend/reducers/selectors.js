@@ -66,3 +66,9 @@ export const getStoriesByTag = (state, tag) => {
     return false
   })
 }
+
+export const getRecommendedStory = (state, currentUser) => {
+  if (currentUser && currentUser.recommendedStory) {
+    return state.entities.stories[currentUser.recommendedStory]
+  }
+}

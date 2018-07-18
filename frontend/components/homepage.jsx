@@ -3,9 +3,10 @@ import { connect } from 'react-redux'
 import { fetchAllStories } from '../actions/story_actions'
 import MainIndexBuffer from './main/main_index_buffer'
 import PopularIndex from './main/popular_index'
-import { getPopularStories, getRecentStories, getFeedStories, getCurrentUser } from '../reducers/selectors'
+import { getPopularStories, getRecentStories, getFeedStories, getCurrentUser, getRecommendedStory } from '../reducers/selectors'
 import LoadingComponent from './loading_component'
-import TagLinkContainer from './tags/tag_link_container';
+import TagLinkContainer from './tags/tag_link_container'
+import RecommendedStory from './main/recommended_story'
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -39,6 +40,8 @@ class Homepage extends React.Component {
           <TagLinkContainer
             tags={this.props.tags}
             containerClasses='right-tag-container' />
+          <RecommendedStory
+            story={this.props.recommended} />
           <PopularIndex 
             stories={this.props.popular} 
             higherClass={"right-popular"} />
@@ -51,13 +54,17 @@ class Homepage extends React.Component {
 const mapStateToProps = state => {  
   const stories = getRecentStories(state)
   const popular = getPopularStories(state)
+
   const currentUser = getCurrentUser(state)
+  const recommended = getRecommendedStory(state, currentUser)
+
   const feedStories = getFeedStories(state, currentUser)
   const tags = state.entities.tags
 
   return {
     stories,
     popular,
+    recommended,
     currentUser,
     feedStories,
     tags
