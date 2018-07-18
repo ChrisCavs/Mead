@@ -1,7 +1,15 @@
-.homepage-container {
+.homepage {
   @include min($desktop) {
     display: flex;
     justify-content: space-between;
+  }
+}
+
+.homepage-right {
+  width: 30%;
+
+  @include min($bigscreen) {
+    width: 35%;
   }
 }
 

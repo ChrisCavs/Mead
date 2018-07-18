@@ -1,51 +1,40 @@
 .mobile-tag-container {
-
-  margin-bottom: 30px;
-
-  .tag-links-flex {
-    display: flex;
-    flex-wrap: wrap;
-  }
+  margin-bottom: 10px;
 
   .tag-link-button {
     padding: 10px 15px;
-    margin: 0 10px;
+    margin: 0 10px 20px 10px;
 
     font-family: $header;
-    font-size: 14px;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.64);
+
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  @include min($desktop) {
+    display: none;
+  }
+}
+
+.right-tag-container {
+  display: none;
+
+  margin-bottom: 10px;
+
+  .tag-link-button {
+    padding: 10px 15px;
+    margin: 0 10px 20px 10px;
+
+    font-family: $header;
+    font-size: 13px;
     color: rgba(0, 0, 0, 0.64);
 
     border: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   @include min($tablet) {
-    display: none;
-  }
-}
-
-.header-tag-container {
-  display: none;
-
-  @include min($tablet) {
     display: block;
-    margin-top: 15px;
-    margin-bottom: 30px;
-
-    .main-index-title {
-      display: none;
-    }
-
-    .tag-link-button {
-      font-family: $main;
-      font-size: 15px;
-      font-weight: 400;
-      color: rgba(0, 0, 0, 0.7);
-    }
-
-    .tag-links-flex {
-      display: flex;
-      justify-content: space-between;
-    }
   }
 }
 
@@ -54,4 +43,9 @@
 
     width: 63%;
   }
+}
+
+.tag-links-flex {
+  display: flex;
+  flex-wrap: wrap;
 }

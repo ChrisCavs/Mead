@@ -3,7 +3,7 @@
 
   @include min($desktop) {
     display: block;
-    width: 30%;
+    width: 100%;
     
     &.fixed {
       position: fixed;
@@ -14,11 +14,10 @@
   }
 
   @include min($bigscreen) {
-    width: 35%;
     
     &.fixed {
-      width: 20%;
-      right: 22%;
+      width: 18%;
+      right: 23%;
     }
   }
 }
