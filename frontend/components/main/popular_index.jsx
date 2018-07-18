@@ -27,9 +27,9 @@ class PopularIndex extends React.Component {
     const elPos = this.popular.current.getBoundingClientRect().top
     const winPos = window.scrollY || window.pageYOffset
 
-    if (winPos > elPos + 140) {
+    if (winPos > elPos + 240) {
       this.setState({ classes: this.props.higherClass + ' fixed'})
-    } else if (winPos <= elPos + 140) {
+    } else if (winPos <= elPos + 240) {
       this.setState({ classes: this.props.higherClass})
     }
   }

@@ -54,6 +54,7 @@ const mapStateToProps = state => {
   const currentUser = getCurrentUser(state)
   const feedStories = getFeedStories(state, currentUser)
   const tags = state.entities.tags
+
   return {
     stories,
     popular,
