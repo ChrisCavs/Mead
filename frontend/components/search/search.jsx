@@ -41,7 +41,8 @@ class Search extends React.Component {
         <SearchResults 
           query={this.state.query}
           stories={this.props.stories}
-          users={this.props.users} />
+          users={this.props.users}
+          tags={this.props.tags} />
       </div>
     )
   }
@@ -50,9 +51,11 @@ class Search extends React.Component {
 const mapStateToProps = state => {
   const users = Object.values(state.entities.users)
   const stories = Object.values(state.entities.stories)
+  const tags = state.entities.tags
   return {
     stories,
-    users
+    users,
+    tags
   }
 }
 

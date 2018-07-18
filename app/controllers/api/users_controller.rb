@@ -41,6 +41,7 @@ class Api::UsersController < ApplicationController
   def search
     @users = User.all.with_attached_avatar
     @stories = Story.all.with_attached_image
+    @tags = Tag.all.pluck(:name)
 
     render :search
   end

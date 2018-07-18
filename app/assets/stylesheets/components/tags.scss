@@ -1,17 +1,6 @@
 .mobile-tag-container {
   margin-bottom: 10px;
 
-  .tag-link-button {
-    padding: 10px 15px;
-    margin: 0 10px 20px 10px;
-
-    font-family: $header;
-    font-size: 13px;
-    color: rgba(0, 0, 0, 0.64);
-
-    border: 1px solid rgba(0, 0, 0, 0.2);
-  }
-
   @include min($desktop) {
     display: none;
   }
@@ -21,17 +10,6 @@
   display: none;
 
   margin-bottom: 10px;
-
-  .tag-link-button {
-    padding: 10px 15px;
-    margin: 0 10px 20px 10px;
-
-    font-family: $header;
-    font-size: 13px;
-    color: rgba(0, 0, 0, 0.64);
-
-    border: 1px solid rgba(0, 0, 0, 0.2);
-  }
 
   @include min($tablet) {
     display: block;
@@ -48,4 +26,16 @@
 .tag-links-flex {
   display: flex;
   flex-wrap: wrap;
+}
+
+.tag-link-button {
+  padding: 10px 15px;
+  margin: 0 10px 20px 10px;
+
+  font-family: $header;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: rgba(0, 0, 0, 0.74);
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }

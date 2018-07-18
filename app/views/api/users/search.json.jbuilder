@@ -15,3 +15,5 @@ json.stories do
     end
   end
 end
+
+json.tags @tags
