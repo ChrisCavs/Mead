@@ -39,6 +39,10 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: :Comment
 
+  has_many :claps,
+    foreign_key: :user_id,
+    class_name: :Clap
+
   has_one_attached :avatar
 
   # METHODS
@@ -49,6 +53,28 @@ class User < ApplicationRecord
       .limit(10)
       .pluck(:id)
       .shuffle
+  end
+
+  def story_claps_ids
+    self
+      .claps
+      .where(clapable_type: 'Story')
+      .order('claps.quantity')
+      .limit(3)
+      .pluck(:clapable_id)
+  end
+
+  def recommended_story
+    self
+      .story_claps_ids
+      .map { |id| Story.find(id).tags }
+      .flatten
+      .uniq
+      .shuffle
+      .first
+      .stories
+      .shuffle
+      .first
   end
 
   def recent_stories

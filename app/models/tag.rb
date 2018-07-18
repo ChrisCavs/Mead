@@ -18,4 +18,14 @@ class Tag < ApplicationRecord
       .limit(8)
       .pluck(:name)
   end
+
+  def most_popular_story
+    self
+      .stories
+      .joins(:claps)
+      .group('stories.id')
+      .order('COUNT(claps.id)')
+      .limit(1)
+
+  end
 end
