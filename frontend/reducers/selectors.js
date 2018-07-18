@@ -56,3 +56,13 @@ export const authoredStoriesForUser = (state, user) => {
     })
   }
 }
+
+export const getStoriesByTag = (state, tag) => {
+  const stories = Object.values(state.entities.stories)
+  return stories.filter(story => {
+    if (story.tags) {
+      return story.tags.split(', ').includes(tag)
+    }
+    return false
+  })
+}

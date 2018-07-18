@@ -16,6 +16,10 @@ class StoryForm extends React.Component {
     }
   }
 
+  componentWillReceiveProps (newProps) {
+    this.setState(newProps.story)
+  }
+
   handleSubmit (e) {
     e.preventDefault()
     let redirectUrl = '/'
@@ -24,6 +28,7 @@ class StoryForm extends React.Component {
     formData.append('story[title]', this.state.title)
     formData.append('story[subtitle]', this.state.subtitle)
     formData.append('story[body]', this.state.body)
+    formData.append('story[all_tags]', this.state.tags)
 
     if (this.state.image) {
       formData.append('story[image]', this.state.image)
@@ -93,6 +98,13 @@ class StoryForm extends React.Component {
             value={this.state.body}
             autoFocus >
           </textarea>
+
+          <input
+            className="story-form-tags"
+            type='text'
+            onChange={this.update('tags')}
+            value={this.state.tags}
+            placeholder="Comma seperated tags..." />
 
           <input
             type="file"

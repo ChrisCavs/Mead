@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.currentUser) {
 
     let stories = {}
-    debugger
     Object.values(window.currentUser.stories).forEach(story => {
       stories[story.id] = story
     })

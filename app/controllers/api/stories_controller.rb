@@ -4,7 +4,8 @@ class Api::StoriesController < ApplicationController
   def index
     @stories = Story.all.includes(:author).with_attached_image
     @popular = Story.popular_stories.pluck(:id)
-
+    @tags = Tag.most_popular_tags
+    
     render :index
   end
 
@@ -24,7 +25,7 @@ class Api::StoriesController < ApplicationController
     if @story.save
       render :show
     else
-      render json: @story.errors.full_messages, status: 404
+      render json: @story.errors.full_messages, status: 422
     end
   end
 
@@ -51,9 +52,15 @@ class Api::StoriesController < ApplicationController
     end
   end
 
+  def tag
+    tag_name = params[:name]
+    @stories = Story.stories_by_tag(tag_name)
+    render :tag
+  end
+
   private
 
   def story_params
-    params.require(:story).permit(:title, :subtitle, :body, :image)
+    params.require(:story).permit(:title, :subtitle, :body, :image, :all_tags)
   end
 end

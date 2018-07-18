@@ -5,7 +5,7 @@ import { getCurrentUser } from '../../reducers/selectors'
 
 const mapStateToProps = state => {
   const story = {
-    title: '', subtitle: '', body: ''
+    title: '', subtitle: '', body: '', tags: ''
   }
   return {
     story,

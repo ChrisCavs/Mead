@@ -2,10 +2,18 @@ import * as ApiUtil from '../util/story_api_util'
 
 export const RECEIVE_ALL_STORIES = 'RECEIVE_ALL_STORIES'
 export const RECEIVE_STORY = 'RECEIVE_STORY'
+export const RECEIVE_TAG_STORIES = 'RECEIVE_TAG_STORIES'
 
 export const receiveAllStories = payload => {
   return {
     type: RECEIVE_ALL_STORIES,
+    payload
+  }
+}
+
+export const receiveTagStories = payload => {
+  return {
+    type: RECEIVE_TAG_STORIES,
     payload
   }
 }
@@ -26,6 +34,12 @@ export const fetchAllStories = () => dispatch => {
 export const fetchStory = id => dispatch => {
   return ApiUtil.fetchStory(id).then(
     payload => dispatch(receiveStory(payload))
+  )
+}
+
+export const fetchTagStories = name => dispatch => {
+  return ApiUtil.fetchTagStories(name).then(
+    payload => dispatch(receiveTagStories(payload))
   )
 }
 

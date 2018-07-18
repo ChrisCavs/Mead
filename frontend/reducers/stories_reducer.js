@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_STORIES, RECEIVE_STORY } from '../actions/story_actions'
+import { RECEIVE_ALL_STORIES, RECEIVE_STORY, RECEIVE_TAG_STORIES } from '../actions/story_actions'
 import { RECEIVE_COMMENT } from '../actions/comment_actions'
 import { RECEIVE_CLAPS } from '../actions/clap_actions'
 import { RECEIVE_USER } from '../actions/user_actions'
@@ -15,6 +15,9 @@ export default (state = {}, action) => {
       return action.payload.stories || {}
 
     case RECEIVE_ALL:
+    case RECEIVE_TAG_STORIES:
+    case RECEIVE_USER:
+    case RECEIVE_CURRENT_USER:
       return merge(newState, action.payload.stories)
 
     case RECEIVE_STORY:
@@ -34,13 +37,6 @@ export default (state = {}, action) => {
       } else {
         return state
       }
-
-    case RECEIVE_USER:
-    case RECEIVE_CURRENT_USER:
-      Object.values(action.payload.stories).forEach(story => {
-        newState[story.id] = story
-      })      
-      return newState
 
     default:
       return state

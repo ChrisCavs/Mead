@@ -12,6 +12,13 @@ export const fetchStory = id => {
   })
 }
 
+export const fetchTagStories = name => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/tags/${name}`
+  })
+}
+
 export const createStory = formData => {
   return $.ajax({
     method: 'POST',

@@ -17,6 +17,7 @@ json.stories do
       json.time_estimate story.time_estimate
       json.comments_array story.comments.map {|com| com.id}
       json.totalClaps story.totalClaps
+      json.tags story.tags
     end
   end
 end

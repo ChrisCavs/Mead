@@ -11,6 +11,15 @@ class Story < ApplicationRecord
 
   has_many :claps,
     as: :clapable
+  
+  has_many :taggings,
+    foreign_key: :story_id,
+    class_name: :Tagging,
+    inverse_of: :story
+
+  has_many :tags,
+    through: :taggings,
+    source: :tag
 
   has_one_attached :image
 
@@ -49,6 +58,24 @@ class Story < ApplicationRecord
     month = months[self.created_at.month]
     day = self.created_at.day
     "#{month} #{day}"
+  end
+
+  def self.stories_by_tag(name)
+    self
+      .all
+      .joins(:tags)
+      .where('tags.name = ?', name)
+  end
+
+  def all_tags=(names)
+    new_tags = names.split(",").map do |name|
+      Tag.where(name: name.strip).first_or_create!
+    end
+    self.tags = new_tags
+  end
+
+  def all_tags
+    self.tags.map(&:name).join(', ')
   end
 
   private

@@ -5,18 +5,30 @@
   }
 }
 
-.main-index {
+.homepage-right {
+  width: 30%;
+
+  @include min($bigscreen) {
+    width: 35%;
+  }
+}
+
+.main {
+
   @include min($tablet) {
     width: 80%;
   }
-
+  
   @include min($desktop) {
     width: 65%;
   }
-
+  
   @include min($bigscreen) {
     width: 60%;
   }
+}
+
+.main-index {
 }
 
 .main-index-title {
