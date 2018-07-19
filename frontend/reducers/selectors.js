@@ -2,6 +2,14 @@ export const getCurrentUser = state => {
   return state.entities.users[state.session.id]
 }
 
+export const getBookmarksForUser = (state, user) => {
+  const mapped = user.bookmarkIds.map(id => state.entities.stories[id])
+  if (mapped.includes(undefined)) {
+    return []
+  }
+  return mapped
+}
+
 export const commentsForStory = (state, story) => {
   const arr = story.comments_array
   if (arr) {

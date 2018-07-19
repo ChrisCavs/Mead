@@ -1,4 +1,4 @@
-class Api::ClapsController < ApplicationController
+class Api::BookmarksController < ApplicationController
   def create
     bookmark = Bookmark.new(
       user_id: current_user.id,
@@ -23,7 +23,7 @@ class Api::ClapsController < ApplicationController
     bookmark.first.destroy
     @story = Story.find(params[:id])
     @currentUserBookmarked = false
-    
+
     render :show
   end
 end

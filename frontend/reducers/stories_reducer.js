@@ -21,8 +21,7 @@ export default (state = {}, action) => {
       return merge(newState, action.payload.stories)
 
     case RECEIVE_STORY:
-      newState[action.payload.story.id] = action.payload.story
-      return newState
+      return merge({}, newState, {[action.payload.story.id]: action.payload.story})
     
     case RECEIVE_COMMENT:
       const newComments = action.payload.story.comments_array

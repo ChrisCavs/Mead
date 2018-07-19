@@ -6,7 +6,9 @@
 }
 
 .homepage-right {
-  width: 30%;
+  @include min($desktop) {
+    width: 30%;
+  }
 
   @include min($bigscreen) {
     width: 35%;
@@ -130,4 +132,23 @@
 
 .recommended-container {
   margin-bottom: 35px;
+}
+
+.item-extra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bookmark-button {
+  border: none;
+  padding: 0;
+  width: 16px;
+  height: 22px;
+  cursor: pointer;
+  outline: none;
+
+  img {
+    width: 100%;
+  }
 }

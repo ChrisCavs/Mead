@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import MainIndexItemData from './main_index_item_data'
 import ProfileQuickLook from '../profile/profile_quick_look'
+import BookmarkButton from '../bookmark/bookmark_button'
 
 const MainIndexItem = ({ story, author, editButton, currentUserId }) => {
   if (!story) return <div></div>
@@ -24,13 +25,18 @@ const MainIndexItem = ({ story, author, editButton, currentUserId }) => {
             <h1 className="item-story-title">{story.title}</h1>
             <h1 className="item-story-subtitle">{story.subtitle}</h1>
           </Link>
-          <ProfileQuickLook author={author} />
         </div>
-        <MainIndexItemData 
-          date={story.date}
-          time_estimate={story.time_estimate} />
-        
-        {button}
+        <div className="item-extra">
+          <div className="item-extra-left">
+            <ProfileQuickLook author={author} />
+            <MainIndexItemData 
+              date={story.date}
+              time_estimate={story.time_estimate} />
+            
+            {button}
+          </div>
+          <BookmarkButton story={story} />
+        </div>
       </div>
       <div className="main-index-item-img">
         <img src={story.image_url} />

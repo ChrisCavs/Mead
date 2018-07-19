@@ -1,6 +1,6 @@
 export const makeBookmark = id => {
   return $.ajax({
-    method: 'PUT',
+    method: 'POST',
     url: `api/bookmarks/${id}`
   })
 }

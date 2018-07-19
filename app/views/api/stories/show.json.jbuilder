@@ -6,7 +6,7 @@ json.story do
   json.comments_array @story.comments.map {|com| com.id}
   json.totalClaps @story.totalClaps
   json.tags @story.all_tags
-  json.currentUserBookmarked current_user.bookmarked_stories.include?(story)
+  json.currentUserBookmarked current_user.bookmarked_stories.include?(@story)
 end
 
 json.user do

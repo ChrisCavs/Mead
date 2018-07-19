@@ -8,6 +8,7 @@ import Show from './story/show'
 import ProfileShow from './profile/profile_show'
 import Search from './search/search'
 import TagShow from './tags/tag_show'
+import BookmarkShow from './bookmark/bookmark_show'
 
 const MainPage = () => {
   return (
@@ -19,6 +20,7 @@ const MainPage = () => {
         <ProtectedRoute path='/stories/:id' component={Show} />
         <ProtectedRoute path='/search' component={Search} />
         <ProtectedRoute path='/tags/:name' component={TagShow} />
+        <ProtectedRoute path='/bookmarks' component={BookmarkShow} />
         <Route path='/' component={Homepage} />
       </Switch>
     </div>
