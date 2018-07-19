@@ -11,3 +11,10 @@ export const removeBookmark = id => {
     url: `api/bookmarks/${id}`
   })
 }
+
+export const fetchUserBookmarks = id => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/bookmarks/${id}`
+  })
+}

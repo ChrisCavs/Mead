@@ -1,4 +1,11 @@
 class Api::BookmarksController < ApplicationController
+
+  def show
+    user = User.find(params[:id])
+    @stories = user.bookmarked_stories
+    render :stories
+  end
+
   def create
     bookmark = Bookmark.new(
       user_id: current_user.id,

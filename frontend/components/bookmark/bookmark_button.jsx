@@ -5,7 +5,6 @@ import { makeBookmark, removeBookmark } from '../../actions/bookmark_actions'
 class BookmarkButton extends React.Component {
 
   handleClick (e) {
-    debugger
     if (this.props.story.currentUserBookmarked) {
       this.props.removeBookmark(this.props.story.id)
     } else {

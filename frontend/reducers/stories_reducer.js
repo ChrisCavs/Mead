@@ -4,6 +4,7 @@ import { RECEIVE_CLAPS } from '../actions/clap_actions'
 import { RECEIVE_USER } from '../actions/user_actions'
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_ALL } from '../actions/search_actions'
+import { RECEIVE_BOOKMARK_STORIES } from '../actions/bookmark_actions'
 import { merge } from 'lodash'
 
 export default (state = {}, action) => {
@@ -18,6 +19,7 @@ export default (state = {}, action) => {
     case RECEIVE_TAG_STORIES:
     case RECEIVE_USER:
     case RECEIVE_CURRENT_USER:
+    case RECEIVE_BOOKMARK_STORIES:
       return merge(newState, action.payload.stories)
 
     case RECEIVE_STORY:

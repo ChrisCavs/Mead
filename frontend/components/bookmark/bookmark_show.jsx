@@ -2,16 +2,27 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { getCurrentUser, getBookmarksForUser } from '../../reducers/selectors'
 import MainIndex from '../main/main_index'
+import { fetchUserBookmarks } from '../../actions/bookmark_actions'
+import LoadingComponent from '../loading_component'
 
 class BookmarkShow extends React.Component {
 
+  constructor (props) {
+    super(props)
+    this.state = { loading: true }
+  }
+
   componentDidMount () {
-    if (this.props.stories[0] === undefined) {
-      this.props.fetchUserBookmarks(this.props.currentUser)
-    }
+    this.props.fetchUserBookmarks(this.props.currentUser.id).then(
+      this.setState({ loading: false })
+    )
   }
 
   render () {
+    if (this.state.loading) {
+      return <LoadingComponent />
+    }
+
     return (
       <MainIndex
         title="Bookmarks"
@@ -31,7 +42,14 @@ const mapStateToProps = state => {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchUserBookmarks: id => dispatch(fetchUserBookmarks(id))
+  }
+}
+
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(BookmarkShow)
