@@ -28,7 +28,7 @@ class BookmarkShow extends React.Component {
         title="Bookmarks"
         stories={this.props.stories}
         editButton={false}
-        additionalClasses='' />
+        additionalClasses='tag-main-index' />
     )
   }
 }

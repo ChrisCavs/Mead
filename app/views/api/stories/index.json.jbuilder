@@ -6,7 +6,9 @@ json.stories do
       json.date story.date
       json.time_estimate story.time_estimate
       json.tags story.all_tags
-      json.currentUserBookmarked current_user.bookmarked_stories.include?(story)
+      if current_user
+        json.currentUserBookmarked current_user.bookmarked_stories.include?(story)
+      end
     end
   end
 end
@@ -20,10 +22,12 @@ json.users do
     end
   end
 
-  json.set! current_user.id do
-    json.extract! current_user, :id, :name, :authored_story_ids
-    json.avatar url_for(current_user.avatar)
-    json.feedIds current_user.feed_ids
+  if current_user
+    json.set! current_user.id do
+      json.extract! current_user, :id, :name, :authored_story_ids
+      json.avatar url_for(current_user.avatar)
+      json.feedIds current_user.feed_ids
+    end
   end
 end
 
