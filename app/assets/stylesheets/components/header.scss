@@ -42,6 +42,14 @@
   background-color: white;
 }
 
+.logout {
+  display: none;
+
+  @include min($tablet) {
+    display: block;
+  }
+}
+
 .new-button {
   font-size: 16px;
 
