@@ -52,13 +52,13 @@ class Homepage extends React.Component {
 }
 
 const mapStateToProps = state => {  
-  const stories = getRecentStories(state)
-  const popular = getPopularStories(state)
-
   const currentUser = getCurrentUser(state)
+
+  const stories = getRecentStories(state, currentUser)
+  const feedStories = getFeedStories(state, currentUser)
+  const popular = getPopularStories(state)
   const recommended = getRecommendedStory(state, currentUser)
 
-  const feedStories = getFeedStories(state, currentUser)
   const tags = state.entities.tags
 
   return {

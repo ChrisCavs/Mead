@@ -3,11 +3,14 @@ export const getCurrentUser = state => {
 }
 
 export const getBookmarksForUser = (state, user) => {
-  const mapped = user.bookmarkIds.map(id => state.entities.stories[id])
-  if (mapped.includes(undefined)) {
-    return []
+  if (user && user.bookmarkIds) {
+    const mapped = user.bookmarkIds.map(id => state.entities.stories[id])
+    if (mapped.includes(undefined)) {
+      return []
+    }
+    return mapped
   }
-  return mapped
+  return []
 }
 
 export const commentsForStory = (state, story) => {
@@ -38,9 +41,14 @@ export const authorRecentStories = (state, author) => {
   return []
 }
 
-export const getRecentStories = state => {
+export const getRecentStories = (state, currentUser) => {
   return Object.values(state.entities.stories).filter(story => {
-    return !state.entities.popular.includes(story.id)
+    if (currentUser && currentUser.feedIds) {
+      return (!state.entities.popular.includes(story.id) 
+      && !currentUser.feedIds.includes(story.id))
+    } else {
+      return !state.entities.popular.includes(story.id)
+    }
   })
 }
 
