@@ -7,6 +7,7 @@ import StoryComments from '../comments/story_comments'
 import ClapButton from '../clap/clap_button'
 import { authorOfStory } from '../../reducers/selectors'
 import LoadingComponent from '../loading_component'
+import TagLink from '../tags/tag_link'
 
 class Show extends React.Component {
 
@@ -29,8 +30,8 @@ class Show extends React.Component {
     const story = this.props.story
     const author = this.props.author
 
-    const bodyArray = story.body.split('/r/n').map((part, i) => {
-      return <p key={i} className="story-body">{part}</p>
+    const tagLinks = story.tags.split(', ').map((tag,i) => {
+      return <TagLink key={i} tag={tag} />
     })
 
     return (
@@ -50,7 +51,11 @@ class Show extends React.Component {
 
         <img className="story-image" src={story.image_url} />
 
-        {bodyArray}
+        <div className="story-tag-container">
+          {tagLinks}
+        </div>
+
+        <p className="story-body">{story.body}</p>
 
         <StoryComments 
           story={this.props.story} />

@@ -47,7 +47,7 @@
 
   &.right {
     height: 30px;
-    margin-right: 8px;
+    margin-right: 20px;
     
     img {
       width: 20px;
@@ -79,3 +79,8 @@
   vertical-align: middle;
 }
 
+.header-bookmark-icon {
+  width: 15px;
+  opacity: 0.4;
+  margin-right: 20px;
+}
