@@ -77,6 +77,8 @@
 }
 
 .header-image {
+  vertical-align: middle;
+  
   width: 36px;
   height: 36px;
 
@@ -84,11 +86,11 @@
 
   border-radius: 100%;
   box-sizing: content-box;
-  vertical-align: middle;
 }
 
 .header-bookmark-icon {
   width: 15px;
-  opacity: 0.4;
   margin-right: 20px;
+
+  opacity: 0.4;
 }

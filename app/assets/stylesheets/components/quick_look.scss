@@ -30,7 +30,7 @@
   padding: 20px;
 
   background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid $titleGrey;
   border-radius: 5px;
 }
 
@@ -46,8 +46,8 @@
   margin-left: 20px;
   margin-top: 30px;
 
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid $titleGrey;
+  border-top: 1px solid $titleGrey;
   
   background-color: white;
   
@@ -61,7 +61,7 @@
   width: 100%;
 
   padding-bottom: 20px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid $titleGrey;
 }
 
 .quick-look-name {
@@ -81,7 +81,7 @@
 
 .quick-look-bio {
   font-size: 14px;
-  color: rgba(0,0,0,.54);
+  color: $subtitleGrey;
 }
 
 .quick-look-avatar {
@@ -93,10 +93,10 @@
 .quick-look-recent-stories {
   margin-top: 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid $titleGrey;
 
   span {
-    color: rgba(0,0,0,.54); 
+    color: $subtitleGrey; 
   }
 
   div {
@@ -107,7 +107,7 @@
 
 .quick-look-recent {
   font-size: 15px;
-  color: rgba(0,0,0,.54);
+  color: $subtitleGrey;
 
   margin: 6px 0;
 }

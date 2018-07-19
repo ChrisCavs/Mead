@@ -4,6 +4,7 @@
     display: block;
     margin: 100px auto;
     padding: 0 20px;
+    
     font-size: 30px;
 
     @include min($tablet) {
