@@ -276,6 +276,39 @@ file = EzDownload.open('https://cdn.vox-cdn.com/thumbor/CNu8V3hIxqwOjbNbv0nUQLdK
 s18.image.attach(io: file, filename: 'parenting.jpg')
 s18.save
 
+s19 = Story.new(
+  title: 'The Shoes That Change Your Life',
+  subtitle: 'Find yourself by running with these sneaks',
+  body: "#{Faker::Lorem.paragraph_by_chars(8000)}",
+  author_id: chris.id,
+  all_tags: 'style, shoes, life'
+)
+file = EzDownload.open('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Black_Converse_sneakers.JPG/1200px-Black_Converse_sneakers.JPG')
+s19.image.attach(io: file, filename: 'shoes.jpg')
+s19.save
+
+s20 = Story.new(
+  title: 'Do You Run Out of Battery?',
+  subtitle: 'Blame technology for the lack of battery life on your phone',
+  body: "#{Faker::Lorem.paragraph_by_chars(2000)}",
+  author_id: victoria.id,
+  all_tags: 'phone, battery, technology, science'
+)
+file = EzDownload.open('http://www.iea.org/media/news/2017/171106Digitalization.jpg')
+s20.image.attach(io: file, filename: 'battery.jpg')
+s20.save
+
+s21 = Story.new(
+  title: 'An Example Story for the Best Guest',
+  subtitle: 'Imagine all the great stories you could write here!',
+  body: "#{Faker::Lorem.paragraph_by_chars(5000)}",
+  author_id: guest.id,
+  all_tags: 'greatness, coding, happiness, example'
+)
+file = EzDownload.open('https://moodle.htwchur.ch/pluginfile.php/124614/mod_page/content/4/example.jpg')
+s21.image.attach(io: file, filename: 'guest-example.jpg')
+s21.save
+
 users = [chris, anthony, victoria, nora, christian, connor]
 stories = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18]
 
