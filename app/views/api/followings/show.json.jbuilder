@@ -6,6 +6,7 @@ json.user do
   json.numFollowers @user.num_followers
   json.currentUserFollows @currentUserFollows
   json.recentStoryIds @user.recent_stories
+  json.feedIds @user.feed_ids
 end
 
 json.stories do

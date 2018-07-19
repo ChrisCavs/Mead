@@ -4,7 +4,7 @@ import { RECEIVE_CLAPS } from '../actions/clap_actions'
 import { RECEIVE_USER } from '../actions/user_actions'
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_ALL } from '../actions/search_actions'
-import { RECEIVE_BOOKMARK_STORIES } from '../actions/bookmark_actions'
+import { RECEIVE_BOOKMARK_STORIES, RECEIVE_BOOKMARK } from '../actions/bookmark_actions'
 import { merge } from 'lodash'
 
 export default (state = {}, action) => {
@@ -23,8 +23,9 @@ export default (state = {}, action) => {
       return merge(newState, action.payload.stories)
 
     case RECEIVE_STORY:
+    case RECEIVE_BOOKMARK:
       return merge({}, newState, {[action.payload.story.id]: action.payload.story})
-    
+
     case RECEIVE_COMMENT:
       const newComments = action.payload.story.comments_array
       newState[action.payload.story.id].comments_array = newComments

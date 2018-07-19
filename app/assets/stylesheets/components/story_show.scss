@@ -9,9 +9,12 @@
 
 .user-item {
   display: flex;
-  max-width: 80%;
-
   margin-top: 30px;
+
+  @include min($tablet) {
+    max-width: 80%;
+  }
+
 }
 
 .user-item-image {
@@ -88,4 +91,5 @@
 
 .story-tag-container {
   display: flex;
+  flex-wrap: wrap;
 }

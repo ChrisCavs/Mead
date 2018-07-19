@@ -14,10 +14,16 @@ end
 json.users do
   @stories.each do |story|
     json.set! story.author.id do
-      json.extract! story.author, :id, :email, :name, :authored_story_ids
+      json.extract! story.author, :id, :name, :authored_story_ids
       json.avatar url_for(story.author.avatar)
       json.feedIds story.author.feed_ids
     end
+  end
+
+  json.set! current_user.id do
+    json.extract! current_user, :id, :name, :authored_story_ids
+    json.avatar url_for(current_user.avatar)
+    json.feedIds current_user.feed_ids
   end
 end
 

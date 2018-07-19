@@ -45,11 +45,15 @@
 }
 
 .story-clap-container {
-  position: absolute;
   display: flex;
   flex-direction: row;
-  top: 0;
-  right: 0;
+  justify-content: flex-end;
+
+  @include min($tablet) {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }
 
 .story-clap {

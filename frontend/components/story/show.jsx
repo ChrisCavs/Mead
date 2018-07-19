@@ -57,10 +57,10 @@ class Show extends React.Component {
 
         <p className="story-body">{story.body}</p>
 
+        <ClapButton content={story} type="Story" />
+
         <StoryComments 
           story={this.props.story} />
-
-        <ClapButton content={story} type="Story" />
       </div>
     )
   }
