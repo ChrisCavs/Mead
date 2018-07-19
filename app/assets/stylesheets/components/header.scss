@@ -46,8 +46,13 @@
   font-size: 16px;
 
   &.right {
-    display: inline;
-    margin-right: 10px;
+    height: 30px;
+    margin-right: 8px;
+    
+    img {
+      width: 20px;
+      opacity: 0.5;
+    }
 
     @include min($tablet) {
       display: none;
