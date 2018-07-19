@@ -20,6 +20,14 @@ class Story < ApplicationRecord
   has_many :tags,
     through: :taggings,
     source: :tag
+  
+  has_many :bookmarks,
+    foreign_key: :story_id,
+    class_name: :Bookmark
+
+  has_many :bookmark_users,
+    through: :bookmarks,
+    source: :user
 
   has_one_attached :image
 

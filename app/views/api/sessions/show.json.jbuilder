@@ -3,6 +3,7 @@ json.user do
   json.avatar url_for(@user.avatar)
   json.feedIds @user.feed_ids
   json.recommendedStory @user.recommended_story
+  json.bookmarkIds @user.bookmark_ids
 end
 
 if @user.authored_stories.empty?

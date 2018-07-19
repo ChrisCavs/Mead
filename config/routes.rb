@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     post '/followings/:id', to: 'followings#create'
     delete '/followings/:id', to: 'followings#destroy'
 
+    post '/bookmarks/:id', to: 'bookmarks#create'
+    delete '/bookmarks/:id', to: 'bookmarks#destroy'
+
     post '/claps', to: 'claps#create'
 
     get '/search', to: 'users#search'

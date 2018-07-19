@@ -5,7 +5,7 @@ class Api::StoriesController < ApplicationController
     @stories = Story.all.includes(:author).with_attached_image
     @popular = Story.popular_stories.pluck(:id)
     @tags = Tag.most_popular_tags
-    
+
     render :index
   end
 

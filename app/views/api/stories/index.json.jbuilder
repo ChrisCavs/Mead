@@ -6,6 +6,7 @@ json.stories do
       json.date story.date
       json.time_estimate story.time_estimate
       json.tags story.all_tags
+      json.currentUserBookmarked current_user.bookmarked_stories.include?(story)
     end
   end
 end
