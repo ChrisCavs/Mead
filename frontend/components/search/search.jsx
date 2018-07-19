@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchAllUsersAndStories } from '../../actions/search_actions'
 import SearchResults from './search_results'
+import LoadingComponent from '../loading_component'
 
 class Search extends React.Component {
   constructor (props) {
@@ -27,7 +28,7 @@ class Search extends React.Component {
   render () {
     
     if (this.state.loading) {
-      return <div></div>
+      return <LoadingComponent />
     }
 
     return (
