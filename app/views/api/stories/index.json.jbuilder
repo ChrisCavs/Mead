@@ -27,6 +27,7 @@ json.users do
       json.extract! current_user, :id, :name, :authored_story_ids
       json.avatar url_for(current_user.avatar)
       json.feedIds current_user.feed_ids
+      json.recommendedStory current_user.recommended_story
     end
   end
 end
