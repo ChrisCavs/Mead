@@ -63,7 +63,7 @@ class Story < ApplicationRecord
       'Jul', 'Aug', 'Sep',
       'Oct', 'Nov', 'Dec'
     ]
-    month = months[self.created_at.month]
+    month = months[self.created_at.month - 1]
     day = self.created_at.day
     "#{month} #{day}"
   end
