@@ -12,6 +12,7 @@ class ModalSignupForm extends React.Component {
     }
     this.update = this.update.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSwitch = this.handleSwitch.bind(this)
   }
 
   update (type) {
@@ -32,6 +33,10 @@ class ModalSignupForm extends React.Component {
     }
 
     this.props.submitAction(formData)
+  }
+
+  handleSwitch (e) {
+    this.props.revealModalLogin()
   }
 
   handleFile (e) {
@@ -98,6 +103,15 @@ class ModalSignupForm extends React.Component {
         <button className="modal-form-button">
           {this.props.title}
         </button>
+
+        <div className="modal-form-button-switch">
+          Already have an account?
+          <span 
+            onClick={this.handleSwitch}
+            className="guest-login">
+            Sign in.
+          </span>
+        </div>
       </form>
     )
   }

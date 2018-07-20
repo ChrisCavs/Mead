@@ -9,6 +9,7 @@ class ModalLoginForm extends React.Component {
     }
     this.update = this.update.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSwitch = this.handleSwitch.bind(this)
     this.guestLogin = this.guestLogin.bind(this)
   }
 
@@ -21,6 +22,11 @@ class ModalLoginForm extends React.Component {
   handleSubmit (e) {
     e.preventDefault()
     this.props.submitAction(this.state)
+  }
+
+  handleSwitch (e) {
+    e.preventDefault()
+    this.props.revealModalSignup()
   }
 
   guestLogin (e) {
@@ -61,6 +67,15 @@ class ModalLoginForm extends React.Component {
         <button className="modal-form-button">
           {this.props.title}
         </button>
+
+        <div className="modal-form-button-switch">
+          No account? 
+          <span 
+            onClick={this.handleSwitch}
+            className="guest-login">
+            Create one.
+          </span>
+        </div>
       </form>
     )
   }
