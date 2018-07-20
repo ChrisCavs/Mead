@@ -30,7 +30,6 @@ class EditStoryForm extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id
-  debugger
   const errors = state.errors.story
   const story = state.entities.stories[id]
   const defaultStory = {

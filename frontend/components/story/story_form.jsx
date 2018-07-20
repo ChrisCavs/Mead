@@ -57,7 +57,6 @@ class StoryForm extends React.Component {
   }
 
   render () {
-    debugger
     const errors = this.props.errors.map((er,i) => <li key={i}>{er}</li>)
 
     let preview
