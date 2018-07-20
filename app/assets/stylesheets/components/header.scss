@@ -4,6 +4,7 @@
   align-items: center;
 
   padding-bottom: 10px;
+  margin-top: 10px;
 }
 
 .header-title {
@@ -16,11 +17,8 @@
   }
 }
 
-.header-button {
-  height: 33px;
-  
+.header-button {  
   font-size: 16px;
-  line-height: 33px;
   color: $green;
 
   cursor: pointer;
@@ -35,6 +33,7 @@
 .signup {
   border-color: $green;
   border-radius: 4px;
+  padding: 8px 10px;
 }
 
 .login, .logout {
