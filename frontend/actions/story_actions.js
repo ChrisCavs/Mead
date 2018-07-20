@@ -3,6 +3,7 @@ import * as ApiUtil from '../util/story_api_util'
 export const RECEIVE_ALL_STORIES = 'RECEIVE_ALL_STORIES'
 export const RECEIVE_STORY = 'RECEIVE_STORY'
 export const RECEIVE_TAG_STORIES = 'RECEIVE_TAG_STORIES'
+export const RECEIVE_STORY_ERRORS = 'RECEIVE_STORY_ERRORS'
 
 export const receiveAllStories = payload => {
   return {
@@ -22,6 +23,13 @@ export const receiveStory = payload => {
   return {
     type: RECEIVE_STORY,
     payload
+  }
+}
+
+export const receiveStoryErrors = errors => {
+  return {
+    type: RECEIVE_STORY_ERRORS,
+    errors: errors.responseJSON
   }
 }
 
@@ -45,13 +53,15 @@ export const fetchTagStories = name => dispatch => {
 
 export const createStory = story => dispatch => {
   return ApiUtil.createStory(story).then(
-    payload => dispatch(receiveStory(payload))
+    payload => dispatch(receiveStory(payload)),
+    errors => dispatch(receiveStoryErrors(errors))
   )
 }
 
 export const updateStory = story => dispatch => {
   return ApiUtil.updateStory(story).then(
-    payload => dispatch(receiveStory(payload))
+    payload => dispatch(receiveStory(payload)),
+    errors => dispatch(receiveStoryErrors(errors))
   )
 }
 

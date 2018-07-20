@@ -57,7 +57,9 @@ class StoryForm extends React.Component {
   }
 
   render () {
-    // const errors = this.props.errors.map(er => <li>{er}</li>)
+    debugger
+    const errors = this.props.errors.map((er,i) => <li key={i}>{er}</li>)
+
     let preview
     if (this.state.imageUrl) {
       preview = <img className="story-preview" src={this.state.imageUrl} />
@@ -75,6 +77,11 @@ class StoryForm extends React.Component {
             <p className="story-form-author-draft">Draft</p>
           </div>
         </div>
+
+        <ul className="story-form-errors">
+          {errors}
+        </ul>
+
         <form className="story-form" onSubmit={this.handleSubmit}>
 
           <input
@@ -104,8 +111,9 @@ class StoryForm extends React.Component {
             type='text'
             onChange={this.update('tags')}
             value={this.state.tags}
-            placeholder="Comma seperated tags..." />
+            placeholder="Comma seperated tags, such as 'art, history'" />
 
+          <p className="story-form-label">Select a cover image:</p>
           <input
             type="file"
             onChange={this.handleFile.bind(this)} />
