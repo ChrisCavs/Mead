@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom'
 class Modal extends React.Component {
 
   handleHide = event => {
-    debugger
     this.props.history.push('/')
     this.props.hide()
   }
