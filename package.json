@@ -43,5 +43,8 @@
     "redux-thunk": "^2.3.0",
     "webpack": "^4.15.1",
     "webpack-cli": "^3.0.8"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1"
   }
 }
