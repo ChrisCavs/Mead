@@ -9,10 +9,8 @@ import TagLinkContainer from './tags/tag_link_container'
 import RecommendedStory from './main/recommended_story'
 
 class Homepage extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { loading: true }
-  }
+
+  state = { loading: true }
 
   componentDidMount () {
     this.props.fetchAllStories().then(

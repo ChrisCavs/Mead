@@ -7,10 +7,7 @@ import LoadingComponent from '../loading_component'
 
 class BookmarkShow extends React.Component {
 
-  constructor (props) {
-    super(props)
-    this.state = { loading: true }
-  }
+  state = { loading: true }
 
   componentDidMount () {
     this.props.fetchUserBookmarks(this.props.currentUser.id).then(

@@ -7,14 +7,9 @@ import FollowButton from './follow_button'
 
 class QuickLook extends React.Component {
 
-  constructor (props) {
-    super(props)
-    this.state = { 
-      loading: true,
-      classes: 'quick-look show'
-    }
-
-    this.handleUnmounting = this.handleUnmounting.bind(this)
+  state = { 
+    loading: true,
+    classes: 'quick-look show'
   }
 
   componentDidMount () {
@@ -23,7 +18,7 @@ class QuickLook extends React.Component {
     )
   }
 
-  handleUnmounting () {
+  handleUnmounting = () => {
     this.setState({ classes: 'quick-look' }, () => {
       setTimeout(this.props.hidePop, 200)
     })

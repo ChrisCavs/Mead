@@ -6,10 +6,8 @@ import { fetchTagStories } from '../../actions/story_actions'
 import { connect } from 'react-redux'
 
 class TagShow extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = { loading: true }
-  }
+
+  state = { loading: true }
 
   componentDidMount () {
     this.props.fetchTagStories(this.props.match.params.name).then(

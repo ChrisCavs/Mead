@@ -2,26 +2,19 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 
 class StoryForm extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = this.props.story
 
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.update = this.update.bind(this)
-  }
+  state = this.props.story
 
-  update (name) {
-    return e => {
-      this.setState({ [name]: e.target.value })
-    }
+  update = name => event => {
+    this.setState({ [name]: event.target.value })
   }
 
   componentWillReceiveProps (newProps) {
     this.setState(newProps.story)
   }
 
-  handleSubmit (e) {
-    e.preventDefault()
+  handleSubmit = event => {
+    event.preventDefault()
     let redirectUrl = '/'
 
     const formData = new FormData()
@@ -45,8 +38,8 @@ class StoryForm extends React.Component {
     )
   }
 
-  handleFile(e) {
-    const file = e.currentTarget.files[0]
+  handleFile = event => {
+    const file = event.currentTarget.files[0]
     const fileReader = new FileReader()
     fileReader.onloadend = () => {
       this.setState({ image: file, imageUrl: fileReader.result })

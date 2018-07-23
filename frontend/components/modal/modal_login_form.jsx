@@ -1,35 +1,28 @@
 import React from 'react'
 
 class ModalLoginForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      email: '',
-      password: ''
-    }
-    this.update = this.update.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleSwitch = this.handleSwitch.bind(this)
-    this.guestLogin = this.guestLogin.bind(this)
+  state = {
+    email: '',
+    password: ''
   }
 
-  update (type) {
+  update = type => {
     return e => {
       this.setState({ [type]: e.target.value })
     }
   }
 
-  handleSubmit (e) {
+  handleSubmit = e => {
     e.preventDefault()
     this.props.submitAction(this.state)
   }
 
-  handleSwitch (e) {
+  handleSwitch = e => {
     e.preventDefault()
     this.props.revealModalSignup()
   }
 
-  guestLogin (e) {
+  guestLogin = e => {
     this.setState({
       email: 'guest@gmail.com',
       password: 'guest123'

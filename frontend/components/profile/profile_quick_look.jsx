@@ -4,35 +4,27 @@ import QuickLook from './quick_look'
 
 class ProfileQuickLook extends React.Component {
 
-  constructor (props) {
-    super(props)
-    this.state = {
-      reveal: false,
-      classes: 'popular-story-author'
-    }
-
-    this.revealPop = this.revealPop.bind(this)
-    this.hidePop = this.hidePop.bind(this)
-    this.cancelEarly = this.cancelEarly.bind(this)
-    this.timedReveal = this.timedReveal.bind(this)
+  state = {
+    reveal: false,
+    classes: 'popular-story-author'
   }
 
-  timedReveal () {
+  timedReveal = () => {
     this.timeout = setTimeout(this.revealPop, 300)
   }
 
-  revealPop () {
+  revealPop = () => {
     this.setState({ 
       reveal: true,
       classes: 'popular-story-author underline' 
     })
   }
 
-  cancelEarly () {
+  cancelEarly = () => {
     clearTimeout(this.timeout)
   }
   
-  hidePop () {
+  hidePop = () => {
     this.setState({ 
       reveal: false,
       classes: 'popular-story-author' 

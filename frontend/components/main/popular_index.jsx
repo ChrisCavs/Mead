@@ -7,8 +7,6 @@ class PopularIndex extends React.Component {
     this.state = { classes: this.props.higherClass }
 
     this.popular = React.createRef()
-
-    this.checkPosition = this.checkPosition.bind(this)
   }
 
   componentDidMount () {
@@ -23,7 +21,7 @@ class PopularIndex extends React.Component {
     }
   }
 
-  checkPosition (e) {
+  checkPosition = event => {
     const elPos = this.popular.current.getBoundingClientRect().top
     const winPos = window.scrollY || window.pageYOffset
 

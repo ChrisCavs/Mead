@@ -1,28 +1,20 @@
 import React from 'react'
 
 class ModalSignupForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      email: '',
-      password: '',
-      name: '',
-      bio: '',
-      avatar: null
-    }
-    this.update = this.update.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleSwitch = this.handleSwitch.bind(this)
+  state = {
+    email: '',
+    password: '',
+    name: '',
+    bio: '',
+    avatar: null
   }
 
-  update (type) {
-    return e => {
-      this.setState({ [type]: e.target.value })
-    }
+  update = type => event => {
+    this.setState({ [type]: e.target.value })
   }
 
-  handleSubmit (e) {
-    e.preventDefault()
+  handleSubmit = event => {
+    event.preventDefault()
     const formData = new FormData()
     formData.append('user[email]', this.state.email)
     formData.append('user[password]', this.state.password)
@@ -35,12 +27,12 @@ class ModalSignupForm extends React.Component {
     this.props.submitAction(formData)
   }
 
-  handleSwitch (e) {
+  handleSwitch = event => {
     this.props.revealModalLogin()
   }
 
-  handleFile (e) {
-    const file = e.currentTarget.files[0]
+  handleFile = event => {
+    const file = event.currentTarget.files[0]
     const fileReader = new FileReader()
     fileReader.onloadend = () => {
       this.setState({ avatar: file, avatarUrl: fileReader.result})

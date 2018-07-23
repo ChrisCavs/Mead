@@ -3,24 +3,19 @@ import { Link } from 'react-router-dom'
 import Nav from './nav'
 import NewButton from './new_button'
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+const Header = () => {
 
-  render () {
-    return (
-      <header className="header">
-        <NewButton addedClass="left" />
+  return (
+    <header className="header">
+      <NewButton addedClass="left" />
 
-        <Link className="header-title" to="/">
-          Mead
-        </Link>
+      <Link className="header-title" to="/">
+        Mead
+      </Link>
 
-        <Nav />
-      </header>
-    )
-  }
+      <Nav />
+    </header>
+  )
 }
 
 export default Header

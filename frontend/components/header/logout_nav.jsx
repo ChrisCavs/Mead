@@ -6,12 +6,9 @@ import NewButton from './new_button'
 import Search from '../search/search'
 
 class LogoutNav extends React.Component {
-  constructor (props) {
-    super(props)
-  }
 
-  handleLogout (e) {
-    e.preventDefault()
+  handleLogout = event => {
+    event.preventDefault()
     this.props.logout()
   }
 

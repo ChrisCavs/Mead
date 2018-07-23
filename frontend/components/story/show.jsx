@@ -11,10 +11,7 @@ import TagLink from '../tags/tag_link'
 
 class Show extends React.Component {
 
-  constructor (props) {
-    super(props)
-    this.state = { loading: true }
-  }
+  state = { loading: true }
   
   componentDidMount () {
     this.props.fetchStory(this.props.match.params.id).then(

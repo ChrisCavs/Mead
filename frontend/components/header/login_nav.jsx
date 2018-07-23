@@ -3,17 +3,14 @@ import { connect } from 'react-redux'
 import { revealModalLogin, revealModalSignup } from '../../actions/modal_actions'
 
 class LoginNav extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
-  handleLogin(e) {
-    e.preventDefault()
+  handleLogin = event => {
+    event.preventDefault()
     this.props.revealModalLogin()
   }
 
-  handleSignup(e) {
-    e.preventDefault()
+  handleSignup = event => {
+    event.preventDefault()
     this.props.revealModalSignup()
   }
 

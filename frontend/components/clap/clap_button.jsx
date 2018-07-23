@@ -3,19 +3,13 @@ import { createClap } from '../../actions/clap_actions'
 import { connect } from 'react-redux'
 
 class ClapButton extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      clapable_type: this.props.type,
-      clapable_id: this.props.content.id,
-      quantity: 0
-    }
-    this.addInt = null
-    this.addToQuantity = this.addToQuantity.bind(this)  
-    this.handleChange = this.handleChange.bind(this)  
+  state = {
+    clapable_type: this.props.type,
+    clapable_id: this.props.content.id,
+    quantity: 0
   }
 
-  addToQuantity() {
+  addToQuantity = () => {
 
     clearTimeout(this.addInt)
     this.setState({ quantity: this.state.quantity + 1 }, () => {
@@ -27,7 +21,7 @@ class ClapButton extends React.Component {
     })
   }
 
-  handleChange () {
+  handleChange = () => {
     this.props.createClap(this.state).then(
       success => this.setState({ quantity: 0 })
     )

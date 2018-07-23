@@ -5,14 +5,10 @@ import SearchResults from './search_results'
 import LoadingComponent from '../loading_component'
 
 class Search extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = { 
-      loading: true,
-      query: ''
-    }
 
-    this.update = this.update.bind(this)
+  state = { 
+    loading: true,
+    query: ''
   }
 
   componentDidMount () {
@@ -21,8 +17,8 @@ class Search extends React.Component {
     )
   }
 
-  update (e) {
-    this.setState({ query: e.target.value })
+  update = event => {
+    this.setState({ query: event.target.value })
   }
 
   render () {

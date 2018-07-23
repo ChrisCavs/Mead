@@ -4,7 +4,7 @@ import { followUser, unFollowUser } from '../../actions/follow_actions'
 
 class FollowButton extends React.Component {
 
-  handleFollow() {
+  handleFollow = event => {
     if (this.props.user.currentUserFollows) {
       this.props.unFollowUser(this.props.user.id)
     } else {
@@ -24,7 +24,7 @@ class FollowButton extends React.Component {
     return (
       <button
         className={followClasses}
-        onClick={this.handleFollow.bind(this)}>
+        onClick={this.handleFollow}>
         {followText}
       </button>
     )

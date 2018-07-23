@@ -4,20 +4,17 @@ import { getCurrentUser } from '../../reducers/selectors'
 import { createComment } from '../../actions/comment_actions'
 
 class CommentForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      story_id: this.props.story_id,
-      body: ''
-    }
+  state = {
+    story_id: this.props.story_id,
+    body: ''
   }
 
-  update (e) {
-    this.setState({ body: e.target.value })
+  update = event => {
+    this.setState({ body: event.target.value })
   }
 
-  handleSubmit (e) {
-    e.preventDefault()
+  handleSubmit = event => {
+    event.preventDefault()
     this.props.createComment(this.state)
   }
 
