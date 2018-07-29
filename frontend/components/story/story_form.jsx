@@ -31,19 +31,23 @@ class StoryForm extends React.Component {
       formData.append('story[id]', this.state.id)
       redirectUrl = `/stories/${this.state.id}`
     }
+
+    const copyState = this.state
     
     this.props.submitAction(formData).then(
       success => this.props.history.push(redirectUrl),
-      failure => console.log(failure)
+      failure => this.setState(copyState)
     )
   }
 
   handleFile = event => {
     const file = event.currentTarget.files[0]
     const fileReader = new FileReader()
+
     fileReader.onloadend = () => {
       this.setState({ image: file, imageUrl: fileReader.result })
     }
+
     if (file) {
       fileReader.readAsDataURL(file)
     }
