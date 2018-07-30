@@ -1,100 +1,101 @@
 # Mead
 
-[Live](https://mead-aa.herokuapp.com/)
-
-![](https://i.imgur.com/ZcuL4yX.png)
+[Link to Live Site](https://mead-aa.herokuapp.com/)
 
 Mead is a full-stack, single-page application built with React.js and Ruby on Rails.  Mead mirrors the familiar social blogging platform Medium.
+
+![homepage](https://i.imgur.com/ZcuL4yX.png)
+
 
 ## Features
 
 ### Mobile-first
 
-![](https://imgur.com/AYeGtgb)
+![mobile-first](https://i.imgur.com/AYeGtgb.png)
 
 Mead was developed mobile-first, for all screen sizes and devices.
 
 ### Authentication
 
-![]()
+![modal](https://i.imgur.com/F1a7Jmc.png)
 
 Users can sign up and log in to the app via a modal.
 
 ### Stories
 
-![](https://imgur.com/duxWlzr)
+![story page](https://i.imgur.com/duxWlzr.png)
 
 Users can write their own stories and read stories from other authors.  Stories can contain images, which are handled with Rails Active Storage and the AWS s3 cloud.
 
 ### Profiles
 
-![](https://imgur.com/G6lduyx)
-![](https://imgur.com/GejYJCW)
+![profile view](https://i.imgur.com/G6lduyx.png)
+![profile edit](https://i.imgur.com/GejYJCW.png)
 
 Every user has a profile which displays key information about the user, as well as their authored stories.  From the profile, a user can edit their own stories.
 
 ### Profile Quick-Look
 
-![](https://imgur.com/7nX7Usr)
+![quick look](https://i.imgur.com/7nX7Usr.png)
 
 Hovering over an author's name on the homepage or profile page will generate a profile quick-look, displaying key information about the author as well as 3 of their most recent stories.  Users can also follow/unfollow the user from this view.
 
 ### Follows and Feed
 
-![](https://imgur.com/WfjEG1f)
+![follow button](https://i.imgur.com/WfjEG1f.png)
 
 As a user explores the site, they can follow the authors whose writing they enjoy most.  Once a user follows an author, that author's stories will start to appear in the user's 'feed'.  The feed is a currated list of stories that exists on the homepage of the app.
 
 ### Comments
 
-![](https://imgur.com/oAzMnz1)
+![comments](https://i.imgur.com/oAzMnz1.png)
 
 Users can comment on the stories they like.
 
 ### Claps
 
-![](https://imgur.com/sGB4RIc)
+![clap button](https://i.imgur.com/sGB4RIc.png)
 
 If a user enjoys a story or comment, they can clap for it.  Claps are generated continuously up to a limit of 20 per user, and saved to the database periodically using a timeout.
 
 ### Tags
 
-![](https://imgur.com/3SncGvJ)
+![common tags](https://i.imgur.com/3SncGvJ.png)
 
 Stories can be tagged by the author, and the most common tags on the app are displayed on the homepage.  Clicking on a tag will generate a custom feed with all the stories belonging to that tag.
 
 ### Popular Stories
 
-![](https://imgur.com/Y1uMOdH)
+![popular stories](https://i.imgur.com/Y1uMOdH.png)
 
 The most popular stories, based on user claps, are aggrogated and displayed on the homepage of the app.
 
 ### Recommended Stories
 
-![](https://imgur.com/fBlpnCg)
+![recommended stories](https://i.imgur.com/fBlpnCg.png)
 
 As a user claps for stories they like, the app will start to recommend stories that align with the user's interests.
 
 ### Bookmarks
 
-![](https://imgur.com/lvV8PD2)
+![bookmarks](https://i.imgur.com/lvV8PD2.png)
 
 If a user wants to save a story for later reading, they can click the bookmark icon.  Later, the user can access their bookmarks via the bookmark icon in the header.
 
 ### Search
 
-![](https://imgur.com/BNopn2J)
+![search](https://i.imgur.com/BNopn2J.png)
 
 Stories, authors, and tags can be searched for simultaneously using the search view, accessible via the search icon in the header.
 
 ### Useful Errors
 
-![](https://imgur.com/GIIjwKf)
+![useful errors](https://i.imgur.com/GIIjwKf.png)
 
 Errors are shown during sign up and story creation to indicate required/invalid fields.
 
 ### Loading Screen
 
-![](https://imgur.com/iGfNBDU)
+![loading screen](https://i.imgur.com/iGfNBDU.png)
 
 During fetches to the server, a loading screen is displayed as the user waits for content.
