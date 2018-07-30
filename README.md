@@ -2,7 +2,7 @@
 
 [Live](https://mead-aa.herokuapp.com/)
 
-![](https://imgur.com/ZcuL4yX)
+![](https://i.imgur.com/ZcuL4yX.png)
 
 Mead is a full-stack, single-page application built with React.js and Ruby on Rails.  Mead mirrors the familiar social blogging platform Medium.
 
