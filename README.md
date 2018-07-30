@@ -4,25 +4,25 @@
 
 Mead is a full-stack, single-page application built with React.js and Ruby on Rails.  Mead mirrors the familiar social blogging platform Medium.
 
-<img src="https://i.imgur.com/ZcuL4yX.png" width="300px" />
-
+<img src="https://i.imgur.com/ZcuL4yX.png" width="500px" />
 
 ## Features
 
 ### Mobile-first
 
-![mobile-first](https://i.imgur.com/AYeGtgb.png)
+<img src="https://i.imgur.com/AYeGtgb.png" width="200px" />
 
 Mead was developed mobile-first, for all screen sizes and devices.
 
 ### Authentication
 
-![modal](https://i.imgur.com/F1a7Jmc.png)
+<img src="https://i.imgur.com/F1a7Jmc.png" width="500px" />
 
 Users can sign up and log in to the app via a modal.
 
 ### Stories
 
+<img src="https://i.imgur.com/duxWlzr.png" width="500px" />
 ![story page](https://i.imgur.com/duxWlzr.png)
 
 Users can write their own stories and read stories from other authors.  Stories can contain images, which are handled with Rails Active Storage and the AWS s3 cloud.
