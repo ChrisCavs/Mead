@@ -60,7 +60,7 @@ If a user enjoys a story or comment, they can clap for it.  Claps are generated 
 
 ### Tags
 
-<img src="https://i.imgur.com/3SncGvJ.png" width="400px" />
+<img src="https://i.imgur.com/6Cz8zBv.png" width="400px" />
 
 Stories can be tagged by the author, and the most common tags on the app are displayed on the homepage.  Clicking on a tag will generate a custom feed with all the stories belonging to that tag.
 
