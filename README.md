@@ -10,7 +10,10 @@ Mead is a full-stack, single-page application built with React.js and Ruby on Ra
 
 ### Mobile-first
 
-<p align="center"><img src="https://i.imgur.com/AYeGtgb.png" width="300px" /> <img src="https://i.imgur.com/WMeTRMv.png" width="300px"/></p>
+<p align="center">
+  <img src="https://i.imgur.com/AYeGtgb.png" width="300px" />
+  <img src="https://i.imgur.com/WMeTRMv.png" width="300px"/>
+</p>
 
 Mead was developed mobile-first, for all screen sizes and devices.  This was accomplished through a sequence of media queries, incorperated into each component's styles using Sass mixins.  Some componets were duplicated in the layout in order to re-arrange the header and homepage depending on the width of the screen.
 
