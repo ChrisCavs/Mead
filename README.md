@@ -6,6 +6,23 @@ Mead is a full-stack, single-page application built with React.js and Ruby on Ra
 
 <p align="center"><img src="https://i.imgur.com/ZcuL4yX.png" width="800px" /></p>
 
+Mead supports the following features:
+  * Mobile-first
+  * Authentication/Authorization
+  * Stories
+  * Profiles
+  * Profile quick-look
+  * Follows and feed
+  * Comments
+  * Claps
+  * Tags
+  * Popular stories
+  * Recommended stories
+  * Bookmarks
+  * Search
+  * Useful Errors
+  * Loading screen
+
 ## Features
 
 ### Mobile-first
