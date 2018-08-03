@@ -10,7 +10,7 @@ class ModalSignupForm extends React.Component {
   }
 
   update = type => event => {
-    this.setState({ [type]: e.target.value })
+    this.setState({ [type]: event.target.value })
   }
 
   handleSubmit = event => {
