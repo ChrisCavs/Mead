@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 
 class StoryForm extends React.Component {
 
-  state = this.props.story
+  state = Object.assign({}, this.props.story, {errors: []})
 
   update = name => event => {
     this.setState({ [name]: event.target.value })
@@ -13,7 +13,16 @@ class StoryForm extends React.Component {
     this.setState(newProps.story)
   }
 
+  inputsEmpty = () => {
+    return Object.values(this.state).includes('')
+  }
+
   handleSubmit = event => {
+    if (this.inputsEmpty()) {
+      this.setState({ errors: ["Please fill in all fields"]})
+      return
+    }
+
     event.preventDefault()
     let redirectUrl = '/'
 
@@ -54,7 +63,9 @@ class StoryForm extends React.Component {
   }
 
   render () {
-    const errors = this.props.errors.map((er,i) => <li key={i}>{er}</li>)
+    const errors = this.props.errors
+      .concat(this.state.errors)
+      .map((er,i) => <li key={i}>{er}</li>)
 
     let preview
     if (this.state.imageUrl) {
