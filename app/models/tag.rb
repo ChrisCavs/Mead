@@ -19,13 +19,12 @@ class Tag < ApplicationRecord
       .pluck(:name)
   end
 
-  def most_popular_story
+  def most_popular_stories(amount)
     self
       .stories
       .joins(:claps)
       .group('stories.id')
       .order('COUNT(claps.id)')
-      .limit(1)
-
+      .limit(amount)
   end
 end

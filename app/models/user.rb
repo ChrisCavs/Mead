@@ -67,49 +67,26 @@ class User < ApplicationRecord
     self.bookmarked_stories.pluck(:id)
   end
 
-  def story_claps_ids
-    self
-      .claps
-      .where(clapable_type: 'Story')
-      .order('claps.created_at DESC')
-      .limit(3)
-      .pluck(:clapable_id)
-
-      # joins from user to tags, geting all tags that originated from claps
-      # filter and pluck
-  end
-
-  def clapped_stories
-    self
-      .claps
-      .where(clapable_type: 'Story')
-      .clapable
-  end
-
-  def recommended_tags
-    self
-      .clapped_stories
-      .joins(:tags)
+  def recommended_tag
+    Tag
+      .joins(:stories)
+      .joins('INNER JOIN claps ON claps.clapable_id = stories.id')
+      .where('claps.user_id = ?', self.id)
       .order('claps.created_at DESC')
       .limit(5)
+      .shuffle
+      .first
   end
 
   def recommended_story
-    tag = self
-      .recommended_tags
+    tag = self.recommended_tag
+    return tag unless tag
+
+    tag
+      .most_popular_stories(4)
       .shuffle
       .first
-    
-    debugger
-    
-    if tag
-      tag
-        .story_ids
-        .shuffle
-        .first
-    else
-      nil
-    end
+      .id
   end
 
   def recent_stories

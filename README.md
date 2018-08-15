@@ -51,8 +51,6 @@ Stories can be tagged by the author, and the most common tags on the app are dis
 
 As a user claps for stories they like, the app will start to recommend stories that align with the user's interests.  This is accomplished through the use of custom SQL queries, which find popular stories around the site that are tagged similarly to the stories the user claps for.  
 
-The query joins through the polymorphic claps association all the way to tags, orders the results based on when the clap occurred, selects a tag, and then grabs a random popular story that has that tag.
-
 ### Mobile-first
 
 Mead was developed mobile-first, for all screen sizes and devices.  This was accomplished through a sequence of media queries, incorperated into each component's styles using Sass mixins.  Some componets were duplicated in the layout in order to re-arrange the header and homepage depending on the width of the screen.
