@@ -74,19 +74,36 @@ class User < ApplicationRecord
       .order('claps.created_at DESC')
       .limit(3)
       .pluck(:clapable_id)
+
+      # joins from user to tags, geting all tags that originated from claps
+      # filter and pluck
+  end
+
+  def clapped_stories
+    self
+      .claps
+      .where(clapable_type: 'Story')
+      .clapable
+  end
+
+  def recommended_tags
+    self
+      .clapped_stories
+      .joins(:tags)
+      .order('claps.created_at DESC')
+      .limit(5)
   end
 
   def recommended_story
-    tags = self
-      .story_claps_ids
-      .map { |id| Story.find(id).tags }
-      .flatten
-      .uniq
+    tag = self
+      .recommended_tags
       .shuffle
+      .first
     
-    if !tags.empty?
-      tags
-        .first
+    debugger
+    
+    if tag
+      tag
         .story_ids
         .shuffle
         .first

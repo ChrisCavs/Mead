@@ -28,18 +28,22 @@ class Homepage extends React.Component {
         <PopularIndex 
           stories={this.props.popular} 
           higherClass={"left-popular"} />
+
         <MainIndexBuffer
           currentUser={this.props.currentUser}
           stories={this.props.stories}
           feedStories={this.props.feedStories}
           tags={this.props.tags}
           editButton={false} />
+
         <div className="homepage-right">
           <TagLinkContainer
             tags={this.props.tags}
             containerClasses='right-tag-container' />
+
           <RecommendedStory
             story={this.props.recommended} />
+            
           <PopularIndex 
             stories={this.props.popular} 
             higherClass={"right-popular"} />

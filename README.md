@@ -25,35 +25,6 @@ Mead supports the following features:
 
 ## Features
 
-### Mobile-first
-
-<p align="center">
-  <img src="https://i.imgur.com/AYeGtgb.png" width="300px" />
-  <img src="https://i.imgur.com/WMeTRMv.png" width="300px"/>
-</p>
-
-Mead was developed mobile-first, for all screen sizes and devices.  This was accomplished through a sequence of media queries, incorperated into each component's styles using Sass mixins.  Some componets were duplicated in the layout in order to re-arrange the header and homepage depending on the width of the screen.
-
-### Authentication/Authorization
-
-<p align="center"><img src="https://i.imgur.com/F1a7Jmc.png" width="500px" /></p>
-
-Users can sign up and log in to the app via a modal, controlled by the centralized state of the application.  Users can view the homepage, but are not authorized to clap, comment, or view stories until the user logs in.  This is accomplished through `ProtectedRoute`s, which dispatch a `revealModal` action if the user is not logged in.
-
-### Stories
-
-<p align="center"><img src="https://i.imgur.com/duxWlzr.png" width="500px" /></p>
-
-Users can write their own stories and read stories from other authors.  Stories can contain images, which are handled with Rails Active Storage and the AWS s3 cloud.
-
-### Profiles
-
-<p align="center"><img src="https://i.imgur.com/G6lduyx.png" width="500px" /></p>
-
-<p align="center"><img src="https://i.imgur.com/GejYJCW.png" width="500px" /></p>
-
-Every user has a profile which displays key information about the user, as well as their authored stories.  From the profile, a user can edit their own stories.  A piece of state saves the `currentUser` id, which is then compared to the route params to determine if the edit button should be shown.
-
 ### Profile Quick-Look
 
 <p align="center"><img src="https://i.imgur.com/7nX7Usr.png" width="600px" /></p>
@@ -61,18 +32,6 @@ Every user has a profile which displays key information about the user, as well 
 Hovering over an author's name on the homepage or profile page will generate a profile quick-look, displaying key information about the author as well as 3 of their most recent stories.  Users can also follow/unfollow the user from this view.
 
 This effect is accomplished through the use of timeouts, a series of `mouseEnter` and `mouseLeave` listeners, CSS, and local state on the quick-look componenets.
-
-### Follows and Feed
-
-<p align="center"><img src="https://i.imgur.com/WfjEG1f.png" width="500px" /></p>
-
-As a user explores the site, they can follow the authors they enjoy most.  Once a user follows an author, that author's stories will start to appear in the user's 'feed'.  The feed is a currated list of stories that exists on the homepage of the app.  This curration happens on the backend, during a fetch for content.
-
-### Comments
-
-<p align="center"><img src="https://i.imgur.com/oAzMnz1.png" width="500px" /></p>
-
-Users can comment on the stories they like, and comments are displayed at the bottom of a story.
 
 ### Claps
 
@@ -88,21 +47,43 @@ On the backend, the `clap` modal shares a polymorphic relation with stories and 
 
 Stories can be tagged by the author, and the most common tags on the app are displayed on the homepage.  Clicking on a tag will generate a custom feed with all the stories belonging to that tag.  Tags and stories share a many-to-many relationship, which allows the backend to support both the custom feed and the story view.
 
-### Popular Stories
-
-<p align="center"><img src="https://i.imgur.com/Y1uMOdH.png" width="300px" /></p>
-
-The most popular stories, based on user claps, are aggrogated and displayed on the homepage of the app.  This is accomplished through custom SQL queries on the `story` model.
-
 ### Recommended Stories
 
-<p align="center"><img src="https://i.imgur.com/fBlpnCg.png" width="400px" /></p>
+As a user claps for stories they like, the app will start to recommend stories that align with the user's interests.  This is accomplished through the use of custom SQL queries, which find popular stories around the site that are tagged similarly to the stories the user claps for.  
 
-As a user claps for stories they like, the app will start to recommend stories that align with the user's interests.  Again this is accomplished through the use of custom SQL queries.
+The query joins through the polymorphic claps association all the way to tags, orders the results based on when the clap occurred, selects a tag, and then grabs a random popular story that has that tag.
+
+### Mobile-first
+
+Mead was developed mobile-first, for all screen sizes and devices.  This was accomplished through a sequence of media queries, incorperated into each component's styles using Sass mixins.  Some componets were duplicated in the layout in order to re-arrange the header and homepage depending on the width of the screen.
+
+### Authentication/Authorization
+
+Users can sign up and log in to the app via a modal, controlled by the centralized state of the application.  Users can view the homepage, but are not authorized to clap, comment, or view stories until the user logs in.
+
+### Stories
+
+Users can write their own stories and read stories from other authors.  Stories can contain images, which are handled with Rails Active Storage and the AWS s3 cloud.
+
+### Profiles
+
+Every user has a profile which displays key information about the user, as well as their authored stories.  From the profile, a user can edit their own stories.  A piece of state saves the `currentUser` id, which is then compared to the route params to determine if the edit button should be shown.
+
+### Follows and Feed
+
+As a user explores the site, they can follow the authors they enjoy most.  Once a user follows an author, that author's stories will start to appear in the user's 'feed'.  The feed is a currated list of stories that exists on the homepage of the app.  This curration happens on the backend, during a fetch for content.
+
+### Comments
+
+<p align="center"><img src="https://i.imgur.com/oAzMnz1.png" width="500px" /></p>
+
+Users can comment on the stories they like, and comments are displayed at the bottom of a story.
+
+### Popular Stories
+
+The most popular stories, based on user claps, are aggregated and displayed on the homepage of the app.  This is accomplished through custom SQL queries on the `story` model.
 
 ### Bookmarks
-
-<p align="center"><img src="https://i.imgur.com/lvV8PD2.png" width="500px" /></p>
 
 If a user wants to save a story for later reading, they can click the bookmark icon.  Later, the user can access their bookmarks via the bookmark icon in the header.
 
@@ -114,12 +95,8 @@ Stories, authors, and tags can be searched for simultaneously using the search v
 
 ### Useful Errors
 
-<p align="center"><img src="https://i.imgur.com/GIIjwKf.png" width="500px" /></p>
-
 Errors are shown during sign up and story creation to indicate required/invalid fields.
 
 ### Loading Screen
-
-<p align="center"><img src="https://i.imgur.com/iGfNBDU.png" width="400px" /></p>
 
 During fetches to the server, a loading screen is displayed as the user waits for content.  `requestAnimationFrame` is used to increase performance, along with a limiter that slows typing speed to a reasonable level.
