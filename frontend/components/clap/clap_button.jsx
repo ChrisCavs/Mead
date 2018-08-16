@@ -27,6 +27,14 @@ class ClapButton extends React.Component {
     )
   }
 
+  componentWillUnmount () {
+    clearTimeout(this.addInt)
+
+    if (this.state.quantity > 0) {
+      this.props.createClap(this.state)
+    }
+  }
+
   render () {
     const totalClaps = this.props.content.totalClaps
 

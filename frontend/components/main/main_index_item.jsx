@@ -35,7 +35,9 @@ const MainIndexItem = ({ story, author, editButton, currentUserId }) => {
             
             {button}
           </div>
-          <BookmarkButton story={story} />
+          <BookmarkButton 
+            story={story}
+            currentUserId={currentUserId} />
         </div>
       </div>
       <div className="main-index-item-img">
