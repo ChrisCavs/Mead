@@ -10,8 +10,8 @@ class ClapButton extends React.Component {
   }
 
   addToQuantity = () => {
-
     clearTimeout(this.addInt)
+    
     this.setState({ quantity: this.state.quantity + 1 }, () => {
       if (this.props.type === 'Comment') {
         this.handleChange()
