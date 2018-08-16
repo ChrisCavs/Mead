@@ -53,7 +53,7 @@ As a user claps for stories they like, the app will start to recommend stories t
 
 ### Mobile-first
 
-Mead was developed mobile-first, for all screen sizes and devices.  This was accomplished through a sequence of media queries, incorperated into each component's styles using Sass mixins.  Some componets were duplicated in the layout in order to re-arrange the header and homepage depending on the width of the screen.
+Mead was developed mobile-first, for all screen sizes and devices.  This was accomplished through a sequence of media queries, incorporated into each component's styles using Sass mixins.  Some components were duplicated in the layout in order to re-arrange the header and homepage depending on the width of the screen.
 
 ### Authentication/Authorization
 
@@ -69,7 +69,7 @@ Every user has a profile which displays key information about the user, as well 
 
 ### Follows and Feed
 
-As a user explores the site, they can follow the authors they enjoy most.  Once a user follows an author, that author's stories will start to appear in the user's 'feed'.  The feed is a currated list of stories that exists on the homepage of the app.  This curration happens on the backend, during a fetch for content.
+As a user explores the site, they can follow the authors they enjoy most.  Once a user follows an author, that author's stories will start to appear in the user's 'feed'.  The feed is a curated list of stories that exists on the homepage of the app.  This curation happens on the backend, during a fetch for content.
 
 ### Comments
 
