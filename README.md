@@ -31,7 +31,7 @@ Mead supports the following features:
 
 Hovering over an author's name on the homepage or profile page will generate a profile quick-look, displaying key information about the author as well as 3 of their most recent stories.  Users can also follow/unfollow the user from this view.
 
-This effect is accomplished through the use of timeouts, a series of `mouseEnter` and `mouseLeave` listeners, CSS, and local state on the quick-look componenets.
+This effect is accomplished through the use of timeouts, a series of `mouseEnter` and `mouseLeave` listeners, CSS, and local state on the quick-look components.
 
 ### Claps
 
